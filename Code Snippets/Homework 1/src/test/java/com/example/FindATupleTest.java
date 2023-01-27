@@ -7,9 +7,9 @@ import static org.junit.Assert.assertTrue;
 
 public class FindATupleTest {
   @Test
-  public void hasTupleForced() {
-    assertTrue(FindATuple.hasTupleForced(new int[]{2, 72, 21, 100, 19})); // 2 + 19 = 21
-    assertFalse(FindATuple.hasTupleForced(new int[]{2, 72, 21, 100, 18}));
+  public void hasTupleBruteForce() {
+    assertTrue(FindATuple.hasTupleBruteForce(new int[]{2, 72, 21, 100, 19})); // 2 + 19 = 21
+    assertFalse(FindATuple.hasTupleBruteForce(new int[]{2, 72, 21, 100, 18}));
   }
 
   @Test
