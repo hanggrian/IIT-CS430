@@ -3,12 +3,15 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inversions {
-  static List<List<Integer>> getInversions(int[] nums) {
+class Inversions {
+  private Inversions() {
+  }
+
+  static List<List<Integer>> getInversions(int[] A) {
     List<List<Integer>> inversions = new ArrayList<>();
-    for (int j = nums.length - 1; j >= 1; j--) {
+    for (int j = A.length - 1; j >= 1; j--) {
       for (int i = j - 1; i >= 0; i--) {
-        if (nums[i] > nums[j]) {
+        if (A[i] > A[j]) {
           List<Integer> pair = new ArrayList<>();
           // starting index is 1
           pair.add(i + 1);
@@ -21,44 +24,44 @@ public class Inversions {
   }
 
   // TODO: still not stable
-  static int countInversions(int[] nums) {
-    return countInversions(nums, 0, nums.length - 1);
+  static int countInversions(int[] A) {
+    return countInversions(A, 0, A.length - 1);
   }
 
   // TODO: still not stable
-  static int countInversions(int[] nums, int left, int right) {
-    if (left >= right) {
+  static int countInversions(int[] A, int p, int r) {
+    if (p >= r) {
       return 0;
     }
-    int mid = (left + right) / 2;
-    int leftInversions = countInversions(nums, left, mid);
-    int rightInversions = countInversions(nums, mid + 1, right);
-    return leftInversions + rightInversions + mergeSortAndCountInversions(nums, left, mid, right);
+    int mid = (p + r) / 2;
+    int left = countInversions(A, p, mid);
+    int right = countInversions(A, mid + 1, r);
+    return left + right + mergeSortAndCountInversions(A, p, mid, r);
   }
 
   // TODO: still not stable
-  private static int mergeSortAndCountInversions(int[] nums, int left, int mid, int right) {
+  private static int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
     // split into sub-arrays
-    int[] numsLeft = new int[mid - left + 1];
-    int[] numsRight = new int[right - mid];
-    for (int i = 0; i < numsLeft.length; ++i) {
-      numsLeft[i] = nums[left + i];
+    int[] left = new int[q - p + 1];
+    int[] right = new int[r - q];
+    for (int i = 0; i < left.length; ++i) {
+      left[i] = A[p + i];
     }
-    for (int j = 0; j < numsRight.length; ++j) {
-      numsRight[j] = nums[mid + 1 + j];
+    for (int j = 0; j < right.length; ++j) {
+      right[j] = A[q + 1 + j];
     }
     // merge sub-arrays
     int i = 0;
     int j = 0;
-    int k = left;
+    int k = p;
     int inversions = 0;
-    while (i < numsLeft.length && j < numsRight.length) {
-      if (numsLeft[i] <= numsRight[j]) {
-        nums[k] = numsLeft[i];
+    while (i < left.length && j < right.length) {
+      if (left[i] <= right[j]) {
+        A[k] = left[i];
         i++;
       } else {
-        inversions += numsLeft.length - i + 1;
-        nums[k] = numsRight[j];
+        inversions += left.length - i + 1;
+        A[k] = right[j];
         j++;
       }
       k++;
