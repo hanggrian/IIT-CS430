@@ -1,14 +1,10 @@
-<!-- LaTeX for markdown-pdf -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
-
 # CS430: [Homework 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW1.pdf)
 
-## 1.
+## [1.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/FindATuple.java)
 
-### 1a. Use pseudocode to specify a brute-force algorithm that determines when given as input a sequence of $n$ positive integers whether there are two distinct terms of the sequence that have as sum a third term. The algorithm should loop through all triples of terms of the sequence, checking whether the sum of the first two terms equals the third.
+### a. Use pseudocode to specify a brute-force algorithm that determines when given as input a sequence of $n$ positive integers whether there are two distinct terms of the sequence that have as sum a third term. The algorithm should loop through all triples of terms of the sequence, checking whether the sum of the first two terms equals the third.
 
-In a brute-force approach, simply create 3 pointers that gradually moves forward
+In a brute-force approach, simply create 3 pointers that gradually move forward
 covering all posibilities.
 
 ```java
@@ -28,12 +24,12 @@ boolean hasTuple(int[] A) {
 }
 ```
 
-### 1b. Give a big-O estimate for the complexity of the brute-force algorithm part 1a.
+### b. Give a big-O estimate for the complexity of the brute-force algorithm part (a).
 
-**The big-O estimate is $O(n^3)$**, because we're searching for permutations of
-3 in $n$.
+**The big-O estimate is $\mathbf{O(n^3)}$**, because we're searching for
+permutations of 3 in $n$.
 
-### 1c. Devise a more efficient algorithm for solving the problem that first sorts the input sequence and then checks for each pair of terms whether their sum is in the sequence.
+### c. Devise a more efficient algorithm for solving the problem that first sorts the input sequence and then checks for each pair of terms whether their sum is in the sequence.
 
 A more efficient solution is to sort the input first, allowing the comparison to
 be executed in 1 pass.
@@ -52,10 +48,10 @@ boolean hasTuple(int[] A) {
 
 ### 1d. Give a big-O estimate for the complexity of this algorithm. Is it more efficient than the brute-force algorithm?
 
-**The big-O estimate is $O(n^2)$**, assuming that `Arrays.sort` function
-operates at **$O(n)$**. It is only slightly better than brute-force approach.
-But also could have been worse if worse-performing sorting method is being used,
-like *bubble sort*.
+**The big-O estimate is $\mathbf{O(n^2)}$, assuming that `Arrays.sort` function
+operates at $\mathbf{O(n)}$.** It is only slightly better than the brute-force
+approach. But also could have been worse if a worse-performing sorting method is
+being used, like *bubble sort*.
 
 ## 2. Prove, by induction on $k$, that level $k$ of a binary tree has less than or equal to $2k$ nodes (root level has $k = 0$).
 
@@ -66,29 +62,29 @@ $$
   T(k+1) &\le& 2T(k) \quad \text{because to increment the height of the tree, one must
   add the maximum of 2 leaf nodes} \\
   T(k+1) &\le& 2 . 2^k \qquad \text{swapping the values from the assumption} \\
-  T(k+1) &\le& 2^{k+1} \qquad \text{\textbf{therefore true}, because the equation is balanced to the assumption}
+  T(k+1) &\le& 2^{k+1} \qquad \textbf{therefore true, because the equation is balanced to the assumption}
 \end{array}
 $$
 
 ## 3. Use definition of big O to prove or disprove.
 
-### 3a. Is $2^(n+1) ?=? O(2^n)$
+### a. Is $2^(n+1) \ ?=? \ O(2^n)$
 
 $$
 \begin{array}{rcl}
   2^{n+1} &=& O(2^n) \\
   2^n . 2^1 &\le& c2^n \qquad \text{divide all by $2^n$} \\
-  2^1 &\le& c \qquad\quad \text{\textbf{therefore true}, because $c\gt0$}
+  2^1 &\le& c \qquad\quad \textbf{therefore true, because }\mathbf{c > 0}
 \end{array}
 $$
 
-### 3b. Is $2^(2n) ?=? O(2^n)$
+### b. Is $2^(2n) \ ?=? \ O(2^n)$
 
 $$
 \begin{array}{rcl}
   2^{2n} &=& O(2^n) \\
   2^n . 2^n &\le& c2^n \qquad \text{divide all by $2^n$} \\
-  2^n &\le& c \qquad\quad \text{\textbf{therefore false}, because $c$ and $n$ is unbounded}
+  2^n &\le& c \qquad\quad \textbf{therefore false, because }\mathbf{c}\text{ and }\mathbf{n}\textbf{ is unbounded}
 \end{array}
 $$
 
@@ -101,20 +97,20 @@ int firstDecrease(int * L, int n) {
 }
 ```
 
-### 4a. What is the big-O runtime for the routine, measured as a function of its return value $i$?
+### a. What is the big-O runtime for the routine, measured as a function of its return value $i$?
 
-Looping $n$ times without inner loop would indicate that **the big-O is
-$O(n)$**.
+Looping $n$ times without an inner loop would indicate that **the big-O is
+$\mathbf{O(n)}$.**
 
-### 4b. If the numbers are chosen independently at random, then the probability that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an expression for the expected value returned by the algorithm. (Your answer can be expressed as a sum, it does not have to be solved in closed form. Do not use O-notation.)
+### b. If the numbers are chosen independently at random, then the probability that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an expression for the expected value returned by the algorithm. (Your answer can be expressed as a sum, it does not have to be solved in closed form. Do not use O-notation.)
 
-$$T(n) = \frac12! + \ldots + \frac{n-1}n! + \ldots + \frac1n!$$
+$$\mathbf{T(n) = \frac12! + \ldots + \frac{n-1}n! + \ldots + \frac1n!}$$
 
-### 4c. What is the big-O average case running time of the routine? Hint: Simplify the previous summation until you see a common taylor series.
+### c. What is the big-O average case running time of the routine? Hint: Simplify the previous summation until you see a common taylor series.
 
-I have limited understanding of point 2b, **my guess would be $O(n)$**.
+I have limited understanding of point 2b, **my guess would be** $\mathbf{O(n)}$.
 
-## 5. Consider the following program and recursive function.
+## [5.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/Permutations.java) Consider the following program and recursive function.
 
 ```c
 #include <iostream.h>
@@ -150,13 +146,13 @@ void Z(int A[], int n, int k) {
 }
 ```
 
-### 5a. Demonstrate the execution, show the output, and explain what the program accomplishes.
+### a. Demonstrate the execution, show the output, and explain what the program accomplishes.
 
 Function `Z` has 2 pointers with conditions:
-- In base case, print the result of this recursion leaf node when the left
-  pointer reaches right.
-- In recursive case, iterate every possibility of combination by temporarily
-  swapping values by index of array.
+- In the base case, print the result of this recursion leaf node when the left
+  pointer reaches the right.
+- In the recursive case, iterate every possibility of combination by temporarily
+  swapping values by the index of the array.
 
 Function `main` starts the recursive reaction, printing all combinations of $A$,
 each has a length of $n$. The result:
@@ -170,19 +166,19 @@ each has a length of $n$. The result:
 3 1 2
 ```
 
-Based on such characteristics and result, I believe this is a function to
-**print permutations of an array of integer**.
+**Based on such characteristics and results, I believe this is a function to
+print permutations of an array of integers.**
 
-### 5b. Give a recurrence equation describing the worst-case behavior of the program.
+### b. Give a recurrence equation describing the worst-case behavior of the program.
 
 | Case | Equation |
-| --- | --- |
-| Base case ($n = 1$) | **$T(1) = O(1)$** |
-| Recursive case ($n > 1$) | **$T(n) = n . T(n-1) + O(n)$** |
+| --- | :--- |
+| Base ($n = 1$) | $\mathbf{T(1) = O(1)}$ |
+| Recursive ($n > 1$) | $\mathbf{T(n) = n . T(n-1) + O(n)}$ |
 
-Where $O(1)$ is print and $O(n)$ is swap.
+> $O(1)$ is print and $O(n)$ is swap.
 
-### 5c. Solve the recurrence equation.
+### c. Solve the recurrence equation.
 
 Using the previous example where $n = 3$.
 
@@ -190,50 +186,48 @@ $$
 \begin{array}{rcl}
   T(1) &=& O(1) \qquad\qquad\quad \text{is the base case} \\
   T(2) &=& 2 . T(1) + O(2) \quad \text{start of the recursive case} \\
-  T(3) &=& 3 . T(2) + O(3) \quad \text{and so on...}
+  T(3) &=& 3 . T(2) + O(3) \quad \ldots
 \end{array}
 $$
 
-## 6. Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i,j)$ is called an inversion of $A$.
+## [6.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/Inversions.java) Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i,j)$ is called an inversion of $A$.
 
-$A$ is an array of integers with unique values. An inversion of array $A$ is a
-pair of $i$ and $j$ where $i < j$ and $A[i] > A[j]$.
-
-### 6a. List the five inversions of the array $\{2,3,8,6,1\}$.
+### a. List the five inversions of the array $\{2,3,8,6,1\}$.
 
 We start the 2 pointers on the right:
 
 | No | Pair | $i < j$ | $A[i] > A[j]$ |
-| ---: | --- | :---: | :---: |
-| 1 | $\textbf{[4, 5]}$ | $4 < 5$ | $6 > 1$ |
-| 2 | $\textbf{[3, 5]}$ | $3 < 5$ | $8 > 1$ |
-| 3 | $\textbf{[2, 5]}$ | $2 < 5$ | $3 > 1$ |
-| 4 | $\textbf{[1, 5]}$ | $1 < 5$ | $2 > 1$ |
-| 5 | $\textbf{[3, 4]}$ | $3 < 4$ | $8 > 6$ |
+| ---: | :---: | :---: | :---: |
+| 1 | $\mathbf{[4, 5]}$ | $4 < 5$ | $6 > 1$ |
+| 2 | $\mathbf{[3, 5]}$ | $3 < 5$ | $8 > 1$ |
+| 3 | $\mathbf{[2, 5]}$ | $2 < 5$ | $3 > 1$ |
+| 4 | $\mathbf{[1, 5]}$ | $1 < 5$ | $2 > 1$ |
+| 5 | $\mathbf{[3, 4]}$ | $3 < 4$ | $8 > 6$ |
 
-### 6b. What array with elements from the set $\{1,2,\ldots,n\}$ has the most inversions? How many does it have?
+### b. What array with elements from the set $\{1,2,\ldots,n\}$ has the most inversions? How many does it have?
 
-Using the previous example of starting from the right, array with the most
-inversions are reversed order.
+Using the previous example of starting from the right, arrays with the most
+inversions are in reversed order.
 
 $$
 \begin{array}{rcl}
   T(1) &=& 1 \\
   T(2) &=& 2 . T(1) \\
-  T(3) &=& 3 . T(2) \quad \text{and so on...}
+  T(3) &=& 3 . T(2) \quad \ldots
 \end{array}
 $$
 
-Looking at the pattern, **its inversion can be interpreted as
-$\frac{n.(n-1)}{2}$**.
+**Looking at the pattern, its inversion can be interpreted as
+$\mathbf{\frac{n.(n-1)}{2}}$.**
 
-### 6c. What is the relationship between the running time of insertion sort and the number of inversions in the input array? Justify your answer.
+### c. What is the relationship between the running time of *insertion sort* and the number of inversions in the input array? Justify your answer.
 
-Inversion search draw some similarities from *insertion sort*, **specifically on
-values comparison and loop times**. For one, the value of right pointer need to
-be lower than the left. Also, the complexity grows as the input increases.
+**Inversion search draws some similarities from insertion sort, specifically on
+values comparison and loop times.** For one, the value of the right pointer
+needs to be lower than the left. Also, the complexity grows as the input
+increases.
 
-### 6d. Give an algorithm that determines the number of inversions in any permutation on $n$ elements in $\theta(n \log n)$ worst-case time. (Hint: Modify merge sort.)
+### d. Give an algorithm that determines the number of inversions in any permutation on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge sort*.)
 
 ```java
 int countInversions(int[] A, int p, int r) {
@@ -278,7 +272,7 @@ int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 
 ## 7. Give big-O bounds for $T(n)$ in each of the following recurrences. (Substitution or Recursion Tree)
 
-### 7a. $T(n) = T(n-1) + n$
+### a. $T(n) = T(n-1) + n$
 
 By expansion:
 
@@ -286,14 +280,14 @@ $$
 \begin{array}{rcl}
   T(1) &=& 1 \qquad\qquad \text{is the base case} \\
   T(2) &=& T(1) + 2 \quad \text{start of the recursive case} \\
-  T(3) &=& T(2) + 3 \quad \text{and so on...}
+  T(3) &=& T(2) + 3 \quad \ldots
 \end{array}
 $$
 
-As is the case previously, the equation is $\frac{n.(n-1)}{2}$, and **the
-big-O is $O(n^2)$**.
+**As is the case previously, the equation is $\mathbf{\frac{n.(n-1)}{2}}$, And
+the big-O is $\mathbf{O(n^2)}$.**
 
-### 7b. $T(n) = T(n/4) + T(n/2) + n^2$
+### b. $T(n) = T(n/4) + T(n/2) + n^2$
 
 Using Recursion Tree:
 
@@ -312,6 +306,6 @@ $$
   1n^2 &=& (1.\frac{5}{16})n^2 \\
   \frac{5}{16}n^2 &=& (\frac{5.5}{16.16})n^2 \\
   \frac{25}{256}n^2 &=& \ldots \\
-  &&\text{Dropping the lower term, \textbf{we get}} \ O(n^2)
+  && \textbf{dropping the lower term, we get }\mathbf{O(n^2)}
 \end{array}
 $$

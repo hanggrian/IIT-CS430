@@ -1,0 +1,20 @@
+package com.example.hw1;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class FindATupleTest {
+  @Test
+  public void hasTupleBruteForce() {
+    assertTrue(FindATuple.hasTupleBruteForce(new int[]{2, 72, 21, 100, 19})); // 2 + 19 = 21
+    assertFalse(FindATuple.hasTupleBruteForce(new int[]{2, 72, 21, 100, 18}));
+  }
+
+  @Test
+  public void hasTupleSorted() {
+    assertTrue(FindATuple.hasTupleSorted(new int[]{2, 72, 21, 100, 19})); // 2 + 19 = 21
+    assertFalse(FindATuple.hasTupleSorted(new int[]{2, 72, 21, 100, 18}));
+  }
+}
