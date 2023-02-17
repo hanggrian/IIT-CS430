@@ -6,18 +6,6 @@ class Quicksorts {
   private Quicksorts() {
   }
 
-  static void quicksort2(int[] A) {
-    quicksort2(A, 0, A.length - 1);
-  }
-
-  static void quicksort2(int[] A, int p, int r) {
-    while (p < r) {
-      int q = partition(A, p, r);
-      quicksort2(A, p, q - 1);
-      p = q + 1;
-    }
-  }
-
   static void quicksort(int[] A) {
     quicksort(A, 0, A.length - 1);
   }
@@ -27,6 +15,35 @@ class Quicksorts {
       int q = partition(A, p, r);
       quicksort(A, p, q - 1);
       quicksort(A, q + 1, r);
+    }
+  }
+
+  static void quicksortTailRecursive(int[] A) {
+    quicksortTailRecursive(A, 0, A.length - 1);
+  }
+
+  static void quicksortTailRecursive(int[] A, int p, int r) {
+    while (p < r) {
+      int q = partition(A, p, r);
+      quicksortTailRecursive(A, p, q - 1);
+      p = q + 1;
+    }
+  }
+
+  static void quicksortTailRecursiveModified(int[] A) {
+    quicksortTailRecursiveModified(A, 0, A.length - 1);
+  }
+
+  static void quicksortTailRecursiveModified(int[] A, int p, int r) {
+    while (p < r) {
+      int q = partition(A, p, r);
+      if (q < p + (r - p) / 2) {
+        quicksortTailRecursiveModified(A, p, q - 1);
+        p = q + 1;
+      } else {
+        quicksortTailRecursiveModified(A, q + 1, r);
+        r = q - 1;
+      }
     }
   }
 }

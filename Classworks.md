@@ -41,7 +41,7 @@ Rewrite the Insertion with recursion and analyze the complexity accordingly.
 
 ### Solution
 
-#### A. Pseudocode
+#### a. Pseudocode
 
 ```
 // initial call Isort(A, 1, n)
@@ -59,7 +59,7 @@ Isort(A, p, r) {
 }
 ```
 
-#### B. Recurrence
+#### b. Recurrence
 
 $$
 \begin{array}{rcl}
@@ -68,7 +68,7 @@ $$
 \end{array}
 $$
 
-#### C. Recurrence Equation
+#### c. Recurrence Equation
 
 $$
 \begin{array}{rcl}

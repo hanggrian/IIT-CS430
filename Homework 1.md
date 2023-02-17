@@ -1,6 +1,13 @@
-# CS430: [Homework 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW1.pdf)
+<!-- TeX for markdown-pdf -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
 
-## [1.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/FindATuple.java)
+[View questions](https://github.com/hendraanggrian/IIT-CS430/blob/assets/CS430HW1.pdf)
+/ [in GitHub](https://github.com/hendraanggrian/IIT-CS430/blob/main/Homework%201.md)
+
+# CS430: Homework 1
+
+## 1.
 
 ### a. Use pseudocode to specify a brute-force algorithm that determines when given as input a sequence of $n$ positive integers whether there are two distinct terms of the sequence that have as sum a third term. The algorithm should loop through all triples of terms of the sequence, checking whether the sum of the first two terms equals the third.
 
@@ -24,10 +31,13 @@ boolean hasTuple(int[] A) {
 }
 ```
 
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/FindATuple.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/FindATupleTest.java)
+
 ### b. Give a big-O estimate for the complexity of the brute-force algorithm part (a).
 
-**The big-O estimate is $\mathbf{O(n^3)}$**, because we're searching for
-permutations of 3 in $n$.
+**The big-O estimate is $\mathbf{O(n^3)}$, because we're searching for
+permutations of 3 in $\mathbf{n}$.**
 
 ### c. Devise a more efficient algorithm for solving the problem that first sorts the input sequence and then checks for each pair of terms whether their sum is in the sequence.
 
@@ -46,7 +56,7 @@ boolean hasTuple(int[] A) {
 }
 ```
 
-### 1d. Give a big-O estimate for the complexity of this algorithm. Is it more efficient than the brute-force algorithm?
+### d. Give a big-O estimate for the complexity of this algorithm. Is it more efficient than the brute-force algorithm?
 
 **The big-O estimate is $\mathbf{O(n^2)}$, assuming that `Arrays.sort` function
 operates at $\mathbf{O(n)}$.** It is only slightly better than the brute-force
@@ -99,8 +109,8 @@ int firstDecrease(int * L, int n) {
 
 ### a. What is the big-O runtime for the routine, measured as a function of its return value $i$?
 
-Looping $n$ times without an inner loop would indicate that **the big-O is
-$\mathbf{O(n)}$.**
+**Looping $\mathbf{n}$ times without an inner loop would indicate that the big-O
+is $\mathbf{O(n)}$.**
 
 ### b. If the numbers are chosen independently at random, then the probability that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an expression for the expected value returned by the algorithm. (Your answer can be expressed as a sum, it does not have to be solved in closed form. Do not use O-notation.)
 
@@ -110,7 +120,7 @@ $$\mathbf{T(n) = \frac12! + \ldots + \frac{n-1}n! + \ldots + \frac1n!}$$
 
 I have limited understanding of point 2b, **my guess would be** $\mathbf{O(n)}$.
 
-## [5.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/Permutations.java) Consider the following program and recursive function.
+## 5. Consider the following program and recursive function.
 
 ```c
 #include <iostream.h>
@@ -145,6 +155,9 @@ void Z(int A[], int n, int k) {
   }
 }
 ```
+
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/Permutations.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/PermutationsTest.java)
 
 ### a. Demonstrate the execution, show the output, and explain what the program accomplishes.
 
@@ -190,7 +203,7 @@ $$
 \end{array}
 $$
 
-## [6.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw1/Inversions.java) Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i,j)$ is called an inversion of $A$.
+## 6. Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i,j)$ is called an inversion of $A$.
 
 ### a. List the five inversions of the array $\{2,3,8,6,1\}$.
 
@@ -270,6 +283,9 @@ int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 }
 ```
 
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/Inversions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/InversionsTest.java)
+
 ## 7. Give big-O bounds for $T(n)$ in each of the following recurrences. (Substitution or Recursion Tree)
 
 ### a. $T(n) = T(n-1) + n$
@@ -284,7 +300,7 @@ $$
 \end{array}
 $$
 
-**As is the case previously, the equation is $\mathbf{\frac{n.(n-1)}{2}}$, And
+**As is the case previously, the equation is $\mathbf{\frac{n.(n-1)}{2}}$, and
 the big-O is $\mathbf{O(n^2)}$.**
 
 ### b. $T(n) = T(n/4) + T(n/2) + n^2$

@@ -1,6 +1,13 @@
-# CS430: [Homework 2](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW2.pdf)
+<!-- TeX for markdown-pdf -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
 
-## [1.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw2/Quicksorts.java) Show in detail that the running time to sort in increasing order using `QUICKSORT` is $T(n^2)$ when the array A contains distinct elements and is initially sorted in decreasing order.
+[View questions](https://github.com/hendraanggrian/IIT-CS430/blob/assets/CS430HW2.pdf)
+/ [in GitHub](https://github.com/hendraanggrian/IIT-CS430/blob/main/Homework%202.md)
+
+# CS430: Homework 2
+
+## 1. Show in detail that the running time to sort in increasing order using `QUICKSORT` is $T(n^2)$ when the array A contains distinct elements and is initially sorted in decreasing order.
 
 | Sorting Algorithm | Best | Average | Worst |
 | --- | :---: | :---: | :---: |
@@ -23,20 +30,23 @@ pivot is selected.**
 ## 2. Stack depth for `QUICKSORT` - The `QUICKSORT` algorithm of Section 7.1 contains two recursive calls to itself. After the call to `PARTITION`, the left sub array is recursively sorted and then the right subarray is recursively sorted. The second recursive call in `QUICKSORT` is not really necessary; it can be avoided by using an iterative control structure. Good compilers provide this technique, called tail recursion. Consider the following version of quick sort, which simulates tail recursion.
 
 ```java
-void quicksort2(int[] A, int p, int r) {
+void quicksortTailRecursive(int[] A, int p, int r) {
   while (p < r) {
     int q = partition(A, p, r);
-    quicksort2(A, p, q - 1);
+    quicksortTailRecursive(A, p, q - 1);
     p = q + 1;
   }
 }
 ```
 
-### a. Argue that `quicksort2(A, 1, A.length)` correctly sorts the array $A$.
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw2/Quicksorts.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw2/QuicksortsTest.java)
+
+### a. Argue that `quicksortTailRecursive(A, 1, A.length)` correctly sorts the array $A$.
 
 Consider a regular `quicksort` algorithm below. It traverses with 2 recursive
-calls that are stopped by `if` control flow, `quicksort2` however uses `while`
-loop and single recursive call.
+calls that are stopped by `if` control flow, `quicksortTailRecursive` however
+uses `while` loop and single recursive call.
 
 ```java
 void quicksort(int[] A, int p, int r) {
@@ -48,14 +58,49 @@ void quicksort(int[] A, int p, int r) {
 }
 ```
 
-By comparison, `quicksort2` has the same iteration process and parameter values.
-**Therefore, `quicksort2` correctly sorts the array.**
+By comparison, `quicksortTailRecursive` has the same iteration process and
+parameter values. **Therefore, `quicksortTailRecursive` correctly sorts the
+array.**
 
-### b. Compilers usually execute recursive procedures by using a stack that contains pertinent information, including the parameter values, for each recursive call. The information for the most recent call is at the top of the stack, and the information for the initial call is at the bottom. When a procedure is invoked, its information is pushed onto the stack; when it terminates, its information is popped. Since we assume that array parameters are represented by pointers, the information for each procedure call on the stack requires $O(1)$ stack space. The stack depth is the maximum amount of stack space used at any time during a computation. Describe a scenario in which the stack depth of `quicksort2` is $\Theta(n)$ on an $n$-element input array.
+> Compilers usually execute recursive procedures by using a **stack** that
+  contains pertinent information, including the parameter values, for each
+  recursive call. The information for the most recent call is at the top of the
+  stack, and the information for the initial call is at the bottom. When a
+  procedure is invoked, its information is **pushed** onto the stack; when it
+  terminates, its information is **popped**. Since we assume that array
+  parameters are represented by pointers, the information for each procedure
+  call on the stack requires $O(1)$ stack space. The **stack depth** is the
+  maximum amount of stack space used at any time during a computation.
 
-### c. Modify the code for `quicksort2` so that the worst-case stack depth is $\Theta(\log n)$. Maintain the $O(n \log n)$ expected running time of the algorithm.
+### b. Describe a scenario in which the stack depth of `quicksortTailRecursive` is $\Theta(n)$ on an $n$-element input array.
 
-## [3.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw2/Partitions.java) Hoare Partition Correctness - The version of `PARTITION` given in chapter 7 is not the original partitioning algorithm. Here is the original partition algorithm, which is due to *T. Hoare*:
+**The stack depth is $\mathbf{\Theta(n)}$ when the array is already sorted and
+the pivot is $\mathbf{A[1]}$ or $\mathbf{A[n]}$.** In such case, one of the
+partition will be full while the other is empty. Therefore, $n$ iteration is
+required before the function terminates.
+
+### c. Modify the code for `quicksortTailRecursiveModified` so that the worst-case stack depth is $\Theta(\log n)$. Maintain the $O(n \log n)$ expected running time of the algorithm.
+
+```java
+void quicksortTailRecursiveModified(int[] A, int p, int r) {
+  while (p < r) {
+    int q = partition(A, p, r);
+    if (q < p + (r - p) / 2) {
+      quicksortTailRecursiveModified(A, p, q - 1);
+      p = q + 1;
+    } else {
+      quicksortTailRecursiveModified(A, q + 1, r);
+      r = q - 1;
+    }
+  }
+}
+```
+
+Like `quicksort`, `quicksortTailRecursiveModified` breaks apart the array into
+2 smaller parts. **Like any divide and conquer, the operation
+$\mathbf{O(n \log n)}$.**
+
+## 3. Hoare Partition Correctness - The version of `PARTITION` given in chapter 7 is not the original partitioning algorithm. Here is the original partition algorithm, which is due to *T. Hoare*:
 
 ```java
 int hoarePartition(int[] A, int p, int r) {
@@ -79,11 +124,14 @@ int hoarePartition(int[] A, int p, int r) {
 }
 ```
 
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw2/Partitions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw2/PartitionsTest.java)
+
 ### a. Demonstrate the operation of `hoarePartition` on the array $A = \{13,19,9,5,12,8,7,4,11,2,6,21\}$, showing the values of the array and auxiliary values after each iteration of the while-loop.
 
 | # | $j$ | $i$ | $A$ | Note |
 | ---: | :---: | :---: | :---: | --- |
-| 0 | $12$ | $1$ | $\{13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21\}$ | $x = A[1] = 13$. |
+| 0 | $12$ | $0$ | $\{13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21\}$ | $x = A[1] = 13$. |
 | 1 | $11$ | $1$ | $\{\mathbf{6}, 19, 9, 5, 12, 8, 7, 4, 11, 2, \mathbf{13}, 21\}$ | |
 | 2 | $10$ | $2$ | $\{6, \mathbf{2}, 9, 5, 12, 8, 7, 4, 11, \mathbf{19}, 13, 21\}$ | |
 | 3 | $9$ | $10$ | $\{6, 2, 9, 5, 12, 8, 7, 4, 11, 19, 13, 21\}$ | **Not swapping, returns $\mathbf{j}$.** |
@@ -121,7 +169,7 @@ minimum number of elements, the tree should be almost complete with the last
 level having just 1 node. Oppositely, the tree should be complete for a maximum
 number of nodes.**
 
-## [5.](https://github.com/hendraanggrian/IIT-CS430/raw/main/Testbed/app/src/main/java/com/example/hw2/MaxHeapifies.java) The code for `maxHeapify` is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient `maxHeapify` that uses an iterative control construct (a loop) instead of recursion.
+## 5. The code for `maxHeapify` is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient `maxHeapify` that uses an iterative control construct (a loop) instead of recursion.
 
 ```java
 void maxHeapify(int[] A, int i) {
@@ -145,6 +193,9 @@ void maxHeapify(int[] A, int i) {
   }
 }
 ```
+
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw2/MaxHeapifies.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw2/MaxHeapifiesTest.java)
 
 ## 6. What is the smallest possible depth of a leaf in a decision tree for a comparison sort? Explain why in detail.
 
