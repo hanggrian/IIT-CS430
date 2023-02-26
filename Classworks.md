@@ -1,4 +1,6 @@
-# Classworks
+[View homepage](https://github.com/hendraanggrian/IIT-CS430/)
+
+# CS430: Classworks
 
 ## Statistic Algorithm
 
@@ -33,7 +35,7 @@ SELECT(A, p, r, i)
 Because $x$ is the median of $A[p \ldots r]$, each of the subarrays
 $A[p \ldots q - 1]$ and $A[q + 1 \ldots r]$ has at most half the number of
 elements of $A$. **The recurrence for the worst-case running time of `SELECT`
-is $\mathbf{T(n) = T(n/2) + O(n)}$ (by master method.)**
+is $\mathbf{T(n) = T(n/2) + O(n)}$**. (by master method)
 
 ## Recursive Insertion Sort
 
@@ -41,43 +43,58 @@ Rewrite the Insertion with recursion and analyze the complexity accordingly.
 
 ### Solution
 
-#### a. Pseudocode
+#### Code
 
-```
-// initial call Isort(A, 1, n)
-Isort(A, p, r) {
+```java
+void insertionSort(int[] A, int p, int r) {
   if (p < r) {
-    Isort(A, p, r - 1)
-    temp = A[r]
-    i = r - 1
-    while (i>=p && temp < A[i]) {
-      A[i+1] = A[i]
-      i--
-    } 
-    A[i+1] = temp
+    insertionSort(A, p, r - 1);
+    int temp = A[r];
+    int i = r - 1;
+    while (i >= p && temp < A[i]) {
+      A[i + 1] = A[i];
+      i--;
+    }
+    A[i + 1] = temp;
   }
 }
 ```
 
-#### b. Recurrence
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/sort/InsertionSorts.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/sort/InsertionSortsTest.java)
+
+#### Recurrence
 
 $$
 \begin{array}{rcl}
-  T(n) &=& T(n-1) + O(n-1) + O(1) \quad \text{if n>1} \\
+  T(n) &=& T(n-1) + O(n-1) + O(1) \quad \textsf{if $n>1$} \\
   T(1) &=& O(1)
 \end{array}
 $$
 
-#### c. Recurrence Equation
+#### Recurrence Equation
 
 $$
 \begin{array}{rcl}
-  T(n) &=& T(n-1) + O(n-1) + O(1) \quad \text{use iteration} \\
-  T(n) &=& [O(n-1) + O(1)] + T(n-1) \\
-  T(n) &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] + T(n-2) \\
-  T(n) &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] + [O(n-3) + O(1)] + T(n-3) \\
-  T(n) &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] + [O(n-3) + O(1)] + \ldots + T(1) \\
+  \bf T(n) &=& T(n-1) + O(n-1) + O(1) \quad
+    \text{use iteration} \\
+  &=& [O(n-1) + O(1)] + T(n-1) \\
+  &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] + T(n-2) \\
+  &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] +
+    [O(n-3) + O(1)] + T(n-3) \\
+  &=& [O(n-1) + O(1)] + [O(n-2) + O(1)] +
+    [O(n-3) + O(1)] + \ldots + T(1) \\
   && \text{n-1 terms total} \\
-  T(n) &=& summation, (i=1 to n-1) [O(n-i) + O(1)] = O(n^2)
+  &=& \displaystyle \sum_{i=1}^{n-1} [O(n-i) + O(1)] \\
+  &=& \bf O(n^2)
 \end{array}
 $$
+
+## R-B BST
+
+Draw the complete binary search tree of height 3 on the
+keys $\{1,2,\ldots,15\}$. Add the NIL leaves and color the nodes in three
+different ways such that the black-heights of the resulting red-black trees
+are $2, 3, 4$.
+
+### Solution

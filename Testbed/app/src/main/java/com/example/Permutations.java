@@ -1,6 +1,4 @@
-package com.example.hw1;
-
-import static com.example.Utils.swap;
+package com.example;
 
 class Permutations {
   private Permutations() {
@@ -18,9 +16,9 @@ class Permutations {
       System.out.println();
     } else {
       for (int i = k; i < n; i++) {
-        swap(A, i, k);
+        Utils.swap(A, i, k);
         print(A, n, k + 1);
-        swap(A, i, k);
+        Utils.swap(A, i, k);
       }
     }
   }

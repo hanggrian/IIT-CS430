@@ -1,9 +1,5 @@
-<!-- TeX for markdown-pdf -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
-
-[View questions](https://github.com/hendraanggrian/IIT-CS430/blob/assets/CS430HW1.pdf)
-/ [in GitHub](https://github.com/hendraanggrian/IIT-CS430/blob/main/Homework%201.md)
+[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW1.pdf)
+/ [homepage](https://github.com/hendraanggrian/IIT-CS430/)
 
 # CS430: Homework 1
 
@@ -31,13 +27,13 @@ boolean hasTuple(int[] A) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/FindATuple.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/FindATupleTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/FindATuple.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/FindATupleTest.java)
 
 ### b. Give a big-O estimate for the complexity of the brute-force algorithm part (a).
 
-**The big-O estimate is $\mathbf{O(n^3)}$, because we're searching for
-permutations of 3 in $\mathbf{n}$.**
+**The big-O estimate is $\bf O(n^3)$**, because we're searching for permutations
+of 3 in $n$.
 
 ### c. Devise a more efficient algorithm for solving the problem that first sorts the input sequence and then checks for each pair of terms whether their sum is in the sequence.
 
@@ -58,43 +54,43 @@ boolean hasTuple(int[] A) {
 
 ### d. Give a big-O estimate for the complexity of this algorithm. Is it more efficient than the brute-force algorithm?
 
-**The big-O estimate is $\mathbf{O(n^2)}$, assuming that `Arrays.sort` function
-operates at $\mathbf{O(n)}$.** It is only slightly better than the brute-force
-approach. But also could have been worse if a worse-performing sorting method is
-being used, like *bubble sort*.
+**The big-O estimate is $\bf O(n^2 \log n)$**, because function `Array.sort`
+operates at $O(n \log n)$.
 
-## 2. Prove, by induction on $k$, that level $k$ of a binary tree has less than or equal to $2k$ nodes (root level has $k = 0$).
-
-Prove that the height of binary tree is $T(k) \le 2^k$:
+## 2. Prove, by induction on $k$, that level $k$ of a binary tree has less than or equal to $2^k$ nodes (root level has $k = 0$).
 
 $$
 \begin{array}{rcl}
-  T(k+1) &\le& 2T(k) \quad \text{because to increment the height of the tree, one must
-  add the maximum of 2 leaf nodes} \\
-  T(k+1) &\le& 2 . 2^k \qquad \text{swapping the values from the assumption} \\
-  T(k+1) &\le& 2^{k+1} \qquad \textbf{therefore true, because the equation is balanced to the assumption}
+  T(k+1) &\le& 2T(k) \quad \textsf{to increment the tree height, max of
+    2 leaf nodes can be added} \\
+   &\le& 2 . 2^k \quad \ \ \ \textsf{from the assumption} \\
+   &\le& 2^{k+1} \quad \ \ \ \textsf{reducing $k-1$} \\
+  \bf T(k) &\le& \bf 2^{k} \qquad \ \ \textsf{\textbf{therefore true}, the
+    equation is balanced}
 \end{array}
 $$
 
 ## 3. Use definition of big O to prove or disprove.
 
-### a. Is $2^(n+1) \ ?=? \ O(2^n)$
+### a. Is $2^{n+1} = O(2^n)$?
 
 $$
 \begin{array}{rcl}
   2^{n+1} &=& O(2^n) \\
-  2^n . 2^1 &\le& c2^n \qquad \text{divide all by $2^n$} \\
-  2^1 &\le& c \qquad\quad \textbf{therefore true, because }\mathbf{c > 0}
+  2^n . 2^1 &\le& c2^n \qquad \textsf{divide all by $2^n$} \\
+  \bf 2^1 &\le& \bf c \qquad\quad \textsf{\textbf{therefore true},
+    because $c > 0$}
 \end{array}
 $$
 
-### b. Is $2^(2n) \ ?=? \ O(2^n)$
+### b. Is $2^{2n} = O(2^n)$?
 
 $$
 \begin{array}{rcl}
   2^{2n} &=& O(2^n) \\
-  2^n . 2^n &\le& c2^n \qquad \text{divide all by $2^n$} \\
-  2^n &\le& c \qquad\quad \textbf{therefore false, because }\mathbf{c}\text{ and }\mathbf{n}\textbf{ is unbounded}
+  2^n . 2^n &\le& c2^n \qquad \textsf{divide all by $2^n$} \\
+  \bf 2^n &\le& \bf c \qquad\quad \textsf{\textbf{therefore false}, because $c$
+    and $n$ is unbounded}
 \end{array}
 $$
 
@@ -102,23 +98,68 @@ $$
 
 ```c
 int firstDecrease(int * L, int n) {
-  for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) { }
-  return i;
+  for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {
+    return i;
+  }
 }
 ```
 
 ### a. What is the big-O runtime for the routine, measured as a function of its return value $i$?
 
-**Looping $\mathbf{n}$ times without an inner loop would indicate that the big-O
-is $\mathbf{O(n)}$.**
+| Line | Cost |
+| --- | --- |
+| `int firstDecrease(int * L, int n) {` | |
+| &emsp;`for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {` | $a$ |
+| &emsp;&emsp;`return i;` | $b$ |
+| &emsp;`}` | |
+| `}` | |
+
+$$
+\begin{array}{rcl}
+  \bf T(i) &=& a . i + b \\
+  &=& \bf O(i)
+\end{array}
+$$
 
 ### b. If the numbers are chosen independently at random, then the probability that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an expression for the expected value returned by the algorithm. (Your answer can be expressed as a sum, it does not have to be solved in closed form. Do not use O-notation.)
 
-$$\mathbf{T(n) = \frac12! + \ldots + \frac{n-1}n! + \ldots + \frac1n!}$$
+#### Given
+
+$$
+\begin{array}{rcl}
+  Pr(i) &=& (i-1) / i! \\
+  Pr(n+1) &=& 1 / n \\
+\end{array}
+$$
+
+#### Expectation
+
+$$
+\begin{array}{rcl}
+  \bf E(i) &=& \Sigma i . Pr(i) \quad \textsf{where $i$ is from $2$ to $n+1$}\\
+  &=& \Sigma i . Pr(i) + (n+1) . Pr(n+1) \\
+  &=& 2*(2-1)/2! + 3*(3-1)/3! + \ldots n*(n-1)/n! + n*(n+1)/n! \\
+  &=& \bf (2*1)/2! + (3*2)/3! + \ldots n*(n-1)/n! + n*(n+1)/n!
+\end{array}
+$$
 
 ### c. What is the big-O average case running time of the routine? Hint: Simplify the previous summation until you see a common taylor series.
 
-I have limited understanding of point 2b, **my guess would be** $\mathbf{O(n)}$.
+| Theory | Equation | Where |
+| --- | --- | --- |
+| Taylor series | $\displaystyle \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n$ | $n!$ is factorial of $n$.<br>$a$ is real or complex number.<br>$f^{(n)}(a)$ is $n$-th derivative of $f$ evaluated at the point $a$. |
+
+$$
+\begin{array}{rcl}
+  \bf f(x) &=& f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^3 + \ldots +
+    \frac{f^{(3)}(a)}{n!}(x-a)^n + \ldots \\
+  &=& f(0)\frac{x^0}{0!} + f'(0)\frac{x^1}{1!} + f''(0)\frac{x^2}{2!} +
+    \ldots \\
+  &=& \bf e^x
+\end{array}
+$$
+
+With $x=1$, we get our $E(i)$. **Hence $\bf E(i) = O(e)$**.
 
 ## 5. Consider the following program and recursive function.
 
@@ -156,8 +197,8 @@ void Z(int A[], int n, int k) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/Permutations.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/PermutationsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/Permutations.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/PermutationsTest.java)
 
 ### a. Demonstrate the execution, show the output, and explain what the program accomplishes.
 
@@ -179,43 +220,67 @@ each has a length of $n$. The result:
 3 1 2
 ```
 
-**Based on such characteristics and results, I believe this is a function to
-print permutations of an array of integers.**
+Based on such characteristics and results, **I believe this is a function to
+print permutations of an array of integers**.
 
 ### b. Give a recurrence equation describing the worst-case behavior of the program.
 
-| Case | Equation |
-| --- | :--- |
-| Base ($n = 1$) | $\mathbf{T(1) = O(1)}$ |
-| Recursive ($n > 1$) | $\mathbf{T(n) = n . T(n-1) + O(n)}$ |
+| Line | Relation |
+| --- | --- |
+| `void Z(int A[], int n, int k) {` | $T(n)$ |
+| &emsp;`if (k == n - 1) {`| |
+| &emsp;&emsp;`for (int i = 0; i < n; i++) {` | $\bf n$ |
+| &emsp;&emsp;&emsp;`cout << A[i] << " ";` | $O(1)$ |
+| &emsp;&emsp;`}` | |
+| &emsp;&emsp;`cout << endl;` | $O(1)$ |
+| &emsp;`} else {` | |
+| &emsp;&emsp;`for (int i = k; i < n; i++) {` | $\bf n$ |
+| &emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$ |
+| &emsp;&emsp;&emsp;`Z(A, n, k + 1);` | $T(n-1)$ |
+| &emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$ |
+| &emsp;&emsp;`}` | |
+| &emsp;`}` | |
+| `}` | |
 
-> $O(1)$ is print and $O(n)$ is swap.
+| Case | Equation |
+| --- | --- |
+| Base | $\begin{array}{rcl} \bf T(1) &=& n . O(1) + O(1) \\ &=& \bf n \end{array}$ |
+| Recursive | $\begin{array}{rcl} \bf T(n) &=& n . (O(1) + T(n-1) + O(1)) \\ &=& \bf n . T(n-1) \end{array}$ |
 
 ### c. Solve the recurrence equation.
 
-Using the previous example where $n = 3$.
-
 $$
 \begin{array}{rcl}
-  T(1) &=& O(1) \qquad\qquad\quad \text{is the base case} \\
-  T(2) &=& 2 . T(1) + O(2) \quad \text{start of the recursive case} \\
-  T(3) &=& 3 . T(2) + O(3) \quad \ldots
+  T(n) &=& n . T(n-1) \\
+  &=& 2n + n . T(n-1) \\
+  &=& 2n + n[2(n-1) + (n-1) . T(n-2)] \\
+  &=& 2n + n . [2(n-1) + (n-1) . [2(n-2) + (n-2) . T(n-3)]] \\
+  &=& 2n + 2 . n(n-1) + 2 . n(n-1)(n-2) \ldots 2.n!
 \end{array}
 $$
 
-## 6. Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i,j)$ is called an inversion of $A$.
+$n$ terms, and each is $\le 2.n!$.
+
+$$
+\begin{array}{rcl}
+  \bf T(n) &=& n . 2n! \\
+  &=& \bf O(n+1!) \textsf{ or } O(n!)
+\end{array}
+$$
+
+## 6. Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $\{i,j\}$ is called an inversion of $A$.
 
 ### a. List the five inversions of the array $\{2,3,8,6,1\}$.
 
 We start the 2 pointers on the right:
 
-| No | Pair | $i < j$ | $A[i] > A[j]$ |
-| ---: | :---: | :---: | :---: |
-| 1 | $\mathbf{[4, 5]}$ | $4 < 5$ | $6 > 1$ |
-| 2 | $\mathbf{[3, 5]}$ | $3 < 5$ | $8 > 1$ |
-| 3 | $\mathbf{[2, 5]}$ | $2 < 5$ | $3 > 1$ |
-| 4 | $\mathbf{[1, 5]}$ | $1 < 5$ | $2 > 1$ |
-| 5 | $\mathbf{[3, 4]}$ | $3 < 4$ | $8 > 6$ |
+| # | Pair | $i < j$ | $A[i] > A[j]$ |
+| ---: | --- | --- | --- |
+| 1 | $\bf \{4, 5\}$ | $4 < 5$ | $6 > 1$ |
+| 2 | $\bf \{3, 5\}$ | $3 < 5$ | $8 > 1$ |
+| 3 | $\bf \{2, 5\}$ | $2 < 5$ | $3 > 1$ |
+| 4 | $\bf \{1, 5\}$ | $1 < 5$ | $2 > 1$ |
+| 5 | $\bf \{3, 4\}$ | $3 < 4$ | $8 > 6$ |
 
 ### b. What array with elements from the set $\{1,2,\ldots,n\}$ has the most inversions? How many does it have?
 
@@ -224,21 +289,21 @@ inversions are in reversed order.
 
 $$
 \begin{array}{rcl}
-  T(1) &=& 1 \\
-  T(2) &=& 2 . T(1) \\
-  T(3) &=& 3 . T(2) \quad \ldots
+  \displaystyle \bf \sum_{k=1}^{n-1}k &=& (n-1) + (n-2) + \ldots + 2 + 1 \\
+  &=& n(n-1) / 2 \\
+  &=& \bf O(n^2) \\
 \end{array}
 $$
 
-**Looking at the pattern, its inversion can be interpreted as
-$\mathbf{\frac{n.(n-1)}{2}}$.**
-
 ### c. What is the relationship between the running time of *insertion sort* and the number of inversions in the input array? Justify your answer.
 
-**Inversion search draws some similarities from insertion sort, specifically on
-values comparison and loop times.** For one, the value of the right pointer
-needs to be lower than the left. Also, the complexity grows as the input
-increases.
+| # | Swaps |
+| ---: | --- |
+| 1 | $\bf \{8, 6\}$ |
+| 2 | $\bf \{2, 1\}$ |
+| 3 | $\bf \{3, 1\}$ |
+| 4 | $\bf \{6, 1\}$ |
+| 5 | $\bf \{8, 1\}$ |
 
 ### d. Give an algorithm that determines the number of inversions in any permutation on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge sort*.)
 
@@ -283,8 +348,8 @@ int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/hw1/Inversions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/hw1/InversionsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/Inversions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/InversionsTest.java)
 
 ## 7. Give big-O bounds for $T(n)$ in each of the following recurrences. (Substitution or Recursion Tree)
 
@@ -294,14 +359,13 @@ By expansion:
 
 $$
 \begin{array}{rcl}
-  T(1) &=& 1 \qquad\qquad \text{is the base case} \\
+  T(1) &=& 1 \qquad\qquad \ \text{is the base case} \\
   T(2) &=& T(1) + 2 \quad \text{start of the recursive case} \\
   T(3) &=& T(2) + 3 \quad \ldots
 \end{array}
 $$
 
-**As is the case previously, the equation is $\mathbf{\frac{n.(n-1)}{2}}$, and
-the big-O is $\mathbf{O(n^2)}$.**
+As is the case previously, **the big-O is $\bf O(n^2)$**.
 
 ### b. $T(n) = T(n/4) + T(n/2) + n^2$
 
@@ -321,7 +385,13 @@ $$
 \begin{array}{rcl}
   1n^2 &=& (1.\frac{5}{16})n^2 \\
   \frac{5}{16}n^2 &=& (\frac{5.5}{16.16})n^2 \\
-  \frac{25}{256}n^2 &=& \ldots \\
-  && \textbf{dropping the lower term, we get }\mathbf{O(n^2)}
+  \frac{25}{256}n^2 &=& \ldots
 \end{array}
 $$
+
+Dropping the lower term, **the big-O is $\bf O(n^2)$**.
+
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>

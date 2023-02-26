@@ -1,4 +1,4 @@
-package com.example.hw2;
+package com.example.sort;
 
 import org.junit.Test;
 

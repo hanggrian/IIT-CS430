@@ -1,6 +1,4 @@
-package com.example.hw2;
-
-import static com.example.Utils.swap;
+package com.example;
 
 // https://github.com/kevinsprong23/clrs/blob/master/src/com/kevinsprong/HeapSort.java
 class MaxHeapifies {
@@ -23,7 +21,7 @@ class MaxHeapifies {
       if (max == i) {
         break;
       }
-      swap(A, i, max);
+      Utils.swap(A, i, max);
       i = max;
     }
   }
