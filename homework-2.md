@@ -1,4 +1,4 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW2.pdf)
+[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/homework-2.pdf)
 / [homepage](https://github.com/hendraanggrian/IIT-CS430/)
 
 # CS430: Homework 2
@@ -21,10 +21,10 @@ sorted array depends on how the pivot is selected**.
 | Worst | $\bf A[1] \textsf{ or } A[n]$ |
 | Average | Random |
 
-## 2. Stack depth for `QUICKSORT` - The `QUICKSORT` algorithm of Section 7.1 contains two recursive calls to itself. After the call to `PARTITION`, the left sub array is recursively sorted and then the right subarray is recursively sorted. The second recursive call in `QUICKSORT` is not really necessary; it can be avoided by using an iterative control structure. Good compilers provide this technique, called tail recursion. Consider the following version of quick sort, which simulates tail recursion.
+## 2. Stack depth for `quicksortTailRecursive` - The `quicksortTailRecursive` algorithm of Section 7.1 contains two recursive calls to itself. After the call to `partition`, the left sub array is recursively sorted and then the right subarray is recursively sorted. The second recursive call in `quicksortTailRecursive` is not really necessary; it can be avoided by using an iterative control structure. Good compilers provide this technique, called tail recursion. Consider the following version of quick sort, which simulates tail recursion.
 
 ```java
-void quicksortTailRecursive(int[] A, int p, int r) {
+public static void quicksortTailRecursive(int[] A, int p, int r) {
   while (p < r) {
     int q = partition(A, p, r);
     quicksortTailRecursive(A, p, q - 1);
@@ -43,7 +43,7 @@ calls that are stopped by `if` control flow, `quicksortTailRecursive` however
 uses `while` loop and single recursive call.
 
 ```java
-void quicksort(int[] A, int p, int r) {
+public static void quicksort(int[] A, int p, int r) {
   if (p < r) {
     int q = partition(A, p, r);
     quicksort(A, p, q - 1);
@@ -76,7 +76,7 @@ function terminates.
 ### c. Modify the code for `quicksortTailRecursiveModified` so that the worst-case stack depth is $\Theta(\log n)$. Maintain the $O(n \log n)$ expected running time of the algorithm.
 
 ```java
-void quicksortTailRecursiveModified(int[] A, int p, int r) {
+public static void quicksortTailRecursiveModified(int[] A, int p, int r) {
   while (p < r) {
     int q = partition(A, p, r);
     if (q < p + (r - p) / 2) {
@@ -94,10 +94,10 @@ Like `quicksort`, `quicksortTailRecursiveModified` breaks apart the array into
 2 smaller parts. **Like any divide and conquer, the
 operation $\bf O(n \log n)$**.
 
-## 3. Hoare Partition Correctness - The version of `PARTITION` given in chapter 7 is not the original partitioning algorithm. Here is the original partition algorithm, which is due to *T. Hoare*:
+## 3. Hoare Partition Correctness - The version of `partition` given in chapter 7 is not the original partitioning algorithm. Here is the original partition algorithm, which is due to *T. Hoare*:
 
 ```java
-int hoarePartition(int[] A, int p, int r) {
+public static int hoarePartition(int[] A, int p, int r) {
   int x = A[p];
   int i = p - 1;
   int j = r + 1;
@@ -166,7 +166,7 @@ number of nodes.
 ## 5. The code for `maxHeapify` is quite efficient in terms of constant factors, except possibly for the recursive call in line 10, which might cause some compilers to produce inefficient code. Write an efficient `maxHeapify` that uses an iterative control construct (a loop) instead of recursion.
 
 ```java
-void maxHeapify(int[] A, int i) {
+public static void maxHeapify(int[] A, int i) {
   while (true) {
     int l = left(i);
     int r = right(i);

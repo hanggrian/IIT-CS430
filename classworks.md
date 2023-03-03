@@ -5,37 +5,37 @@
 ## Statistic Algorithm
 
 Assume that are given a "black-box" (i.e., you do not have the source code)
-procedure `MEDIAN` that takes as parameters an array $A$ and subarray indices
+procedure `median` that takes as parameters an array $A$ and subarray indices
 $p$ and $r$, and returns the value of the median element of $A[p \ldots r]$ in
 $O(n)$ time in the worst case. Give a simple, linear-time algorithm that uses
-this procedure `MEDIAN` to find the $i$-th smallest element. Write the
+this procedure `median` to find the $i$-th smallest element. Write the
 recurrence relation for your algorithm and show the solution is linear growth.
 
 ### Solution
 
-Given `MEDIAN`, here is a linear-time algorithm `SELECT` for finding $i$-th
-smallest element in $A$. This algorithm uses the deterministic `PARTITION`
+Given `median`, here is a linear-time algorithm `select` for finding $i$-th
+smallest element in $A$. This algorithm uses the deterministic `partition`
 algorithm that was modified to take an element to partition around as an input
 parameter.
 
 ```
-SELECT(A, p, r, i)
-  if (p == r)
+select(A, p, r, i):
+  if p == r
     return A[p]
-  x = MEDIAN(a, p, r)
-  q = PARTITION(x)
+  x = median(a, p, r)
+  q = partition(x)
   k = q - p + 1
-  if (i == k)
+  if i == k
     return A[q]
-  else if (i < k)
-    return SELECT(A, p, q - 1, i)
-    else return SELECT(A, q + 1, r, i - k)
+  else if i < k
+    return select(A, p, q - 1, i)
+    else return select(A, q + 1, r, i - k)
 ```
 
 Because $x$ is the median of $A[p \ldots r]$, each of the subarrays
 $A[p \ldots q - 1]$ and $A[q + 1 \ldots r]$ has at most half the number of
-elements of $A$. **The recurrence for the worst-case running time of `SELECT`
-is $\mathbf{T(n) = T(n/2) + O(n)}$**. (by master method)
+elements of $A$. **The recurrence for the worst-case running time of `select`
+is $\bf T(n) = T(n/2) + O(n)$**. (by master method)
 
 ## Recursive Insertion Sort
 
@@ -46,7 +46,7 @@ Rewrite the Insertion with recursion and analyze the complexity accordingly.
 #### Code
 
 ```java
-void insertionSort(int[] A, int p, int r) {
+public static void insertionSort(int[] A, int p, int r) {
   if (p < r) {
     insertionSort(A, p, r - 1);
     int temp = A[r];
@@ -98,3 +98,5 @@ different ways such that the black-heights of the resulting red-black trees
 are $2, 3, 4$.
 
 ### Solution
+
+![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/Classworks/rb_bst.jpg)

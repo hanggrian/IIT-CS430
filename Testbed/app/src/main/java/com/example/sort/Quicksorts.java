@@ -2,15 +2,15 @@ package com.example.sort;
 
 import com.example.Utils;
 
-class Quicksorts {
+public class Quicksorts {
   private Quicksorts() {
   }
 
-  static void quicksort(int[] A) {
+  public static void quicksort(int[] A) {
     quicksort(A, 0, A.length - 1);
   }
 
-  static void quicksort(int[] A, int p, int r) {
+  public static void quicksort(int[] A, int p, int r) {
     if (p < r) {
       int q = Utils.partition(A, p, r);
       quicksort(A, p, q - 1);
@@ -18,11 +18,11 @@ class Quicksorts {
     }
   }
 
-  static void quicksortTailRecursive(int[] A) {
+  public static void quicksortTailRecursive(int[] A) {
     quicksortTailRecursive(A, 0, A.length - 1);
   }
 
-  static void quicksortTailRecursive(int[] A, int p, int r) {
+  public static void quicksortTailRecursive(int[] A, int p, int r) {
     while (p < r) {
       int q = Utils.partition(A, p, r);
       quicksortTailRecursive(A, p, q - 1);
@@ -30,11 +30,11 @@ class Quicksorts {
     }
   }
 
-  static void quicksortTailRecursiveModified(int[] A) {
+  public static void quicksortTailRecursiveModified(int[] A) {
     quicksortTailRecursiveModified(A, 0, A.length - 1);
   }
 
-  static void quicksortTailRecursiveModified(int[] A, int p, int r) {
+  public static void quicksortTailRecursiveModified(int[] A, int p, int r) {
     while (p < r) {
       int q = Utils.partition(A, p, r);
       if (q < p + (r - p) / 2) {

@@ -1,14 +1,14 @@
 package com.example.sort;
 
-class InsertionSorts {
+public class InsertionSorts {
   private InsertionSorts() {
   }
 
-  static void insertionSort(int[] A) {
+  public static void insertionSort(int[] A) {
     insertionSort(A, 0, A.length - 1);
   }
 
-  static void insertionSort(int[] A, int p, int r) {
+  public static void insertionSort(int[] A, int p, int r) {
     if (p < r) {
       insertionSort(A, p, r - 1);
       int temp = A[r];

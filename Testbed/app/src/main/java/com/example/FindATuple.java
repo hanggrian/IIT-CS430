@@ -2,11 +2,11 @@ package com.example;
 
 import java.util.Arrays;
 
-class FindATuple {
+public class FindATuple {
   private FindATuple() {
   }
 
-  static boolean hasTupleBruteForce(int[] A) {
+  public static boolean hasTupleBruteForce(int[] A) {
     for (int i = 0; i < A.length - 2; i++) {
       for (int j = i + 1; j < A.length - 1; j++) {
         for (int k = j + 1; k < A.length; k++) {
@@ -21,7 +21,7 @@ class FindATuple {
     return false;
   }
 
-  static boolean hasTupleSorted(int[] A) {
+  public static boolean hasTupleSorted(int[] A) {
     Arrays.sort(A);
     for (int i = 0; i < A.length - 2; i++) {
       if (A[i] + A[i + 1] == A[i + 2]) {

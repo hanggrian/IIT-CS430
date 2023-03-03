@@ -1,10 +1,10 @@
 package com.example;
 
-class HoarePartitions {
+public class HoarePartitions {
   private HoarePartitions() {
   }
 
-  static int hoarePartition(int[] A, int p, int r) {
+  public static int hoarePartition(int[] A, int p, int r) {
     int x = A[p];
     int i = p - 1;
     int j = r + 1;

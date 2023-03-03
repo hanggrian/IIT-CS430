@@ -1,4 +1,4 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/CS430HW1.pdf)
+[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/homework-1.pdf)
 / [homepage](https://github.com/hendraanggrian/IIT-CS430/)
 
 # CS430: Homework 1
@@ -11,7 +11,7 @@ In a brute-force approach, simply create 3 pointers that gradually move forward
 covering all posibilities.
 
 ```java
-boolean hasTuple(int[] A) {
+public static boolean hasTupleBruteForce(int[] A) {
   for (int i = 0; i < A.length - 2; i++) {
     for (int j = i + 1; j < A.length - 1; j++) {
       for (int k = j + 1; k < A.length; k++) {
@@ -41,7 +41,7 @@ A more efficient solution is to sort the input first, allowing the comparison to
 be executed in 1 pass.
 
 ```java
-boolean hasTuple(int[] A) {
+public static boolean hasTupleSorted(int[] A) {
   Arrays.sort(A);
   for (int i = 0; i < A.length - 2; i++) {
     if (A[i] + A[i + 1] == A[i + 2]) {
@@ -202,11 +202,12 @@ void Z(int A[], int n, int k) {
 
 ### a. Demonstrate the execution, show the output, and explain what the program accomplishes.
 
-Function `Z` has 2 pointers with conditions:
-- In the base case, print the result of this recursion leaf node when the left
-  pointer reaches the right.
-- In the recursive case, iterate every possibility of combination by temporarily
-  swapping values by the index of the array.
+`Z` is a recursive function with 2 pointers with conditions:
+
+- **In the base case**, print the result of this recursion leaf node when the
+  left pointer reaches the right.
+- **In the recursive case**, iterate every possibility of combination by
+  temporarily swapping values by the index of the array.
 
 Function `main` starts the recursive reaction, printing all combinations of $A$,
 each has a length of $n$. The result:
@@ -308,7 +309,7 @@ $$
 ### d. Give an algorithm that determines the number of inversions in any permutation on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge sort*.)
 
 ```java
-int countInversions(int[] A, int p, int r) {
+public static int countInversions(int[] A, int p, int r) {
   if (p >= r) {
     return 0;
   }
@@ -318,7 +319,7 @@ int countInversions(int[] A, int p, int r) {
   return left + right + mergeSortAndCountInversions(A, p, mid, r);
 }
 
-int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
+static int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
   // split into sub-arrays
   int[] left = new int[q - p + 1];
   int[] right = new int[r - q];

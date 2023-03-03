@@ -1,11 +1,11 @@
 package com.example;
 
 // https://github.com/kevinsprong23/clrs/blob/master/src/com/kevinsprong/HeapSort.java
-class MaxHeapifies {
+public class MaxHeapifies {
   private MaxHeapifies() {
   }
 
-  static void maxHeapify(int[] A, int i) {
+  public static void maxHeapify(int[] A, int i) {
     while (true) {
       int l = left(i);
       int r = right(i);

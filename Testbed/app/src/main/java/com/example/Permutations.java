@@ -1,14 +1,14 @@
 package com.example;
 
-class Permutations {
+public class Permutations {
   private Permutations() {
   }
 
-  static void print(int[] A) {
+  public static void print(int[] A) {
     print(A, A.length, 0);
   }
 
-  static void print(int[] A, int n, int k) {
+  public static void print(int[] A, int n, int k) {
     if (k == n - 1) {
       for (int i = 0; i < n; i++) {
         System.out.print(A[i] + " ");

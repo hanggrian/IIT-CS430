@@ -3,11 +3,11 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
-class Inversions {
+public class Inversions {
   private Inversions() {
   }
 
-  static List<List<Integer>> getInversions(int[] A) {
+  public static List<List<Integer>> getInversions(int[] A) {
     List<List<Integer>> inversions = new ArrayList<>();
     for (int j = A.length - 1; j >= 1; j--) {
       for (int i = j - 1; i >= 0; i--) {
@@ -24,12 +24,12 @@ class Inversions {
   }
 
   // TODO: still not stable
-  static int countInversions(int[] A) {
+  public static int countInversions(int[] A) {
     return countInversions(A, 0, A.length - 1);
   }
 
   // TODO: still not stable
-  static int countInversions(int[] A, int p, int r) {
+  public static int countInversions(int[] A, int p, int r) {
     if (p >= r) {
       return 0;
     }
