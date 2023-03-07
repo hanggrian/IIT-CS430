@@ -1,6 +1,9 @@
 # Homework 1
 
-## 1. Order the following list of functions by the big-O notation. Group together (for example, by underlining) those functions that are big-Theta of one another.
+## Problem 1
+
+Order the following list of functions by the big-O notation. Group together (for
+example, by underlining) those functions that are big-Theta of one another.
 
 | <small>1-4</small> | <small>5-8</small> | <small>9-12</small> | <small>13-16</small> | <small>17-20</small> |
 | :---: | :---: | :---: | :---: | :---: |
@@ -12,6 +15,8 @@
 > When in doubt about two functions $f(n)$ and $g(n)$, consider $\log f(n)$ and $\log g(n)$ or
 $2^{f(n)}$ and $2^{g(n)}$
 
+### Answer
+
 Answer in increasing order, and colored by performance group.
 
 | <small>1-4</small> | <small>5-8</small> | <small>9-12</small> | <small>13-16</small> | <small>17-20</small> |
@@ -21,7 +26,13 @@ Answer in increasing order, and colored by performance group.
 | $\log \log n$ | $\color{green} ⌈\sqrt{n}⌉$ | $4n^{3/2}$ | $4^{\log n}$ | $\color{red} 4^n$ |
 | $\sqrt{\log n}$ | $\color{green} 3n^{0.5}$ | $\color{orange} n \log_4 n$ | $n^2 \log n$ | $\color{red} 2^{2^n}$ |
 
-## 2. Matrix multiplication. Write pseudocode for computing $C = A.B$, where $A,B,C$ are matrices of integers of size $n.m, m.k, n.k$ respectively. Analyze the running time of your algorithm, as a function of $n, m, k$.
+## Problem 2
+
+Matrix multiplication. Write pseudocode for computing $C = A.B$, where $A,B,C$
+are matrices of integers of size $n.m, m.k, n.k$ respectively. Analyze the
+running time of your algorithm, as a function of $n, m, k$.
+
+### Answer
 
 ```
 length(A): n * m
@@ -39,7 +50,19 @@ matrixMultiply(A, B):
 
 **The time complexity of function above is $\bf O(n.m.k)$**.
 
-## 3. You are given a tree represented by the following data structure. Nodes have three fields: element, left-child, and right-child. The element is a integer. Write a procedure (pseudocode) with input parameter the location of the root node (or pointer to the root node), and that computes the average value of the elements in the tree. However, do not use recursion. Use a stack instead. Analyze the running time of your algorithm, as a function of the number of nodes in the tree. As proven in CS 331, stack operations are $O(1)$.
+## Problem 3
+
+You are given a tree represented by the following data structure. Nodes have
+three fields: element, left-child, and right-child. The element is a integer.
+Write a procedure (pseudocode) with input parameter the location of the root
+node (or pointer to the root node), and that computes the average value of the
+elements in the tree. However, do not use recursion. Use a stack instead.
+Analyze the running time of your algorithm, as a function of the number of nodes
+in the tree. As proven in CS 331, stack operations are $O(1)$.
+
+### Answer
+
+Without stack:
 
 ```
 sum(T):
@@ -53,7 +76,7 @@ avg(T):
   return sum(T) / length(T)
 ```
 
-### With stack
+With stack:
 
 ```
 sum(T):
@@ -77,7 +100,16 @@ sum(T):
   return sum
 ```
 
-## 4. Give pseudocode for the following problem: given an array $A[1 \ldots n]$ containing the numbers $1,2,\ldots,n$ and representing a permutation, modify $A$ to represent the next lexicographic permutation. Analyse running time (which should not exceed $O(n)$) and argue correctness (why the output is lexicographically bigger than the input? why other permutations lexicographically bigger than the input are bigger than the output?).
+## Problem 4
+
+Give pseudocode for the following problem: given an array $A[1 \ldots n]$
+containing the numbers $1,2,\ldots,n$ and representing a permutation, modify $A$
+to represent the next lexicographic permutation. Analyse running time (which
+should not exceed $O(n)$) and argue correctness (why the output is
+lexicographically bigger than the input? why other permutations
+lexicographically bigger than the input are bigger than the output?).
+
+### Answer
 
 ```
 nextPermutation(A, n):
@@ -100,7 +132,12 @@ nextPermutation(A, n):
   return A
 ```
 
-## 5. What is the running time of HEAPSORT on an array $A$ that is sorted in decreasing order? Use an $\Omega()$ approximation and justify you answer.
+## Problem 5
+
+What is the running time of HEAPSORT on an array $A$ that is sorted in
+decreasing order? Use an $\Omega()$ approximation and justify you answer.
+
+### Answer
 
 **When the array is sorted in decreasing order, the heap sort takes
 $\bf \Omega(n \log n)$ time**. Each of the $n-1$ calculation to MAX-HEAPIFY
@@ -108,7 +145,14 @@ takes $\Omega(\log n)$ time. The heap will be built in linear time as the
 elements of the array are in decreasing order. Therefore the maximum running
 time of heap sort will be $\Omega(n \log n)$.
 
-## Extra 1. Augment the stack data structure to do in constant time, besides push/insert and pop/remove, findmin. Describe the data structure, and present pseudocode for push/insert, pop/remove, and findmin. Argue that each operation takes constant time. Argue that findmin correctly returns the element with minimum key.
+## Extra Problem 1
+
+Augment the stack data structure to do in constant time, besides push/insert and
+pop/remove, findmin. Describe the data structure, and present pseudocode for
+push/insert, pop/remove, and findmin. Argue that each operation takes constant
+time. Argue that findmin correctly returns the element with minimum key.
+
+### Answer
 
 ```
 n = 100
@@ -133,7 +177,19 @@ findmin():
   return min
 ```
 
-## Extra 2. Suppose we are given a $n$-element sequence $S$ such that each element in $S$ represents a different vote in an election, where each vote is given as an integer representing the ID of the chosen candidate (these IDs come from the range $1 \ldots n^5$). Suppose you know the number $k < n$ of candidates running. Describe a $O(n \log k)$ worst-case algorithm for determining who wins the election. (Thus hashing will not work, as it does not have a good enough worst-case guarantee). The space requirement is $O(n)$, so a table of size $n^5$ cannot be used. Argue that your running time is correct. Note that $k$ could be much smaller than $n$ and $O(n \log n)$ is only a partial solution.
+## Extra Problem 2
+
+Suppose we are given a $n$-element sequence $S$ such that each element in $S$
+represents a different vote in an election, where each vote is given as an
+integer representing the ID of the chosen candidate (these IDs come from the
+range $1 \ldots n^5$). Suppose you know the number $k < n$ of candidates
+running. Describe a $O(n \log k)$ worst-case algorithm for determining who wins
+the election. (Thus hashing will not work, as it does not have a good enough
+worst-case guarantee). The space requirement is $O(n)$, so a table of size $n^5$
+cannot be used. Argue that your running time is correct. Note that $k$ could be
+much smaller than $n$ and $O(n \log n)$ is only a partial solution.
+
+### Answer
 
 Start by sorting the list, which takes $O(n \log n)$ time. Then move through the
 list, keeping track of the which candidate has the most votes so far, and how
@@ -149,9 +205,24 @@ takes $O(\log k)$ time). If the ID is found, add one to its number of votes.
 Otherwise, create a new node with this ID and with one vote. At the end, go
 through all the nodes in the tree to find the one with the most votes.
 
-## Extra 3. You are given a tree represented by the following data structure. Nodes have three fields: element, parent, and auxiliary. The auxiliary field is $0$ and is there to help during traversals. In this problem your algorithm should leave the tree unchanged. You are given the location (or pointer to) two nodes $x$ and $y$. The goal is to print the elements on the path from $x$ to $y$ in tree, in time proportional to the length of the path. That is, if the tree has $n$ nodes and this path has length $k$, the running time of the algorithm should be $O(k)$ ($O(n)$ is not good enough, and the tree does not have to be balanced). See Figure 1 for an example, where the path from $x$ to $y$ is $\{x,l,f,c,y\}$ and has length $k=4$. Argue that your algorithm algorithm indeed has running time $O(k)$. Don’t forget to bring back the tree to its original state. Present pseudocode.
+## Extra Problem 3
+
+You are given a tree represented by the following data structure. Nodes have
+three fields: element, parent, and auxiliary. The auxiliary field is $0$ and is
+there to help during traversals. In this problem your algorithm should leave the
+tree unchanged. You are given the location (or pointer to) two nodes $x$
+and $y$. The goal is to print the elements on the path from $x$ to $y$ in tree,
+in time proportional to the length of the path. That is, if the tree has $n$
+nodes and this path has length $k$, the running time of the algorithm should
+be $O(k)$ ($O(n)$ is not good enough, and the tree does not have to be
+balanced). See Figure 1 for an example, where the path from $x$ to $y$
+is $\{x,l,f,c,y\}$ and has length $k=4$. Argue that your algorithm algorithm
+indeed has running time $O(k)$. Don’t forget to bring back the tree to its
+original state. Present pseudocode.
 
 ![Figure 1](img/hw1_1.png)
+
+### Answer
 
 ```
 printRange(x, y):
@@ -168,7 +239,22 @@ printRange(x, y):
 
 **The run time of the given algorithm is $\bf O(k)$**.
 
-## Extra 4. We are given two arrays of size $n$ $A$ and $B$, of integers, Consider the $n$ closed intervals $[A[i],B[i]]$, which may not be disjoint. The union of these $n$ intervals is another set of intervals, which can be made disjoint and maximal. Present an $O(n \log n)$ algorithm to output this new set of disjoint and maximal intervals into arrays $C$ and $D$. Present pseudocode and analyze the running time. Two sets are disjoint if they have no common elements. Consider, for example, $A=\{6,1,4,9,12\}$ and $B=\{9,3,7,11,14\}$. The intervals are $[6,9], [1,3], [4,7], [9,11], [12,14]$. Here $[6,9]$ and $[4,7]$ are not disjoint. Also, with closed intervals, 9 belongs to both $[4,9]$ and $[9,11]$, and thus $[4,9]$ and $[9,11]$ are not disjoint. Then, one of the solutions can be $C=\{4,1,12\}$ and $D=\{11,3,14\}$, which represent disjoint and maximal intervals. Another valid solution would be $C=\{1,4,12\}$ and $D=\{3,11,14\}$.
+## Extra Problem 4
+
+We are given two arrays of size $n$ $A$ and $B$, of integers, Consider the $n$
+closed intervals $[A[i],B[i]]$, which may not be disjoint. The union of
+these $n$ intervals is another set of intervals, which can be made disjoint and
+maximal. Present an $O(n \log n)$ algorithm to output this new set of disjoint
+and maximal intervals into arrays $C$ and $D$. Present pseudocode and analyze
+the running time. Two sets are disjoint if they have no common elements.
+Consider, for example, $A=\{6,1,4,9,12\}$ and $B=\{9,3,7,11,14\}$. The intervals
+are $[6,9], [1,3], [4,7], [9,11], [12,14]$. Here $[6,9]$ and $[4,7]$ are not
+disjoint. Also, with closed intervals, 9 belongs to both $[4,9]$ and $[9,11]$,
+and thus $[4,9]$ and $[9,11]$ are not disjoint. Then, one of the solutions can
+be $C=\{4,1,12\}$ and $D=\{11,3,14\}$, which represent disjoint and maximal
+intervals. Another valid solution would be $C=\{1,4,12\}$ and $D=\{3,11,14\}$.
+
+### Answer
 
 ```
 compareInterval(A, B):
@@ -193,7 +279,7 @@ mergeIntervals(A, n):
   return S
 ```
 
-### Steps
+Steps:
 
 - Sort all intervals in increasing order of start time.
 - Traverse sorted intervals starting from first interval, do following for every
@@ -208,7 +294,14 @@ mergeIntervals(A, n):
   avoid the use of extra space by doing merge operations in-place. Below are
   detailed steps.
 
-## Extra 5. Suppose we are given two sorted arrays $S$ and $T$, each with $n$ items. Describe an $O(\log n)$-time algorithm for finding the $k$-th smallest key in the union of the keys from $S$ and $T$ (assuming no duplicates). Present pseudocode, argue correctness and analyze the running time.
+## Extra Problem 5
+
+Suppose we are given two sorted arrays $S$ and $T$, each with $n$ items.
+Describe an $O(\log n)$-time algorithm for finding the $k$-th smallest key in
+the union of the keys from $S$ and $T$ (assuming no duplicates). Present
+pseudocode, argue correctness and analyze the running time.
+
+### Answer
 
 ```
 kthSmallest(S, T, k):
@@ -235,7 +328,17 @@ kthSmallest(S, T, k):
 And it takes $\log n . \log n = \log n^2$. **So the time complexity is
 $\bf O(\log n^2)$**.
 
-## Extra 6. Suppose that you have a “black-box” worst-case linear-time median subroutine. (the median of n numbers is the $⌈n/2⌉$-th smallest element, i.e. the median of $\{1,2,4,7,11,94\}$ is $4$). Give a simple, linear-time algorithm that, given an array $A[1 \ldots n]$ and a positive integer $i \le n$ finds the $i$-th smallest element of $A$. Present pseudocode using procedures from the textbook or notes; give complete specifications and state the running time of the procedure in terms of its parameters.
+## Extra Problem 6
+
+Suppose that you have a “black-box” worst-case linear-time median subroutine.
+(the median of n numbers is the $⌈n/2⌉$-th smallest element, i.e. the median
+of $\{1,2,4,7,11,94\}$ is $4$). Give a simple, linear-time algorithm that, given
+an array $A[1 \ldots n]$ and a positive integer $i \le n$ finds the $i$-th
+smallest element of $A$. Present pseudocode using procedures from the textbook
+or notes; give complete specifications and state the running time of the
+procedure in terms of its parameters.
+
+### Answer
 
 ```
 ithSmallest(A, i):
@@ -264,4 +367,4 @@ $n \log ba = n \log 21 = n_0 = 1$ which is asymptotically smaller than $n$.
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: 'none' });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
