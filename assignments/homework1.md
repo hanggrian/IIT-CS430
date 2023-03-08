@@ -1,11 +1,17 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/homework-1.pdf)
+[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework1.pdf)
 / [homepage](https://github.com/hendraanggrian/IIT-CS430/)
 
 # CS430: Homework 1
 
-## 1.
+## Problem 1
 
-### a. Use pseudocode to specify a brute-force algorithm that determines when given as input a sequence of $n$ positive integers whether there are two distinct terms of the sequence that have as sum a third term. The algorithm should loop through all triples of terms of the sequence, checking whether the sum of the first two terms equals the third.
+### 1A
+
+> Use pseudocode to specify a brute-force algorithm that determines when given
+  as input a sequence of $n$ positive integers whether there are two distinct
+  terms of the sequence that have as sum a third term. The algorithm should loop
+  through all triples of terms of the sequence, checking whether the sum of the
+  first two terms equals the third.
 
 In a brute-force approach, simply create 3 pointers that gradually move forward
 covering all posibilities.
@@ -27,15 +33,22 @@ public static boolean hasTupleBruteForce(int[] A) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/FindATuple.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/FindATupleTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/FindATuple.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/FindATupleTest.java)
 
-### b. Give a big-O estimate for the complexity of the brute-force algorithm part (a).
+### 1B
+
+> Give a big-O estimate for the complexity of the brute-force algorithm part
+  (a).
 
 **The big-O estimate is $\bf O(n^3)$**, because we're searching for permutations
 of 3 in $n$.
 
-### c. Devise a more efficient algorithm for solving the problem that first sorts the input sequence and then checks for each pair of terms whether their sum is in the sequence.
+### 1C
+
+> Devise a more efficient algorithm for solving the problem that first sorts the
+  input sequence and then checks for each pair of terms whether their sum is in
+  the sequence.
 
 A more efficient solution is to sort the input first, allowing the comparison to
 be executed in 1 pass.
@@ -52,12 +65,18 @@ public static boolean hasTupleSorted(int[] A) {
 }
 ```
 
-### d. Give a big-O estimate for the complexity of this algorithm. Is it more efficient than the brute-force algorithm?
+### 1D
+
+> Give a big-O estimate for the complexity of this algorithm. Is it more
+  efficient than the brute-force algorithm?
 
 **The big-O estimate is $\bf O(n^2 \log n)$**, because function `Array.sort`
 operates at $O(n \log n)$.
 
-## 2. Prove, by induction on $k$, that level $k$ of a binary tree has less than or equal to $2^k$ nodes (root level has $k = 0$).
+## Problem 2
+
+> Prove, by induction on $k$, that level $k$ of a binary tree has less than or
+  equal to $2^k$ nodes (root level has $k = 0$).
 
 $$
 \begin{array}{rcl}
@@ -70,9 +89,13 @@ $$
 \end{array}
 $$
 
-## 3. Use definition of big O to prove or disprove.
+## Problem 3
 
-### a. Is $2^{n+1} = O(2^n)$?
+> Use definition of big O to prove or disprove.
+
+### 3A
+
+> Is $2^{n+1} = O(2^n)$?
 
 $$
 \begin{array}{rcl}
@@ -83,7 +106,9 @@ $$
 \end{array}
 $$
 
-### b. Is $2^{2n} = O(2^n)$?
+### 3B
+
+> Is $2^{2n} = O(2^n)$?
 
 $$
 \begin{array}{rcl}
@@ -94,17 +119,23 @@ $$
 \end{array}
 $$
 
-## 4. The following routine takes as input a list of $n$ numbers, and returns the first value of $i$ for which $L[i] < L[i-1]$, or $n$ if no such number exists.
+## Problem 4
 
-```c
-int firstDecrease(int * L, int n) {
-  for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {
-    return i;
-  }
-}
-```
+> The following routine takes as input a list of $n$ numbers, and returns the
+  first value of $i$ for which $L[i] < L[i-1]$, or $n$ if no such number exists.
+>
+> ```c
+> int firstDecrease(int * L, int n) {
+>   for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {
+>     return i;
+>   }
+> }
+> ```
 
-### a. What is the big-O runtime for the routine, measured as a function of its return value $i$?
+### 4A
+
+> What is the big-O runtime for the routine, measured as a function of its
+  return value $i$?
 
 | Line | Cost |
 | --- | --- |
@@ -121,7 +152,14 @@ $$
 \end{array}
 $$
 
-### b. If the numbers are chosen independently at random, then the probability that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an expression for the expected value returned by the algorithm. (Your answer can be expressed as a sum, it does not have to be solved in closed form. Do not use O-notation.)
+### 4B
+
+> If the numbers are chosen independently at random, then the probability
+  that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case
+  of $i = n+1$ for which the probability is $1/n!$ Use this fact to write an
+  expression for the expected value returned by the algorithm. (Your answer can
+  be expressed as a sum, it does not have to be solved in closed form. Do not
+  use O-notation.)
 
 #### Given
 
@@ -143,7 +181,10 @@ $$
 \end{array}
 $$
 
-### c. What is the big-O average case running time of the routine? Hint: Simplify the previous summation until you see a common taylor series.
+### 4C
+
+> What is the big-O average case running time of the routine? Hint: Simplify
+  the previous summation until you see a common taylor series.
 
 | Theory | Equation | Where |
 | --- | --- | --- |
@@ -161,46 +202,51 @@ $$
 
 With $x=1$, we get our $E(i)$. **Hence $\bf E(i) = O(e)$**.
 
-## 5. Consider the following program and recursive function.
+## Problem 5
 
-```c
-#include <iostream.h>
-void Z(int[], int, int);
-void swap(int&, int&);
+> Consider the following program and recursive function.
+>
+> ```c
+> #include <iostream.h>
+> void Z(int[], int, int);
+> void swap(int&, int&);
+>
+> void main() {
+>   int A[3] = {1, 2, 3};
+>   int n = 3;
+>   Z(A, n, 0);
+> }
+>
+> void swap(int &x, int &y) {
+>   int temp;
+>   temp = x;
+>   x = y;
+>   y = temp;
+> }
+>
+> void Z(int A[], int n, int k) {
+>   if (k == n - 1) {
+>     for (int i = 0; i < n; i++) {
+>       cout << A[i] << " ";
+>     }
+>     cout << endl;
+>   } else {
+>     for (int i = k; i < n; i++) {
+>       swap(A[i], A[k]);
+>       Z(A, n, k + 1);
+>       swap(A[i], A[k]);
+>     }
+>   }
+> }
+> ```
 
-void main() {
-  int A[3] = {1, 2, 3};
-  int n = 3;
-  Z(A, n, 0);
-}
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/Permutations.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/PermutationsTest.java)
 
-void swap(int &x, int &y) {
-  int temp;
-  temp = x;
-  x = y;
-  y = temp;
-}
+### 5A
 
-void Z(int A[], int n, int k) {
-  if (k == n - 1) {
-    for (int i = 0; i < n; i++) {
-      cout << A[i] << " ";
-    }
-    cout << endl;
-  } else {
-    for (int i = k; i < n; i++) {
-      swap(A[i], A[k]);
-      Z(A, n, k + 1);
-      swap(A[i], A[k]);
-    }
-  }
-}
-```
-
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/Permutations.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/PermutationsTest.java)
-
-### a. Demonstrate the execution, show the output, and explain what the program accomplishes.
+> Demonstrate the execution, show the output, and explain what the program
+  accomplishes.
 
 `Z` is a recursive function with 2 pointers with conditions:
 
@@ -224,7 +270,9 @@ each has a length of $n$. The result:
 Based on such characteristics and results, **I believe this is a function to
 print permutations of an array of integers**.
 
-### b. Give a recurrence equation describing the worst-case behavior of the program.
+### 5B
+
+> Give a recurrence equation describing the worst-case behavior of the program.
 
 | Line | Relation |
 | --- | --- |
@@ -248,7 +296,9 @@ print permutations of an array of integers**.
 | Base | $\begin{array}{rcl} \bf T(1) &=& n . O(1) + O(1) \\ &=& \bf n \end{array}$ |
 | Recursive | $\begin{array}{rcl} \bf T(n) &=& n . (O(1) + T(n-1) + O(1)) \\ &=& \bf n . T(n-1) \end{array}$ |
 
-### c. Solve the recurrence equation.
+### 5C
+
+> Solve the recurrence equation.
 
 $$
 \begin{array}{rcl}
@@ -269,9 +319,14 @@ $$
 \end{array}
 $$
 
-## 6. Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $\{i,j\}$ is called an inversion of $A$.
+## Problem 6
 
-### a. List the five inversions of the array $\{2,3,8,6,1\}$.
+> Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$
+  and $A[i] > A[j]$, then the pair $\{i,j\}$ is called an inversion of $A$.
+
+### 6A
+
+> List the five inversions of the array $\{2,3,8,6,1\}$.
 
 We start the 2 pointers on the right:
 
@@ -283,7 +338,10 @@ We start the 2 pointers on the right:
 | 4 | $\bf \{1, 5\}$ | $1 < 5$ | $2 > 1$ |
 | 5 | $\bf \{3, 4\}$ | $3 < 4$ | $8 > 6$ |
 
-### b. What array with elements from the set $\{1,2,\ldots,n\}$ has the most inversions? How many does it have?
+### 6B
+
+> What array with elements from the set $\{1,2,\ldots,n\}$ has the most
+  inversions? How many does it have?
 
 Using the previous example of starting from the right, arrays with the most
 inversions are in reversed order.
@@ -296,7 +354,10 @@ $$
 \end{array}
 $$
 
-### c. What is the relationship between the running time of *insertion sort* and the number of inversions in the input array? Justify your answer.
+### 6C
+
+> What is the relationship between the running time of *insertion sort* and the
+  number of inversions in the input array? Justify your answer.
 
 | # | Swaps |
 | ---: | --- |
@@ -306,7 +367,11 @@ $$
 | 4 | $\bf \{6, 1\}$ |
 | 5 | $\bf \{8, 1\}$ |
 
-### d. Give an algorithm that determines the number of inversions in any permutation on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge sort*.)
+### 6D
+
+> Give an algorithm that determines the number of inversions in any permutation
+  on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge
+  sort*.)
 
 ```java
 public static int countInversions(int[] A, int p, int r) {
@@ -349,12 +414,17 @@ static int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/Inversions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/InversionsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/Inversions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/InversionsTest.java)
 
-## 7. Give big-O bounds for $T(n)$ in each of the following recurrences. (Substitution or Recursion Tree)
+## Problem 7
 
-### a. $T(n) = T(n-1) + n$
+> Give big-O bounds for $T(n)$ in each of the following recurrences.
+  (Substitution or Recursion Tree)
+
+### 7A
+
+> $T(n) = T(n-1) + n$
 
 By expansion:
 
@@ -368,7 +438,9 @@ $$
 
 As is the case previously, **the big-O is $\bf O(n^2)$**.
 
-### b. $T(n) = T(n/4) + T(n/2) + n^2$
+### 7B
+
+> $T(n) = T(n/4) + T(n/2) + n^2$
 
 Using Recursion Tree:
 
@@ -395,4 +467,4 @@ Dropping the lower term, **the big-O is $\bf O(n^2)$**.
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

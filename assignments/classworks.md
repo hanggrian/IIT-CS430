@@ -4,14 +4,12 @@
 
 ## Statistic Algorithm
 
-Assume that are given a "black-box" (i.e., you do not have the source code)
-procedure `median` that takes as parameters an array $A$ and subarray indices
-$p$ and $r$, and returns the value of the median element of $A[p \ldots r]$ in
-$O(n)$ time in the worst case. Give a simple, linear-time algorithm that uses
-this procedure `median` to find the $i$-th smallest element. Write the
-recurrence relation for your algorithm and show the solution is linear growth.
-
-### Solution
+> Assume that are given a "black-box" (i.e., you do not have the source code)
+  procedure `median` that takes as parameters an array $A$ and subarray indices
+  $p$ and $r$, and returns the value of the median element of $A[p \ldots r]$ in
+  $O(n)$ time in the worst case. Give a simple, linear-time algorithm that uses
+  this procedure `median` to find the $i$-th smallest element. Write the
+  recurrence relation for your algorithm and show the solution is linear growth.
 
 Given `median`, here is a linear-time algorithm `select` for finding $i$-th
 smallest element in $A$. This algorithm uses the deterministic `partition`
@@ -39,11 +37,9 @@ is $\bf T(n) = T(n/2) + O(n)$**. (by master method)
 
 ## Recursive Insertion Sort
 
-Rewrite the Insertion with recursion and analyze the complexity accordingly.
+> Rewrite the Insertion with recursion and analyze the complexity accordingly.
 
-### Solution
-
-#### Code
+### Code
 
 ```java
 public static void insertionSort(int[] A, int p, int r) {
@@ -60,10 +56,10 @@ public static void insertionSort(int[] A, int p, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/main/java/com/example/sort/InsertionSorts.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/Testbed/app/src/test/java/com/example/sort/InsertionSortsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/sort/InsertionSorts.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/sort/InsertionSortsTest.java)
 
-#### Recurrence
+### Recurrence
 
 $$
 \begin{array}{rcl}
@@ -72,7 +68,7 @@ $$
 \end{array}
 $$
 
-#### Recurrence Equation
+### Recurrence Equation
 
 $$
 \begin{array}{rcl}
@@ -92,11 +88,14 @@ $$
 
 ## R-B BST
 
-Draw the complete binary search tree of height 3 on the
-keys $\{1,2,\ldots,15\}$. Add the NIL leaves and color the nodes in three
-different ways such that the black-heights of the resulting red-black trees
-are $2, 3, 4$.
+> Draw the complete binary search tree of height 3 on the
+  keys $\{1,2,\ldots,15\}$. Add the NIL leaves and color the nodes in three
+  different ways such that the black-heights of the resulting red-black trees
+  are $2, 3, 4$.
 
-### Solution
+![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/images/classworks_rbbst.jpg)
 
-![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/Classworks/rb_bst.jpg)
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
