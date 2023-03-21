@@ -1,7 +1,9 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework2.pdf)
-/ [homepage](https://github.com/hendraanggrian/IIT-CS430/)
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# CS430: Homework 2
+# [Homework 2](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework2.pdf)
 
 ## Problem 1
 
@@ -248,8 +250,3 @@ For the lowest possible stack depth in any sorting algorithm, the input should
 already be sorted. With no sorting process, any comparison sorting algorithm
 still needs to perform comparisons. **Therefore $\bf n-1$, because every
 comparison checks 2 variables**.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -1,7 +1,9 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework3.pdf)
-/ [homepage](https://github.com/hendraanggrian/IIT-CS430/)
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# CS430: Homework 3
+# [Homework 3](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework3.pdf)
 
 ## Problem 1
 
@@ -130,8 +132,3 @@ Function `hasPrime(T, x)` has simple following logic:
 
 I just don't see how it is possible to `insert(x)` to tree $T$ without
 calling `insert(T, x)`.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

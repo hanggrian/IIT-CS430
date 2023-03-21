@@ -1,7 +1,9 @@
-[View questions](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework1.pdf)
-/ [homepage](https://github.com/hendraanggrian/IIT-CS430/)
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# CS430: Homework 1
+# [Homework 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework1.pdf)
 
 ## Problem 1
 
@@ -463,8 +465,3 @@ $$
 $$
 
 Dropping the lower term, **the big-O is $\bf O(n^2)$**.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

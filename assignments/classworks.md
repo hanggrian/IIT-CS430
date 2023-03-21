@@ -1,6 +1,9 @@
-[View homepage](https://github.com/hendraanggrian/IIT-CS430/)
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# CS430: Classworks
+# [Classworks](https://github.com/hendraanggrian/IIT-CS430/)
 
 ## Statistic Algorithm
 
@@ -94,8 +97,3 @@ $$
   are $2, 3, 4$.
 
 ![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/images/classworks_rbbst.jpg)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
