@@ -1,0 +1,19 @@
+[versions]
+jdk = "11"
+kotlin = "1.7.20"
+
+[plugins]
+kotlinx-kover = "org.jetbrains.kotlinx.kover:0.6.1"
+git-publish = "org.ajoberstar.git-publish:3.0.1"
+pages = "com.hendraanggrian.pages:0.1"
+
+[libraries]
+# lint
+ktlint = "com.pinterest:ktlint:0.48.1"
+rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.2-SNAPSHOT"
+# main
+ktfx = "com.hendraanggrian.ktfx:ktfx:0.1-SNAPSHOT"
+commons-lang3 = "org.apache.commons:commons-lang3:3.12.0"
+kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+# test
+truth = "com.google.truth:truth:1.1.3"
