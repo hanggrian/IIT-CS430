@@ -3,9 +3,9 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Classworks](https://github.com/hendraanggrian/IIT-CS430/)
+# Exercise
 
-## Statistic Algorithm
+## Statistic algorithm
 
 > Assume that are given a "black-box" (i.e., you do not have the source code)
   procedure `median` that takes as parameters an array $A$ and subarray indices
@@ -38,7 +38,7 @@ $A[p \ldots q - 1]$ and $A[q + 1 \ldots r]$ has at most half the number of
 elements of $A$. **The recurrence for the worst-case running time of `select`
 is $\bf T(n) = T(n/2) + O(n)$**. (by master method)
 
-## Recursive Insertion Sort
+## Recursive insertion sort
 
 > Rewrite the Insertion with recursion and analyze the complexity accordingly.
 
@@ -71,7 +71,7 @@ $$
 \end{array}
 $$
 
-### Recurrence Equation
+### Recurrence equation
 
 $$
 \begin{array}{rcl}
@@ -94,6 +94,6 @@ $$
 > Draw the complete binary search tree of height 3 on the
   keys $\{1,2,\ldots,15\}$. Add the NIL leaves and color the nodes in three
   different ways such that the black-heights of the resulting red-black trees
-  are $2, 3, 4$.
+  are $2,3,4$.
 
-![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/images/classworks_rbbst.jpg)
+![R-B BST solution.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/exercise_fig1.jpg)

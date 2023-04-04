@@ -12,6 +12,7 @@ kotlin.jvmToolchain(libs.versions.jdk.get().toInt())
 dependencies {
     ktlint(libs.ktlint, ::configureKtlint)
     ktlint(libs.rulebook.ktlint)
+    implementation(libs.guava.jre)
     implementation(libs.ktfx)
     implementation(libs.commons.lang3)
     implementation(libs.kotlinx.coroutines)

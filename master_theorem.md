@@ -1,6 +1,6 @@
 # [Master Theorem](https://brilliant.org/wiki/master-theorem/)
 
-The master theorem provides a solution to [recurrence relations](https://brilliant.org/wiki/recurrence-relations/)
+The **master theorem** provides a solution to [recurrence relations](https://brilliant.org/wiki/recurrence-relations/)
 of the form
 
 $$T(n) = aT(\frac{n}{b}) + f(n) ,$$
@@ -52,7 +52,9 @@ $$T(n) = aT(\frac{n}{b}) + f(n) ,$$
 it is possible to determine the asymptotic form of $T$ based on relative
 comparison between $f$ and $n^{\log_b a}$.
 
-> ### Theorem: Master Theorem
+> ##### THEOREM
+>
+> ### Master Theorem
 >
 > Given a recurrence of the form
 >
@@ -103,7 +105,7 @@ $$T(n) = 2T(\frac{n}{2}) + O(1) ,$$
 $n^{\log_b a} = n$, which is asymptotically larger than a constant factor, so
 **case 1** of the master theorem gives $T(n) = 2T(\frac{n}{2}) + O(1) = \Theta(n)$.
 
-> ### Example
+> ##### Example
 >
 > Consider the recurrence
 >
@@ -113,7 +115,7 @@ $n^{\log_b a} = n$, which is asymptotically larger than a constant factor, so
   polynomially smaller than $n^{\log_b a}$, **case 1** of the master theorem implies
   that $T(n) = \Theta(n^2)$.
 
-> ### Example
+> ##### Example
 >
 > Consider the recurrence
 >
@@ -123,7 +125,7 @@ $n^{\log_b a} = n$, which is asymptotically larger than a constant factor, so
   asymptotically the same as $n^{\log_b a}$, **case 2** of the master theorem
   implies that $T(n) = \Theta(n^3 \log n)$.
 
-> ### Example
+> ##### Example
 >
 > Consider the recurrence
 >

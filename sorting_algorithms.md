@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 # [Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
 | Sorting | Best $\bf \Omega$ | Average $\bf \Theta$ | Worst $\bf O$ | Memory | Stable |
@@ -17,8 +22,3 @@
 | LSD Radix Sort | $\color{green} n$ | $\color{green} n \cdot \frac{k}{d}$ | $\color{green} n \cdot \frac{k}{d}$ | $n + 2^d$ | $\color{green} \checkmark$ |
 | MSD Radix Sort | $-$ | $\color{green} n \cdot \frac{k}{d}$ | $\color{green} n \cdot \frac{k}{d}$ | $n + 2^d$ | $\color{green} \checkmark$ |
 | MSD Radix Sort (in-place) | $-$ | $\color{green} n \cdot \frac{k}{1}$ | $\color{green} n \cdot \frac{k}{1}$ | $2^1$ | $\color{red} \textsf{✗}$ |
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: 'none' });</script>

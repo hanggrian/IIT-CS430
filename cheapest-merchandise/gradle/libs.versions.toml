@@ -12,6 +12,7 @@ pages = "com.hendraanggrian.pages:0.1"
 ktlint = "com.pinterest:ktlint:0.48.1"
 rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.2-SNAPSHOT"
 # main
+guava-jre = "com.google.guava:guava:31.1-jre"
 ktfx = "com.hendraanggrian.ktfx:ktfx:0.1-SNAPSHOT"
 commons-lang3 = "org.apache.commons:commons-lang3:3.12.0"
 kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"

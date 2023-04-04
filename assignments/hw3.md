@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Homework 3](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/homework3.pdf)
+# [Homework 3](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/hw3.pdf)
 
 ## Problem 1
 
