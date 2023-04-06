@@ -33,19 +33,19 @@
   as small boxes. The external path length (for leaves left to right)
   is $3 + 3 + 2 + 2 + 4 + 4 + 3 = 21$.
 
-### 2A
+### Subproblem 2A
 
 > Is there a binary search tree on the same set of
   letters, $\{D, G, N, Q, S, T\}$, that has a lower external path length? Either
   give such a tree and how it is formed from the original BST or prove it does
   not exist.
 
-### 2B
+### Subproblem 2B
 
 > Can the nodes in the original BST be colored red and black so as to form a
   proper red-black tree?
 
-### 2C
+### Subproblem 2C
 
 > What might you conclude about a relationship between external path length and
   red-black trees?
@@ -80,12 +80,12 @@
 
 > The following is an instance of a BST with 9 nodes.
 
-### 3A
+### Subproblem 3A
 
 > If the keys of nodes are $10, 12, 15, 19, 20, 23, 30, 25, 27$, please fill
   them in the circles to form a BST.
 
-### 3B
+### Subproblem 3B
 
 > Design an algorithm $SumLR(T, L, R)$ to return the sum of all keys in $T$, a
   BST between $L$ and $R$. For example, in $T$, if $L=5$ and $R=19$, the

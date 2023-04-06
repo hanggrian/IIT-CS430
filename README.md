@@ -1,12 +1,13 @@
 # IIT CS430
 
-| | Description |
-| --- | --- |
-| Term | Summer 2023 |
-| Section | 02 |
-| Subject | Computer Science |
-| Title | Introduction to Algorithms |
-| Instructor | Yao Lan |
+**Introduction to Algorithms** at
+*Illinois Institute of Technology* in
+Spring 2023.
+
+- [Syllabus](https://github.com/hendraanggrian/IIT-CS430/blob/assets/syllabus.pdf)
+- [Content](https://github.com/hendraanggrian/IIT-CS430/tree/assets/)
+- [Assignments](assignments/)
+- [Schedule](.class.ics)
 
 ## Related repositories
 

@@ -51,7 +51,7 @@ sorted array depends on how the pivot is selected**.
 [View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/sort/Quicksorts.java)
 / [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/sort/QuicksortsTest.java)
 
-### 2A
+### Subproblem 2A
 
 > Argue that `quicksortTailRecursive(A, 1, A.length)` correctly sorts the
   array $A$.
@@ -74,7 +74,7 @@ By comparison, `quicksortTailRecursive` has the same iteration process and
 parameter values. **Therefore, `quicksortTailRecursive` correctly sorts the
 array**.
 
-### 2B
+### Subproblem 2B
 
 
 > Compilers usually execute recursive procedures by using a **stack** that
@@ -94,7 +94,7 @@ pivot is $\bf A[1]$ or $\bf A[n]$**. In such case, one of the partition will be
 full while the other is empty. Therefore, $n$ iteration is required before the
 function terminates.
 
-### 2C
+### Subproblem 2C
 
 > Modify the code for `quicksortTailRecursiveModified` so that the worst-case
   stack depth is $\Theta(\log n)$. Maintain the $O(n \log n)$ expected running
@@ -150,7 +150,7 @@ operation $\bf O(n \log n)$**.
 [View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/HoarePartitions.java)
 / [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/HoarePartitionsTest.java)
 
-### 3A
+### Subproblem 3A
 
 > Demonstrate the operation of `hoarePartition` on the
   array $A=\{13,19,9,5,12,8,7,4,11,2,6,21\}$, showing the values of the array
@@ -166,7 +166,7 @@ operation $\bf O(n \log n)$**.
 > The next three questions ask you to give a careful argument that the
   procedure `hoarePartition` is correct. Prove the following:
 
-### 3B
+### Subproblem 3B
 
 > The indices $i$ and $j$ are such that we never access an element of $A$
   outside the subarray $A[p \ldots r]$.
@@ -177,7 +177,7 @@ set from $p$ and $r$ respectively and only move closer gradually until they
 intersect. **Therefore $\bf p \le i < j \le r$
 or $\bf A[p \ldots i \ldots j \ldots r]$**.
 
-### 3C
+### Subproblem 3C
 
 > When `hoarePartition` terminates, it returns a value $j$ such
   that $p \le j < r$.
@@ -186,7 +186,7 @@ The function terminates when $i$ and $j$ intersect, making sure that they are
 always in the range of $p$ and $r$. **Therefore $\bf p \le j < r$ is
 true.**
 
-### 3D
+### Subproblem 3D
 
 > Every element of $A[p \ldots j]$ is less than or equal to every element
   of $A[j+1 \ldots r]$ when `hoarePartition` terminates.

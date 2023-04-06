@@ -7,7 +7,7 @@
 
 ## Problem 1
 
-### 1A
+### Subproblem 1A
 
 > Use pseudocode to specify a brute-force algorithm that determines when given
   as input a sequence of $n$ positive integers whether there are two distinct
@@ -38,7 +38,7 @@ public static boolean hasTupleBruteForce(int[] A) {
 [View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/FindATuple.java)
 / [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/FindATupleTest.java)
 
-### 1B
+### Subproblem 1B
 
 > Give a big-O estimate for the complexity of the brute-force algorithm part
   (a).
@@ -46,7 +46,7 @@ public static boolean hasTupleBruteForce(int[] A) {
 **The big-O estimate is $\bf O(n^3)$**, because we're searching for permutations
 of 3 in $n$.
 
-### 1C
+### Subproblem 1C
 
 > Devise a more efficient algorithm for solving the problem that first sorts the
   input sequence and then checks for each pair of terms whether their sum is in
@@ -67,7 +67,7 @@ public static boolean hasTupleSorted(int[] A) {
 }
 ```
 
-### 1D
+### Subproblem 1D
 
 > Give a big-O estimate for the complexity of this algorithm. Is it more
   efficient than the brute-force algorithm?
@@ -95,7 +95,7 @@ $$
 
 > Use definition of big O to prove or disprove.
 
-### 3A
+### Subproblem 3A
 
 > Is $2^{n+1} = O(2^n)$?
 
@@ -108,7 +108,7 @@ $$
 \end{array}
 $$
 
-### 3B
+### Subproblem 3B
 
 > Is $2^{2n} = O(2^n)$?
 
@@ -134,7 +134,7 @@ $$
 > }
 > ```
 
-### 4A
+### Subproblem 4A
 
 > What is the big-O runtime for the routine, measured as a function of its
   return value $i$?
@@ -154,7 +154,7 @@ $$
 \end{array}
 $$
 
-### 4B
+### Subproblem 4B
 
 > If the numbers are chosen independently at random, then the probability
   that `firstDecrease(L) returns i` is $(i-1)/i!$, except for the special case
@@ -183,7 +183,7 @@ $$
 \end{array}
 $$
 
-### 4C
+### Subproblem 4C
 
 > What is the big-O average case running time of the routine? Hint: Simplify
   the previous summation until you see a common taylor series.
@@ -245,7 +245,7 @@ With $x=1$, we get our $E(i)$. **Hence $\bf E(i) = O(e)$**.
 [View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/Permutations.java)
 / [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/PermutationsTest.java)
 
-### 5A
+### Subproblem 5A
 
 > Demonstrate the execution, show the output, and explain what the program
   accomplishes.
@@ -272,7 +272,7 @@ each has a length of $n$. The result:
 Based on such characteristics and results, **I believe this is a function to
 print permutations of an array of integers**.
 
-### 5B
+### Subproblem 5B
 
 > Give a recurrence equation describing the worst-case behavior of the program.
 
@@ -298,7 +298,7 @@ print permutations of an array of integers**.
 | Base | $\begin{array}{rcl} \bf T(1) &=& n . O(1) + O(1) \\ &=& \bf n \end{array}$ |
 | Recursive | $\begin{array}{rcl} \bf T(n) &=& n . (O(1) + T(n-1) + O(1)) \\ &=& \bf n . T(n-1) \end{array}$ |
 
-### 5C
+### Subproblem 5C
 
 > Solve the recurrence equation.
 
@@ -326,7 +326,7 @@ $$
 > Let $A[1 \ldots n]$ be an array of $n$ distinct numbers. If $i < j$
   and $A[i] > A[j]$, then the pair $\{i,j\}$ is called an inversion of $A$.
 
-### 6A
+### Subproblem 6A
 
 > List the five inversions of the array $\{2,3,8,6,1\}$.
 
@@ -340,7 +340,7 @@ We start the 2 pointers on the right:
 | 4 | $\bf \{1, 5\}$ | $1 < 5$ | $2 > 1$ |
 | 5 | $\bf \{3, 4\}$ | $3 < 4$ | $8 > 6$ |
 
-### 6B
+### Subproblem 6B
 
 > What array with elements from the set $\{1,2,\ldots,n\}$ has the most
   inversions? How many does it have?
@@ -356,7 +356,7 @@ $$
 \end{array}
 $$
 
-### 6C
+### Subproblem 6C
 
 > What is the relationship between the running time of *insertion sort* and the
   number of inversions in the input array? Justify your answer.
@@ -369,7 +369,7 @@ $$
 | 4 | $\bf \{6, 1\}$ |
 | 5 | $\bf \{8, 1\}$ |
 
-### 6D
+### Subproblem 6D
 
 > Give an algorithm that determines the number of inversions in any permutation
   on $n$ elements in $\Theta(n \log n)$ worst-case time. (Hint: Modify *merge
@@ -424,7 +424,7 @@ static int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 > Give big-O bounds for $T(n)$ in each of the following recurrences.
   (Substitution or Recursion Tree)
 
-### 7A
+### Subproblem 7A
 
 > $T(n) = T(n-1) + n$
 
@@ -440,7 +440,7 @@ $$
 
 As is the case previously, **the big-O is $\bf O(n^2)$**.
 
-### 7B
+### Subproblem 7B
 
 > $T(n) = T(n/4) + T(n/2) + n^2$
 

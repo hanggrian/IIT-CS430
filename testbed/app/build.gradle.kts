@@ -11,6 +11,7 @@ checkstyle {
 dependencies {
     checkstyle(libs.checkstyle)
     checkstyle(libs.rulebook.checkstyle)
+    implementation(libs.guava)
     implementation(libs.commons.math3)
     testImplementation(libs.truth)
 }
