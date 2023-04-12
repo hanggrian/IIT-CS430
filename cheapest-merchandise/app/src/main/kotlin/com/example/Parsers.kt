@@ -38,7 +38,7 @@ interface Parser {
     fun parse(prices: String, promotions: String): String
 
     fun String.forEachLine(action: (String) -> Unit) {
-        val itemCount = lines().first().trim().toInt()
+        val itemCount = substringAfter('\n').trimStart().toInt()
         lines().drop(1).take(itemCount).forEach { action(it.trim()) }
     }
 }

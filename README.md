@@ -7,7 +7,7 @@ Spring 2023.
 - [Syllabus](https://github.com/hendraanggrian/IIT-CS430/blob/assets/syllabus.pdf)
 - [Content](https://github.com/hendraanggrian/IIT-CS430/tree/assets/)
 - [Assignments](assignments/)
-- [Schedule](.class.ics)
+- [Schedule](.ical/)
 
 ## Related repositories
 

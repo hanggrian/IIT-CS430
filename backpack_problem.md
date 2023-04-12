@@ -24,9 +24,9 @@ backpack.
 > | | 1st Item | 2nd Item | 3rd Item | 4th Item | 5th Item |
 > | --- | --- | --- | --- | --- | --- |
 > | Value | $\$5$ | $\$10$ | $\$3$ | $\$2$ | $\$3$ |
-> | Weight | $4 \ kg$ | $8 \ kg$ | $3 \ kg$ | $5 \ kg$ | $2 \ kg$ |
+> | Weight | $4\ kg$ | $8\ kg$ | $3\ kg$ | $5\ kg$ | $2\ kg$ |
 >
-> If your backpack's weight limit is $10 \ kg$, what is the optimal solution?
+> If your backpack's weight limit is $10\ kg$, what is the optimal solution?
   That is, which items should you take with you?
 >
 > In this case, the solution is clear. One would take the second and the last
@@ -42,17 +42,17 @@ there is, and we will see an algorithm in the next section.
 > ![](https://ds055uzetaobb.cloudfront.net/brioche/solvable/e8a12d519a.2d5128d7e4.VIbrEI.jpg?width=250)
 >
 > Gina is traveling with Tom into the desert, and she'll be carrying all of
-  their food. She can carry a maximum of $9.5 \ kg$, and has $5500 \ cm^3$ of
+  their food. She can carry a maximum of $9.5\ kg$, and has $5500\ cm^3$ of
   space to carry supplies in her bag. Gina can pick from the following
   collection of supplies:
 >
 > Food item - Weight / Volume / Calories
 >
-> - granola bars - $240 \ g / 400 \ cm / 900 \ calories$
-> - potato chips - $135 \ g / 400 \ cm / 650 \ calories$
-> - beef jerky - $2800 \ g / 1500 \ cm / 5000 \ calories$
-> - almonds - $410 \ g / 410 \ cm / 950 \ calories$
-> - apples - $182 g \ / 190 cm \ / 95 \ calories$
+> - granola bars - $240\ g / 400\ cm / 900\ calories$
+> - potato chips - $135\ g / 400\ cm / 650\ calories$
+> - beef jerky - $2800\ g / 1500\ cm / 5000\ calories$
+> - almonds - $410\ g / 410\ cm / 950\ calories$
+> - apples - $182\ g / 190\ cm / 95\ calories$
 >
 > What is the largest number of calories she can bring with them, given her
   constraints?
