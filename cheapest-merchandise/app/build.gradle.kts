@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlinx.kover)
 }
 
-application.mainClass.set("$RELEASE_GROUP.CheapestMerchandiseApp")
+application.mainClass.set("$RELEASE_GROUP.App")
 
 kotlin.jvmToolchain(libs.versions.jdk.get().toInt())
 
