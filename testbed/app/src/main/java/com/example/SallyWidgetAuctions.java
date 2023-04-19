@@ -8,8 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 // TODO: implement knapsackDynamic
-public class SallyWidgetAuction {
-  private SallyWidgetAuction() {
+public class SallyWidgetAuctions {
+  private SallyWidgetAuctions() {
   }
 
   public static int maxProfitGreedy(int[] X, int[] Y, int n) {

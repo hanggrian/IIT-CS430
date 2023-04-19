@@ -49,8 +49,8 @@ public static int maxProfitGreedy(int[] X, int[] Y, int n, int m) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/SallyWidgetAuction.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/SallyWidgetAuctionTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/SallyWidgetAuctions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/SallyWidgetAuctionsTest.java)
 
 ### Using [knapsack problem](https://github.com/hendraanggrian/IIT-CS430/blob/main/backpack_problem.md)
 
@@ -96,15 +96,15 @@ public static int maxProfitKnapsackRecursive(int[] X, int[] Y, int n, int m) {
 Because the towers are placed in a straight road, we can use data structure
 **array**:
 
-- Create array $y$ with size $d$ which will be the output of the function. This
+- Create array $Y$ with size $d$ which will be the output of the function. This
   is because in the worst case where houses are far apart, each house requires
   an antenna.
-- Sort array $x$ so that $x_1 \le x_2 \le \ldots \le x_d$.
+- Sort array $X$ so that $X_1 \le X_2 \le \ldots \le X_d$.
 - To maximize coverage, put the first antenna on the end of the first house,
   instead of the start.
-- Iterate the rest of array $x$, only put next antenna if the next house is not
+- Iterate the rest of array $X$, only put next antenna if the next house is not
   covered by the last antenna.
-- Remove possible null values in array $y$ before returning it.
+- Remove possible null values in array $Y$ before returning it.
 
 Time complexity is $O(d^2)$ due to sorting.
 
@@ -128,8 +128,8 @@ public static int[] minLocations(int[] X, int d) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/CellTowerPlacement.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/CellTowerPlacementTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/CellTowerPlacements.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/CellTowerPlacementsTest.java)
 
 ### Subproblem 2B
 
@@ -217,5 +217,5 @@ public static int minCost(int[] cost, int n) {
 
 Time complexity is $O(n)$.
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/ClimbingStair.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/ClimbingStairTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/ClimbingStairs.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/ClimbingStairsTest.java)

@@ -1,7 +1,7 @@
 package com.example;
 
-public class ClimbingStair {
-  private ClimbingStair() {
+public class ClimbingStairs {
+  private ClimbingStairs() {
   }
 
   public static int minCost(int[] cost) {

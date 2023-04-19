@@ -2,8 +2,8 @@ package com.example;
 
 import java.util.Arrays;
 
-public class FindATuple {
-  private FindATuple() {
+public class FindATuples {
+  private FindATuples() {
   }
 
   public static boolean hasTupleBruteForce(int[] A) {

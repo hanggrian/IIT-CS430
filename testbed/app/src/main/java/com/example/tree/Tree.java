@@ -7,39 +7,32 @@ public class Tree {
   public Tree left;
   public Tree right;
 
-  public Tree() {
-  }
-
-  public Tree(int value) {
-    this.value = value;
-  }
-
-  public Tree(int value, Tree left, Tree right) {
+  private Tree(int value, Tree left, Tree right) {
     this.value = value;
     this.left = left;
     this.right = right;
   }
 
-  public static Tree newBinarySearchTree(int... values) {
+  public static Tree binarySearchTreeOf(int... values) {
     Arrays.sort(values);
     Tree root = null;
     Tree current;
     for (int value : values) {
       if (root == null) {
-        root = new Tree(value);
+        root = new Tree(value, null, null);
       } else {
         current = root;
         while (true) {
           if (value < current.value) {
             if (current.left == null) {
-              current.left = new Tree(value);
+              current.left = new Tree(value, null, null);
               break;
             } else {
               current = current.left;
             }
           } else {
             if (current.right == null) {
-              current.right = new Tree(value);
+              current.right = new Tree(value, null, null);
               break;
             } else {
               current = current.right;

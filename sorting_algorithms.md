@@ -1,6 +1,6 @@
 # [Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
 
-| Sorting | Best $\bf \Omega$ | Average $\bf \Theta$ | Worst $\bf O$ | Memory | Stable |
+| Algorithm | Best $\bf \Omega$ | Average $\bf \Theta$ | Worst $\bf O$ | Memory | Stable |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | **Comparison** | | | |
 | Quicksort | $\color{green} n \log n$ | $\color{green} n \log n$ | $\color{red} n^2$ | $\color{orange} \log n$ | $\color{red} \textsf{✗}$ |

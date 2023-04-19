@@ -4,11 +4,11 @@ public class Permutations {
   private Permutations() {
   }
 
-  public static void print(int[] A) {
-    print(A, A.length, 0);
+  public static void prettyPrint(int[] A) {
+    prettyPrint(A, A.length, 0);
   }
 
-  public static void print(int[] A, int n, int k) {
+  public static void prettyPrint(int[] A, int n, int k) {
     if (k == n - 1) {
       for (int i = 0; i < n; i++) {
         System.out.print(A[i] + " ");
@@ -17,7 +17,7 @@ public class Permutations {
     } else {
       for (int i = k; i < n; i++) {
         Utils.swap(A, i, k);
-        print(A, n, k + 1);
+        prettyPrint(A, n, k + 1);
         Utils.swap(A, i, k);
       }
     }

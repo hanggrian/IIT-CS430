@@ -2,10 +2,10 @@ package com.example;
 
 import java.util.Arrays;
 
-public class CellTowerPlacement {
+public class CellTowerPlacements {
   private static final int COVERAGE = 1; // in miles
 
-  private CellTowerPlacement() {
+  private CellTowerPlacements() {
   }
 
   public static int[] minLocations(int... X) {

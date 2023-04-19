@@ -35,8 +35,8 @@ public static boolean hasTupleBruteForce(int[] A) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/FindATuple.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/FindATupleTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/FindATuples.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/FindATuplesTest.java)
 
 ### Subproblem 1B
 

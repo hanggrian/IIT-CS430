@@ -95,7 +95,7 @@ the maximum of 2 children.
 ## Problem 4
 
 > $x$ is an integer. All nodes in a BST $T$ are primes. Design an algorithm to
-  check $x$’s primality. If $x$ is a prime and its key exists in the BTS
+  check $x$'s primality. If $x$ is a prime and its key exists in the BTS
   already, return $1$; if $x$ is a prime but its key does not exist in the BTS,
   insert it into the BST; if $x$ is not a prime, return $0$.
 

@@ -11,7 +11,7 @@
   using `QUICKSORT` is $T(n^2)$ when the array A contains distinct elements and
   is initially sorted in decreasing order.
 
-| Sorting | Best | Average | Worst |
+| Algorithm | Best | Average | Worst |
 | --- | --- | --- | --- |
 | Quicksort | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n^2)$ |
 
