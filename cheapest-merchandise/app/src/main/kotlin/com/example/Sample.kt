@@ -33,7 +33,7 @@ enum class Sample(val prices: String, val promotions: String) {
             1 5 2.5
         """.trimIndent(),
         """
-            3
+            2
             1 1 4 8
             1 9 2 10
         """.trimIndent()

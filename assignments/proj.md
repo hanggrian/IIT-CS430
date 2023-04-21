@@ -76,13 +76,25 @@
 
 ![App preview.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/preview.png)
 
-A Java 17+ app packaged as native distributions in Mac & Windows.
+A 3-columns windowed multi-platform desktop app.
+
+- [DMG](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.dmg)
+  &ndash; macOS moutable with one-file application inside.
+- [EXE](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.exe)
+  &ndash; Windows installer, select directory to install to.
+- [JAR](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.jar)
+  &ndash; JRE executable that requires version 17+.
 
 ## Tech stack
 
-- [JavaFX](https://openjfx.io/) UI.
-- [Kotlin](https://kotlinlang.org/) language.
-- Google libraries:
+- *JavaFX* GUI:
+  - Reactive interface, texts are updated real-time with `Observable`.
+  - Handles file import/export with native picker.
+- *Gradle* project management tool:
+  - Essentially Maven with minimalistic syntax.
+- *Kotlin* language:
+  - Essentially Java with minimalistic syntax.
+- *Google* libraries:
   - [Guava](https://github.com/google/guava/): Critical for its `Multimap`,
     which is a `Map` with duplicate keys allowed.
   - [Truth](https://github.com/google/truth/): Comprehensive testing for
@@ -96,95 +108,196 @@ that states:
 
 Because none of these are particularly mathematics-focused.
 
-## Code
+## Data structures
 
-### Using [greedy algorithm](https://github.com/hendraanggrian/IIT-CS430/blob/main/greedy_algorithm.md)
+### Price
 
-```java
-class GreedyParser : Parser() {
-    override fun toString(): String = "Greedy parser"
+![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_prices.png)
 
-    override fun onParse(
-        priceMap: Map<Int, Item>,
-        promotionMultimap: Multimap<Double, Purchase>
-    ): String {
-        val sb = StringBuilder()
-        val keysIterator = priceMap.keys.iterator()
-        var spent = 0.0
-        while (priceMap.values.any { it.amount > 0 } && keysIterator.hasNext()) {
-            val item = priceMap[keysIterator.next()]!!
-            val bestPromotion = promotionMultimap.values().lastOrNull { purchase ->
-                purchase.bundle.any { it.id == item.id && it.amount <= item.amount }
-            } ?: continue
-            // use promotions
-            while (bestPromotion.bundle.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
-                spent += bestPromotion.totalPrice
-                bestPromotion.bundle.forEach { priceMap[it.id]!!.amount -= it.amount }
-                sb.appendLine(bestPromotion.toString())
-            }
-            // deduce leftover with non-promotions
-            while (item.amount > 0) {
-                spent += item.price
-                item.amount--
-                sb.appendLine(item.toString())
-            }
-        }
-        return sb.append(spent.formatted).toString()
-    }
-}
+Each price is stored in `HashMap`, a standard hash table. We can also store this
+information in an `ArrayList` or `HashSet`, but getting a price can be $O(n)$
+because we are searching price by `id` instead of collection index.
 
-abstract class Parser {
-    abstract fun onParse(
-        priceMap: Map<Int, Item>,
-        promotionMultimap: Multimap<Double, Purchase>
-    ): String
+```kotlin
+data class Price(
+    val id: Int,
+    override var amount: Int,
+    override val price: Double
+) : Merchandise {
 
-    fun parse(sample: Sample): String = parse(sample.prices, sample.promotions)
-
-    fun parse(prices: String, promotions: String): String {
-        check(prices.isNotBlank()) { "Empty input." }
-        check(promotions.isNotBlank()) { "Empty promotions." }
-        val priceMap = mutableMapOf<Int, Item>()
-        val promotionMultimap = TreeMultimap.create<Double, Purchase>()
-
-        prices.forEachLine {
-            val parts = it.split(' ')
-            check(parts.size == 3) { "Invalid price for '$it'" }
-            priceMap += parts[0].toInt() to Item(
-                parts[0].toInt(),
-                parts[1].toInt(),
-                parts[2].toDouble()
-            )
-        }
-        promotions.forEachLine { s ->
-            val parts = s.split(' ')
-            check(parts.size >= 4) { "Invalid promotion for '$s'" }
-            val pairCount = parts.first().toInt()
-            val items = linkedSetOf<Item>()
-            var id: Int? = null
-            parts.drop(1).take(pairCount * 2).forEach {
-                if (id != null) {
-                    items += Item(id!!, it.toInt(), priceMap[id!!]!!.price)
-                    id = null
-                } else {
-                    id = it.toInt()
-                }
-            }
-            val totalPrice = parts.last().toDouble()
-            promotionMultimap.put(
-                items.sumOf { it.amount * it.price } - totalPrice,
-                Purchase(items, totalPrice)
-            )
-        }
-        return onParse(priceMap, promotionMultimap)
-    }
-
-    private fun String.forEachLine(action: (String) -> Unit) {
-        val itemCount = lines().first().trimStart().toInt()
-        lines().drop(1).take(itemCount).forEach { action(it.trim()) }
-    }
+    override fun toString(): String = "$id $amount ${price.formatted}"
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Parsers.kt)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/test/kotlin/com/example/ParsersTest.kt)
+### Promotion
+
+![Promotions data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_promotions.png)
+
+Each promotion is stored in `TreeMultimap`, which is a hash table with features
+such as:
+
+- **Ordered keys**: Highest saving is at the bottom, useful for greedy
+  algorithm.
+- **Duplicate keys**: With native `TreeMap`, inserting duplicate key will
+  override the value. This cannot stand, because some promotions may have the
+  same saving but completely different items.
+
+```kotlin
+data class Promotion(
+    val items: List<Item>,
+    val price: Double
+) : Comparable<Promotion> {
+
+    data class Item(
+        val id: Int,
+        override val amount: Int,
+        override val price: Double
+    ) : Merchandise
+
+    override fun toString(): String =
+        "${items.joinToString(" ") { "${it.id} ${it.amount}" }} ${price.formatted}"
+
+    override fun compareTo(other: Promotion): Int = price.compareTo(other.price)
+}
+```
+
+### Parsing
+
+This is how the text are parsed into JVM objects.
+
+```kotlin
+fun parse(prices: String, promotions: String): String {
+    check(prices.isNotBlank()) { "Empty input." }
+    check(promotions.isNotBlank()) { "Empty promotions." }
+
+    val priceMap = mutableMapOf<Int, Price>()
+    val promotionMultimap = TreeMultimap.create<Double, Promotion>()
+    prices.forEachLine {
+        val parts = it.split(' ')
+        check(parts.size == 3) { "Invalid price for '$it'" }
+        priceMap += parts[0].toInt() to
+            Price(parts[0].toInt(), parts[1].toInt(), parts[2].toDouble())
+    }
+    promotions.forEachLine { s ->
+        val parts = s.split(' ')
+        check(parts.size >= 4) { "Invalid promotion for '$s'" }
+        val pairCount = parts.first().toInt()
+        val items = mutableListOf<Promotion.Item>()
+        var id: Int? = null
+        parts.drop(1).take(pairCount * 2).forEach {
+            if (id != null) {
+                items += Promotion.Item(id!!, it.toInt(), priceMap[id]!!.price)
+                id = null
+            } else {
+                id = it.toInt()
+            }
+        }
+        val price = parts.last().toDouble()
+        val saving = items.sumOf { it.worth } - price
+        promotionMultimap.put(saving, Promotion(items, price))
+    }
+    return onParse(priceMap, promotionMultimap)
+}
+```
+
+## Algorithms
+
+### Greedy
+
+![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_algo_greedy.png)
+
+With greedy algorithm, the best promotion is determined by comparing their
+savings, that is, actual price of all items combined minus promotion bundle
+price.
+
+- Find the best promotion that involves current item, use as much as possible
+  until any of the item is depleted.
+- Deduce leftovers, if any, at usual price rate. Go on to next item.
+
+Not the best algorithm because it only consider 1 best promotion.
+
+```kotlin
+override fun onParse(
+    priceMap: Map<Int, Price>,
+    promotionMultimap: Multimap<Double, Promotion>
+): String {
+    val sb = StringBuilder()
+    val keysIterator = priceMap.keys.iterator()
+    var spent = 0.0
+    while (keysIterator.hasNext()) {
+        val item = priceMap[keysIterator.next()]!!
+        val bestPromotion = promotionMultimap.values().lastOrNull { purchase ->
+            purchase.items.any { it.id == item.id && it.amount <= item.amount }
+        }
+        // use promotions
+        if (bestPromotion != null) {
+            while (bestPromotion.items.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
+                sb.appendLine(bestPromotion.toString())
+                spent += bestPromotion.price
+                bestPromotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
+            }
+        }
+        // deduce leftover with non-promotions
+        if (item.amount > 0) {
+            sb.appendLine(item.toString())
+            spent += item.worth
+            item.amount = 0
+        }
+    }
+    return sb.append(spent.formatted).toString()
+}
+```
+
+### DFS
+
+![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_algo_dfs.png)
+
+With recursive function, the saving keys stored in `priceMultimap` is no longer
+necessary. It is now indexed as `ArrayList`.
+
+- Gather total items' worth as `sum`.
+- Filter promotion that can be applied to current stock.
+- Start a DFS recursive function using current promotion.
+- Backtrack to try another promotion.
+
+Provides more accurate result by permutating every promotions. But at the
+moment, the string output does not yet work.
+
+```kotlin
+override fun onParse(
+    priceMap: Map<Int, Price>,
+    promotionMultimap: Multimap<Double, Promotion>
+): String {
+    val sb = StringBuilder()
+    val spent = dfs(priceMap, promotionMultimap.values().toList(), 0)
+    return sb.append(spent.formatted).toString()
+}
+
+private fun dfs(
+    priceMap: Map<Int, Price>,
+    promotionList: List<Promotion>,
+    i: Int
+): Double {
+    var sum = priceMap.values.sumOf { it.worth }
+    for (j in i until promotionList.size) {
+        val promotion = promotionList[j]
+        if (promotion.items.all { priceMap[it.id]!!.amount >= it.amount }) {
+            // use special
+            promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
+            sum = minOf(sum, promotion.price + dfs(priceMap, promotionList, i))
+            // backtrack
+            promotion.items.forEach { priceMap[it.id]!!.amount += it.amount }
+        }
+    }
+    return sum
+}
+```
+
+## Sample
+
+![PDF sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_pdf.png)
+
+![Blackboard 1 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard1.png)
+
+![Blackboard 1 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard2.png)
+

@@ -20,8 +20,6 @@ data class Promotion(
         override val price: Double
     ) : Merchandise
 
-    val saving: Double = items.sumOf { it.worth } - price
-
     override fun toString(): String =
         "${items.joinToString(" ") { "${it.id} ${it.amount}" }} ${price.formatted}"
 

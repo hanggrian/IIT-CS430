@@ -97,10 +97,10 @@ class App : Application() {
                             outputPane.choice.selectionModel.selectedItemProperty()
                         ) {
                             try {
-                                outputPane.choice.selectionModel.selectedItem.create()
+                                outputPane.choice.selectionModel.selectedItem
                                     .parse(pricesPane.area.text, promotionsPane.area.text)
                             } catch (e: Exception) {
-                                e.printStackTrace()
+                                // e.printStackTrace()
                                 e.message
                             }
                         },

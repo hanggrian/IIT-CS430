@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import ktfx.bindings.asBoolean
-import ktfx.collections.toObservableList
+import ktfx.collections.observableListOf
 import ktfx.controls.insetsOf
 import ktfx.coroutines.onAction
 import ktfx.coroutines.onMouseClicked
@@ -27,12 +27,12 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
         val AREA_WIDTH = 260.0
     }
 
-    val choice: ChoiceBox<ParserFactory>
+    val choice: ChoiceBox<Parser>
 
     init {
         prefWidth = AREA_WIDTH
         minWidth = AREA_WIDTH
-        choice = choiceBox(ParserFactory.values().toObservableList()) {
+        choice = choiceBox(observableListOf(GreedyParser(), DfsParser())) {
             selectionModel.select(0)
         }.grid(0, 1).halign(CENTER)
         button.run {
