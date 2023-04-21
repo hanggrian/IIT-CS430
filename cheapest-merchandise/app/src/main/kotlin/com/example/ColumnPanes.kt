@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import ktfx.bindings.asBoolean
-import ktfx.collections.observableListOf
+import ktfx.collections.toObservableList
 import ktfx.controls.insetsOf
 import ktfx.coroutines.onAction
 import ktfx.coroutines.onMouseClicked
@@ -19,6 +19,7 @@ import ktfx.layouts.button
 import ktfx.layouts.choiceBox
 import ktfx.layouts.label
 import ktfx.layouts.textArea
+import ktfx.layouts.tooltip
 import ktfx.runLater
 
 class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
@@ -26,12 +27,12 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
         val AREA_WIDTH = 260.0
     }
 
-    val parserChoice: ChoiceBox<Parser>
+    val choice: ChoiceBox<ParserFactory>
 
     init {
         prefWidth = AREA_WIDTH
         minWidth = AREA_WIDTH
-        parserChoice = choiceBox(observableListOf(GreedyParser, KnapsackParser)) {
+        choice = choiceBox(ParserFactory.values().toObservableList()) {
             selectionModel.select(0)
         }.grid(0, 1).halign(CENTER)
         button.run {
@@ -39,8 +40,9 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
             text = "Export"
             onAction {
                 FileChooser().also {
-                    it.title = "Save output.txt"
-                    it.extensionFilters += FileChooser.ExtensionFilter("Text Files", "*.txt")
+                    it.title = "Save output"
+                    it.initialFileName = "output.txt"
+                    it.extensionFilters += FileChooser.ExtensionFilter("Text files", "*.txt")
                 }.showSaveDialog(stage)?.writeText(area.text)
             }
             runLater {
@@ -54,9 +56,11 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
         area.run {
             columnSpan = 3
             isEditable = false
+            val tip = "Output box cannot be manually edited."
+            tooltip(tip)
             onMouseClicked {
                 if (it.isDoubleClick()) {
-                    infoAlert("Output box cannot be manually edited.")
+                    infoAlert(tip)
                 }
             }
         }
@@ -76,8 +80,8 @@ class InputColumnPane(stage: Stage, title: String) : ColumnPane(title) {
             text = "Import"
             onAction {
                 FileChooser().also {
-                    it.title = "Open ${title.lowercase()}.txt"
-                    it.extensionFilters += FileChooser.ExtensionFilter("Text Files", "*.txt")
+                    it.title = "Open ${title.lowercase()}"
+                    it.extensionFilters += FileChooser.ExtensionFilter("Text files", "*.txt")
                 }.showOpenDialog(stage)?.let {
                     area.text = it.readText()
                 }

@@ -19,11 +19,11 @@ public class SallyWidgetAuctionsTest {
 
   @Test
   public void maxProfitKnapsackRecursive() {
-    assertEquals(36, SallyWidgetAuctions.maxProfitKnapsackRecursive(
+    assertEquals(36, SallyWidgetAuctions.maxProfitKnapsack(
       new int[]{1, 3, 5, 6, 7},
       new int[]{1, 8, 18, 22, 28},
       10));
-    assertEquals(12, SallyWidgetAuctions.maxProfitKnapsackRecursive(
+    assertEquals(12, SallyWidgetAuctions.maxProfitKnapsack(
       new int[]{1, 2, 1, 12, 4},
       new int[]{1, 1, 2, 4, 10},
       5));

@@ -1,4 +1,4 @@
 allprojects {
-    group = RELEASE_GROUP
-    version = RELEASE_VERSION
+    group = "com.example"
+    version = "1.0"
 }

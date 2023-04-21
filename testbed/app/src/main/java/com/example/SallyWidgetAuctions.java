@@ -13,7 +13,9 @@ public class SallyWidgetAuctions {
   }
 
   public static int maxProfitGreedy(int[] X, int[] Y, int n) {
-    if (X.length != Y.length) throw new IllegalStateException();
+    if (X.length != Y.length) {
+      throw new IllegalStateException();
+    }
     return maxProfitGreedy(X, Y, n, X.length);
   }
 
@@ -39,20 +41,22 @@ public class SallyWidgetAuctions {
     return profit;
   }
 
-  public static int maxProfitKnapsackRecursive(int[] X, int[] Y, int n) {
-    if (X.length != Y.length) throw new IllegalStateException();
-    return maxProfitKnapsackRecursive(X, Y, n, X.length);
+  public static int maxProfitKnapsack(int[] X, int[] Y, int n) {
+    if (X.length != Y.length) {
+      throw new IllegalStateException();
+    }
+    return maxProfitKnapsack(X, Y, n, X.length);
   }
 
-  public static int maxProfitKnapsackRecursive(int[] X, int[] Y, int n, int m) {
+  public static int maxProfitKnapsack(int[] X, int[] Y, int n, int m) {
     if (m <= 0 || n <= 0) {
       return 0;
     }
-    int previous = maxProfitKnapsackRecursive(X, Y, n, m - 1);
+    int previous = maxProfitKnapsack(X, Y, n, m - 1);
     if (X[m - 1] > n) {
       return previous;
     }
-    int current = Y[m - 1] + maxProfitKnapsackRecursive(X, Y, n - X[m - 1], m - 1);
+    int current = Y[m - 1] + maxProfitKnapsack(X, Y, n - X[m - 1], m - 1);
     return Math.max(previous, current);
   }
 }

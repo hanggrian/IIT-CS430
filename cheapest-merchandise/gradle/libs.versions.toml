@@ -1,20 +1,16 @@
 [versions]
-jdk = "11"
-kotlin = "1.8.20"
+jdk = "17"
+kotlin = "1.8.10"
 
 [plugins]
-kotlinx-kover = "org.jetbrains.kotlinx.kover:0.6.1"
-git-publish = "org.ajoberstar.git-publish:3.0.1"
-pages = "com.hendraanggrian.pages:0.1"
+packaging = "com.hendraanggrian.packaging:0.2"
 
 [libraries]
 # lint
-ktlint = "com.pinterest:ktlint:0.48.1"
-rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.2-SNAPSHOT"
+ktlint = "com.pinterest:ktlint:0.48.2"
+rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.2"
 # main
 guava-jre = "com.google.guava:guava:31.1-jre"
-ktfx = "com.hendraanggrian.ktfx:ktfx:0.1-SNAPSHOT"
-commons-lang3 = "org.apache.commons:commons-lang3:3.12.0"
-kotlinx-coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+ktfx-controlsfx = "com.hendraanggrian.ktfx:controlsfx:0.1-SNAPSHOT"
 # test
 truth = "com.google.truth:truth:1.1.3"

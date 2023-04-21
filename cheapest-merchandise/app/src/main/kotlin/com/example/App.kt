@@ -1,10 +1,10 @@
 package com.example
 
 import javafx.application.Application
-import javafx.application.Platform
 import javafx.scene.control.ToggleGroup
 import javafx.scene.input.KeyCode.DIGIT1
 import javafx.scene.input.KeyCode.DIGIT2
+import javafx.scene.input.KeyCode.M
 import javafx.scene.input.KeyCode.Q
 import javafx.scene.input.KeyCombination.SHORTCUT_DOWN
 import javafx.stage.Stage
@@ -19,8 +19,9 @@ import ktfx.layouts.scene
 import ktfx.layouts.separatorMenuItem
 import ktfx.layouts.splitPane
 import ktfx.layouts.vbox
+import ktfx.runLater
 import ktfx.windows.minSize
-import org.apache.commons.lang3.SystemUtils.IS_OS_MAC_OSX
+import org.controlsfx.tools.Platform
 
 class App : Application() {
     companion object {
@@ -38,29 +39,48 @@ class App : Application() {
         stage.scene {
             vbox {
                 menuBar {
-                    isUseSystemMenuBar = IS_OS_MAC_OSX
+                    isUseSystemMenuBar = Platform.getCurrent() == Platform.OSX
                     "File" {
-                        menuItem("Import price") { onAction { pricesPane.button.fire() } }
-                        menuItem("Import promotions") { onAction { promotionsPane.button.fire() } }
+                        "Import price" { onAction { pricesPane.button.fire() } }
+                        "Import promotions" { onAction { promotionsPane.button.fire() } }
+                        "Export output" {
+                            runLater { disableProperty().bind(outputPane.button.disableProperty()) }
+                            onAction { outputPane.button.fire() }
+                        }
                         separatorMenuItem()
-                        menuItem("Quit") {
+                        "Quit" {
                             accelerator = SHORTCUT_DOWN + Q
-                            onAction { Platform.exit() }
+                            onAction { javafx.application.Platform.exit() }
                         }
                     }
                     "Edit" {
-                        val group = ToggleGroup()
-                        radioMenuItem("Greedy parser") {
-                            toggleGroup = group
-                            isSelected = true
-                            accelerator = SHORTCUT_DOWN + DIGIT1
-                            onAction { outputPane.parserChoice.selectionModel.select(0) }
+                        Sample.values().forEach { sample ->
+                            "Sample from $sample" {
+                                onAction {
+                                    pricesPane.area.text = sample.prices
+                                    promotionsPane.area.text = sample.promotions
+                                }
+                            }
                         }
-                        radioMenuItem("Knapsack parser") {
-                            toggleGroup = group
-                            accelerator = SHORTCUT_DOWN + DIGIT2
-                            onAction { outputPane.parserChoice.selectionModel.select(1) }
+                        separatorMenuItem()
+                        runLater {
+                            val group = ToggleGroup()
+                            outputPane.choice.items.forEachIndexed { i, parser ->
+                                radioMenuItem("$parser") {
+                                    toggleGroup = group
+                                    isSelected = i == 0
+                                    accelerator = SHORTCUT_DOWN + if (i == 0) DIGIT1 else DIGIT2
+                                    onAction { outputPane.choice.selectionModel.select(i) }
+                                }
+                            }
                         }
+                    }
+                    "Window" {
+                        "Minimize" {
+                            accelerator = SHORTCUT_DOWN + M
+                            onAction { stage.isIconified = true }
+                        }
+                        "Zoom" { onAction { stage.isMaximized = true } }
                     }
                     "Help" {
                         menuItem("About") { onAction { AboutDialog().showAndWait() } }
@@ -74,13 +94,13 @@ class App : Application() {
                         stringBindingOf(
                             pricesPane.area.textProperty(),
                             promotionsPane.area.textProperty(),
-                            outputPane.parserChoice.selectionModel.selectedItemProperty()
+                            outputPane.choice.selectionModel.selectedItemProperty()
                         ) {
                             try {
-                                outputPane.parserChoice.selectionModel.selectedItem
+                                outputPane.choice.selectionModel.selectedItem.create()
                                     .parse(pricesPane.area.text, promotionsPane.area.text)
                             } catch (e: Exception) {
-                                // e.printStackTrace()
+                                e.printStackTrace()
                                 e.message
                             }
                         },
@@ -90,15 +110,7 @@ class App : Application() {
         }
         stage.show()
 
-        pricesPane.area.text = """
-            2
-            7 3 2
-            8 2 5
-        """.trimIndent()
-        promotionsPane.area.text = """
-            2
-            1 7 3 5
-            2 7 1 8 2 10
-        """.trimIndent()
+        pricesPane.area.text = Sample.PDF.prices
+        promotionsPane.area.text = Sample.PDF.promotions
     }
 }

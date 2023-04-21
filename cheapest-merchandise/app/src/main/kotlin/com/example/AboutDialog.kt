@@ -22,10 +22,8 @@ class AboutDialog : Dialog<Unit>() {
                     .browse(URL("https://github.com/hendraanggrian/IIT-CS430/").toURI())
             }
         }
-
         dialogPane.isExpanded = true
         isResizable = false
-
         buttons {
             close()
         }
