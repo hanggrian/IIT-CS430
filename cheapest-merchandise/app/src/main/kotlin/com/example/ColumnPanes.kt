@@ -32,7 +32,7 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
     init {
         prefWidth = AREA_WIDTH
         minWidth = AREA_WIDTH
-        choice = choiceBox(observableListOf(GreedyParser(), DfsParser())) {
+        choice = choiceBox(observableListOf(GreedyParser(), DfsParser(), DfsParser(true))) {
             selectionModel.select(0)
         }.grid(0, 1).halign(CENTER)
         button.run {

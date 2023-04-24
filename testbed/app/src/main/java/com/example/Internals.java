@@ -1,7 +1,7 @@
 package com.example;
 
-public class Utils {
-  private Utils() {
+public class Internals {
+  private Internals() {
   }
 
   public static <E> void swap(E[] A, int i, int j) {

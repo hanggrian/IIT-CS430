@@ -2,6 +2,7 @@ plugins {
     application
     kotlin("jvm") version libs.versions.kotlin
     alias(libs.plugins.packaging)
+    alias(libs.plugins.shadow)
 }
 
 application.mainClass.set("com.example.App")

@@ -16,9 +16,9 @@ public class Permutations {
       System.out.println();
     } else {
       for (int i = k; i < n; i++) {
-        Utils.swap(A, i, k);
+        Internals.swap(A, i, k);
         prettyPrint(A, n, k + 1);
-        Utils.swap(A, i, k);
+        Internals.swap(A, i, k);
       }
     }
   }

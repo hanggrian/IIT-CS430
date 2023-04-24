@@ -1,6 +1,6 @@
 package com.example.sort;
 
-import com.example.Utils;
+import com.example.Internals;
 
 public class Quicksorts {
   private Quicksorts() {
@@ -12,7 +12,7 @@ public class Quicksorts {
 
   public static void quicksort(int[] A, int p, int r) {
     if (p < r) {
-      int q = Utils.partition(A, p, r);
+      int q = Internals.partition(A, p, r);
       quicksort(A, p, q - 1);
       quicksort(A, q + 1, r);
     }
@@ -24,7 +24,7 @@ public class Quicksorts {
 
   public static void quicksortTailRecursive(int[] A, int p, int r) {
     while (p < r) {
-      int q = Utils.partition(A, p, r);
+      int q = Internals.partition(A, p, r);
       quicksortTailRecursive(A, p, q - 1);
       p = q + 1;
     }
@@ -36,7 +36,7 @@ public class Quicksorts {
 
   public static void quicksortTailRecursiveModified(int[] A, int p, int r) {
     while (p < r) {
-      int q = Utils.partition(A, p, r);
+      int q = Internals.partition(A, p, r);
       if (q < p + (r - p) / 2) {
         quicksortTailRecursiveModified(A, p, q - 1);
         p = q + 1;

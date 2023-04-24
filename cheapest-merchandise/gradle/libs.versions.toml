@@ -1,9 +1,10 @@
 [versions]
 jdk = "17"
-kotlin = "1.8.10"
+kotlin = "1.8.20"
 
 [plugins]
 packaging = "com.hendraanggrian.packaging:0.2"
+shadow = "com.github.johnrengelman.shadow:8.1.1"
 
 [libraries]
 # lint

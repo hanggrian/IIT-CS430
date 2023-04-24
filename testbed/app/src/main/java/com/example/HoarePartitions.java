@@ -17,7 +17,7 @@ public class HoarePartitions {
         i++;
       } while (A[i] < x);
       if (i < j) {
-        Utils.swap(A, i, j);
+        Internals.swap(A, i, j);
       } else {
         return j;
       }

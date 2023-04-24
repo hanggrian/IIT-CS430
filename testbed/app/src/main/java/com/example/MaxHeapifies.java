@@ -21,7 +21,7 @@ public class MaxHeapifies {
       if (max == i) {
         break;
       }
-      Utils.swap(A, i, max);
+      Internals.swap(A, i, max);
       i = max;
     }
   }

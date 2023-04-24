@@ -78,11 +78,13 @@
 
 A 3-columns windowed multi-platform desktop app.
 
-- [DMG](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.dmg)
+- [DMG](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.dmg)
   &ndash; macOS moutable with one-file application inside.
-- [EXE](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.exe)
-  &ndash; Windows installer, select directory to install to.
-- [JAR](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest_merchandise-1.0.jar)
+  - For permission error: run `sudo xattr -cr /Applications/CTA.app`, open app,
+    then click allow on *System Settings > Privacy & Security*.
+- [EXE](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.exe)
+  &ndash; Windows installer to default directory.
+- [JAR](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0.jar)
   &ndash; JRE executable that requires version 17+.
 
 ## Tech stack
@@ -90,15 +92,8 @@ A 3-columns windowed multi-platform desktop app.
 - *JavaFX* GUI:
   - Reactive interface, texts are updated real-time with `Observable`.
   - Handles file import/export with native picker.
-- *Gradle* project management tool:
-  - Essentially Maven with minimalistic syntax.
-- *Kotlin* language:
-  - Essentially Java with minimalistic syntax.
-- *Google* libraries:
-  - [Guava](https://github.com/google/guava/): Critical for its `Multimap`,
-    which is a `Map` with duplicate keys allowed.
-  - [Truth](https://github.com/google/truth/): Comprehensive testing for
-    collection.
+- *Kotlin* language and buildscript.
+- [Google Guava](https://github.com/google/guava/), used for its `Multimap`.
 
 The library use is expansive, but I believe does not violate the code of conduct
 that states:
@@ -112,7 +107,7 @@ Because none of these are particularly mathematics-focused.
 
 ### Price
 
-![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_prices.png)
+![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_price.png)
 
 Each price is stored in `HashMap`, a standard hash table. We can also store this
 information in an `ArrayList` or `HashSet`, but getting a price can be $O(n)$
@@ -129,9 +124,11 @@ data class Price(
 }
 ```
 
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Datas.kt)
+
 ### Promotion
 
-![Promotions data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_promotions.png)
+![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_promotion.png)
 
 Each promotion is stored in `TreeMultimap`, which is a hash table with features
 such as:
@@ -248,20 +245,26 @@ override fun onParse(
 }
 ```
 
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Parsers.kt)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/test/kotlin/com/example/ParsersTest.kt)
+
 ### DFS
 
 ![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_algo_dfs.png)
 
-With recursive function, the saving keys stored in `priceMultimap` is no longer
+With backtracking + DFS, the saving keys stored in `priceMultimap` is no longer
 necessary. It is now indexed as `ArrayList`.
 
 - Gather total items' worth as `sum`.
 - Filter promotion that can be applied to current stock.
-- Start a DFS recursive function using current promotion.
+- Start a DFS recursive function using current promotion price.
 - Backtrack to try another promotion.
 
-Provides more accurate result by permutating every promotions. But at the
-moment, the string output does not yet work.
+By trying every permutation, it is guaranteed that this function will return
+the most profitable purchase.
+
+**Limitation**: String output for DFS parser is not working at the moment, I
+plan to fix it in time for the presentation.
 
 ```kotlin
 override fun onParse(
@@ -299,5 +302,5 @@ private fun dfs(
 
 ![Blackboard 1 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard1.png)
 
-![Blackboard 1 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard2.png)
+![Blackboard 2 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard2.png)
 

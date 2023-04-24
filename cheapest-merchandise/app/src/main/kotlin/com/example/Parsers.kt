@@ -3,21 +3,22 @@ package com.example
 import com.google.common.collect.Multimap
 import com.google.common.collect.TreeMultimap
 
-class DfsParser : Parser() {
-    override fun toString(): String = "DFS parser"
+class DfsParser(val experimental: Boolean = false) : Parser() {
+    override fun toString(): String = "DFS parser${if (experimental) " (exp.)" else ""}"
 
     override fun onParse(
         priceMap: Map<Int, Price>,
         promotionMultimap: Multimap<Double, Promotion>
     ): String {
         val sb = StringBuilder()
-        val spent = dfs(priceMap, promotionMultimap.values().toList(), 0)
+        val spent = dfs(priceMap, promotionMultimap.values().toList(), sb, 0)
         return sb.append(spent.formatted).toString()
     }
 
     private fun dfs(
         priceMap: Map<Int, Price>,
         promotionList: List<Promotion>,
+        sb: StringBuilder,
         i: Int
     ): Double {
         var sum = priceMap.values.sumOf { it.worth }
@@ -26,9 +27,19 @@ class DfsParser : Parser() {
             if (promotion.items.all { priceMap[it.id]!!.amount >= it.amount }) {
                 // use special
                 promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
-                sum = minOf(sum, promotion.price + dfs(priceMap, promotionList, i))
+                if (experimental) {
+                    sb.appendLine(promotion.toString())
+                }
+                sum = minOf(sum, promotion.price + dfs(priceMap, promotionList, sb, i))
                 // backtrack
                 promotion.items.forEach { priceMap[it.id]!!.amount += it.amount }
+            }
+        }
+        if (experimental) {
+            priceMap.forEach { (_, price) ->
+                if (price.amount > 0) {
+                    sb.appendLine(price.toString())
+                }
             }
         }
         return sum

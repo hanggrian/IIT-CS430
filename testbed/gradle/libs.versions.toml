@@ -7,7 +7,7 @@ checkstyle = "8.45.1"
 [libraries]
 # lint
 checkstyle = { module = "com.puppycrawl.tools:checkstyle", version.ref = "checkstyle" }
-rulebook-checkstyle = "com.hendraanggrian.rulebook:rulebook-checkstyle:0.1"
+rulebook-checkstyle = "com.hendraanggrian.rulebook:rulebook-checkstyle:0.2"
 # main
 guava = "com.google.guava:guava:31.1-jre"
 commons-math3 = "org.apache.commons:commons-math3:3.6.1"
