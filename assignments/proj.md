@@ -53,11 +53,11 @@
 >     - ...
 > 2. `output.txt`. This file addresses the promotion information and oragized
       as:
->     - line1: the number of the promotions that are in effect presently;
+>     - line1: the number of the promotions that are in effect presently.
 >     - line2: the number of merchandise types; id1; amount1; id2; amount2; ...
->       promotion price
+>       promotion price.
 >     - line3: the number of merchandise types; id1; amount1; id2; amount2; ...
->       promotion price
+>       promotion price.
 > 3. `promotions.txt` and `price.txt` will be provided by your instructor.
 >
 > **Output**: one `.txt` file.
@@ -107,7 +107,7 @@ Because none of these are particularly mathematics-focused.
 
 ### Price
 
-![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_price.png)
+![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_price.png)
 
 Each price is stored in `HashMap`, a standard hash table. We can also store this
 information in an `ArrayList` or `HashSet`, but getting a price can be $O(n)$
@@ -128,10 +128,9 @@ data class Price(
 
 ### Promotion
 
-![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_data_promotion.png)
+![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_promotion.png)
 
-Each promotion is stored in `TreeMultimap`, which is a hash table with features
-such as:
+Each promotion is stored in `TreeMultimap`, which is a hash table with features:
 
 - **Ordered keys**: Highest saving is at the bottom, useful for greedy
   algorithm.
@@ -157,6 +156,22 @@ data class Promotion(
     override fun compareTo(other: Promotion): Int = price.compareTo(other.price)
 }
 ```
+
+#### Example of `Multimap`
+
+```kotlin
+val map = HashMap()
+map[0] = "Hello"
+map[0] = "World"
+val s = map[0]
+
+val multimap = HashMultimap()
+multimap[0] = "Hello"
+multimap[0] = "World"
+val collection = multimap[0]
+```
+
+![Multimap example.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_multimap.png)
 
 ### Parsing
 
@@ -201,17 +216,16 @@ fun parse(prices: String, promotions: String): String {
 
 ### Greedy
 
-![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_algo_greedy.png)
+![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_greedy.png)
 
 With greedy algorithm, the best promotion is determined by comparing their
 savings, that is, actual price of all items combined minus promotion bundle
-price.
+price. The promotions are then abused until the items are insufficient.
 
-- Find the best promotion that involves current item, use as much as possible
-  until any of the item is depleted.
-- Deduce leftovers, if any, at usual price rate. Go on to next item.
+Unfortunately, we have to pay normal price for the rest of the available items.
+This occurence is also repeated until all merchandises are sold.
 
-Not the best algorithm because it only consider 1 best promotion.
+Not the best algorithm because it can only consider 1 promotion to be the best.
 
 ```kotlin
 override fun onParse(
@@ -219,22 +233,17 @@ override fun onParse(
     promotionMultimap: Multimap<Double, Promotion>
 ): String {
     val sb = StringBuilder()
-    val keysIterator = priceMap.keys.iterator()
     var spent = 0.0
-    while (keysIterator.hasNext()) {
-        val item = priceMap[keysIterator.next()]!!
-        val bestPromotion = promotionMultimap.values().lastOrNull { purchase ->
-            purchase.items.any { it.id == item.id && it.amount <= item.amount }
+    // abuse promotions
+    promotionMultimap.values().reversed().forEach { promotion ->
+        while (promotion.items.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
+            sb.appendLine(promotion.toString())
+            spent += promotion.price
+            promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
         }
-        // use promotions
-        if (bestPromotion != null) {
-            while (bestPromotion.items.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
-                sb.appendLine(bestPromotion.toString())
-                spent += bestPromotion.price
-                bestPromotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
-            }
-        }
-        // deduce leftover with non-promotions
+    }
+    // deduce leftover with non-promotions
+    priceMap.values.forEach { item ->
         if (item.amount > 0) {
             sb.appendLine(item.toString())
             spent += item.worth
@@ -250,15 +259,10 @@ override fun onParse(
 
 ### DFS
 
-![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/dsa_algo_dfs.png)
+![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_dfs.png)
 
 With backtracking + DFS, the saving keys stored in `priceMultimap` is no longer
 necessary. It is now indexed as `ArrayList`.
-
-- Gather total items' worth as `sum`.
-- Filter promotion that can be applied to current stock.
-- Start a DFS recursive function using current promotion price.
-- Backtrack to try another promotion.
 
 By trying every permutation, it is guaranteed that this function will return
 the most profitable purchase.
@@ -285,7 +289,7 @@ private fun dfs(
     for (j in i until promotionList.size) {
         val promotion = promotionList[j]
         if (promotion.items.all { priceMap[it.id]!!.amount >= it.amount }) {
-            // use special
+            // use promotion
             promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
             sum = minOf(sum, promotion.price + dfs(priceMap, promotionList, i))
             // backtrack

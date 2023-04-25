@@ -7,6 +7,7 @@ import javafx.scene.input.KeyCode.DIGIT2
 import javafx.scene.input.KeyCode.M
 import javafx.scene.input.KeyCode.Q
 import javafx.scene.input.KeyCombination.SHORTCUT_DOWN
+import javafx.scene.text.Font
 import javafx.stage.Stage
 import ktfx.bindings.stringBindingOf
 import ktfx.coroutines.onAction
@@ -19,9 +20,11 @@ import ktfx.layouts.scene
 import ktfx.layouts.separatorMenuItem
 import ktfx.layouts.splitPane
 import ktfx.layouts.vbox
+import ktfx.propertyOf
 import ktfx.runLater
 import ktfx.windows.minSize
 import org.controlsfx.tools.Platform
+import org.controlsfx.tools.Platform.OSX
 
 class App : Application() {
     companion object {
@@ -33,13 +36,15 @@ class App : Application() {
     lateinit var promotionsPane: InputColumnPane
     lateinit var outputPane: OutputColumnPane
 
+    val fontProperty = propertyOf(Font.font(12.0))
+
     override fun start(stage: Stage) {
         stage.title = "Cheapest Merchandise"
         stage.minSize = 600 to 300
         stage.scene {
             vbox {
                 menuBar {
-                    isUseSystemMenuBar = Platform.getCurrent() == Platform.OSX
+                    isUseSystemMenuBar = Platform.getCurrent() == OSX
                     "File" {
                         "Import price" { onAction { pricesPane.button.fire() } }
                         "Import promotions" { onAction { promotionsPane.button.fire() } }
@@ -75,6 +80,22 @@ class App : Application() {
                             }
                         }
                     }
+                    "Font" {
+                        val group = ToggleGroup()
+                        radioMenuItem("Normal") {
+                            toggleGroup = group
+                            isSelected = true
+                            onAction { fontProperty.set(Font.font(12.0)) }
+                        }
+                        radioMenuItem("Big") {
+                            toggleGroup = group
+                            onAction { fontProperty.set(Font.font(18.0)) }
+                        }
+                        radioMenuItem("Huge") {
+                            toggleGroup = group
+                            onAction { fontProperty.set(Font.font(24.0)) }
+                        }
+                    }
                     "Window" {
                         "Minimize" {
                             accelerator = SHORTCUT_DOWN + M
@@ -87,9 +108,9 @@ class App : Application() {
                     }
                 }
                 splitPane {
-                    pricesPane = addChild(InputColumnPane(stage, "Price"))
-                    promotionsPane = addChild(InputColumnPane(stage, "Promotions"))
-                    outputPane = addChild(OutputColumnPane(stage))
+                    pricesPane = addChild(InputColumnPane(stage, "Price", fontProperty))
+                    promotionsPane = addChild(InputColumnPane(stage, "Promotions", fontProperty))
+                    outputPane = addChild(OutputColumnPane(stage, fontProperty))
                     outputPane.area.textProperty().bind(
                         stringBindingOf(
                             pricesPane.area.textProperty(),
@@ -100,7 +121,7 @@ class App : Application() {
                                 outputPane.choice.selectionModel.selectedItem
                                     .parse(pricesPane.area.text, promotionsPane.area.text)
                             } catch (e: Exception) {
-                                // e.printStackTrace()
+                                e.printStackTrace()
                                 e.message
                             }
                         },

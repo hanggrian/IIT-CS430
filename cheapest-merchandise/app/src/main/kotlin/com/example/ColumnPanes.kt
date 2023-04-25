@@ -1,10 +1,12 @@
 package com.example
 
+import javafx.beans.property.Property
 import javafx.geometry.HPos.CENTER
 import javafx.scene.control.Button
 import javafx.scene.control.ChoiceBox
 import javafx.scene.control.Label
 import javafx.scene.control.TextArea
+import javafx.scene.text.Font
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import ktfx.bindings.asBoolean
@@ -22,7 +24,7 @@ import ktfx.layouts.textArea
 import ktfx.layouts.tooltip
 import ktfx.runLater
 
-class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
+class OutputColumnPane(stage: Stage, fontProperty: Property<Font>) : ColumnPane("Output") {
     companion object {
         val AREA_WIDTH = 260.0
     }
@@ -54,6 +56,7 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
             }
         }
         area.run {
+            fontProperty().bind(fontProperty)
             columnSpan = 3
             isEditable = false
             val tip = "Output box cannot be manually edited."
@@ -67,7 +70,8 @@ class OutputColumnPane(stage: Stage) : ColumnPane("Output") {
     }
 }
 
-class InputColumnPane(stage: Stage, title: String) : ColumnPane(title) {
+class InputColumnPane(stage: Stage, title: String, fontProperty: Property<Font>) :
+    ColumnPane(title) {
     companion object {
         val AREA_WIDTH = 150.0
         val TEXT_REGEX = Regex("^[0-9.\\s]*\$")
@@ -87,9 +91,12 @@ class InputColumnPane(stage: Stage, title: String) : ColumnPane(title) {
                 }
             }
         }
-        area.textProperty().addListener { _, old, new ->
-            if (!new.matches(TEXT_REGEX)) {
-                area.text = old
+        area.run {
+            fontProperty().bind(fontProperty)
+            textProperty().addListener { _, old, new ->
+                if (!new.matches(TEXT_REGEX)) {
+                    area.text = old
+                }
             }
         }
     }

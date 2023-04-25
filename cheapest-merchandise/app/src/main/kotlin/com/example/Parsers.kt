@@ -25,7 +25,7 @@ class DfsParser(val experimental: Boolean = false) : Parser() {
         for (j in i until promotionList.size) {
             val promotion = promotionList[j]
             if (promotion.items.all { priceMap[it.id]!!.amount >= it.amount }) {
-                // use special
+                // use promotion
                 promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
                 if (experimental) {
                     sb.appendLine(promotion.toString())
@@ -54,22 +54,17 @@ class GreedyParser : Parser() {
         promotionMultimap: Multimap<Double, Promotion>
     ): String {
         val sb = StringBuilder()
-        val keysIterator = priceMap.keys.iterator()
         var spent = 0.0
-        while (keysIterator.hasNext()) {
-            val item = priceMap[keysIterator.next()]!!
-            val bestPromotion = promotionMultimap.values().lastOrNull { purchase ->
-                purchase.items.any { it.id == item.id && it.amount <= item.amount }
+        // abuse promotions
+        promotionMultimap.values().reversed().forEach { promotion ->
+            while (promotion.items.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
+                sb.appendLine(promotion.toString())
+                spent += promotion.price
+                promotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
             }
-            // use promotions
-            if (bestPromotion != null) {
-                while (bestPromotion.items.all { priceMap[it.id]!!.amount - it.amount >= 0 }) {
-                    sb.appendLine(bestPromotion.toString())
-                    spent += bestPromotion.price
-                    bestPromotion.items.forEach { priceMap[it.id]!!.amount -= it.amount }
-                }
-            }
-            // deduce leftover with non-promotions
+        }
+        // deduce leftover with non-promotions
+        priceMap.values.forEach { item ->
             if (item.amount > 0) {
                 sb.appendLine(item.toString())
                 spent += item.worth
