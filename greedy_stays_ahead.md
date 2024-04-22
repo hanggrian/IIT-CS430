@@ -9,19 +9,19 @@ must be optimal.
 
 Typically, you would structure a “greedy stays ahead” argument in four steps:
 
-- **Define your solution**. Your algorithm will produce some object $X$ and you
+- **Define your solution.** Your algorithm will produce some object $X$ and you
   will probably compare it against some optimal solution $X*$. Introduce some
   variables denoting your algorithm's solution and the optimal solution.
-- **Define your measure**. Your goal is to find a series of measurements you can
+- **Define your measure.** Your goal is to find a series of measurements you can
   make of your solution and the optimal solution. Define some series of measures
   $m_1(X),m_2(X),\ldots,m_n(X)$ such that $m_1(X*),m_2(X*),\ldots,m_k(X*)$ is
   also defined for some choices of $m$ and $n$. Note that there might be a
   different number of measures for $X$ and $X*$, since you can't assume at this
   point that $X$ is optimal.
-- **Prove greedy stays ahead**. Prove that $m_i(X) \ge m_i(X*)$ or
+- **Prove greedy stays ahead.** Prove that $m_i(X) \ge m_i(X*)$ or
   that $m_i(X) \le m_i(X*)$, whichever is appropriate, for all reasonable values
   of $i$. This argument is usually done inductively.
-- **Prove optimality**. Using the fact that greedy stays ahead, prove that the
+- **Prove optimality.** Using the fact that greedy stays ahead, prove that the
   greedy algorithm must produce an optimal solution. This argument is often done
   by contradiction by assuming the greedy solution isn't optimal and using the
   fact that greedy stays ahead to derive a contradiction.
@@ -91,20 +91,20 @@ solution is optimal.
 
 Typically, exchange arguments are set up as follows:
 
-- **Define your solutions**. You will be comparing your greedy solution $X$ to
+- **Define your solutions.** You will be comparing your greedy solution $X$ to
   an optimal solution $X*$, so it's best to define these variables explicitly.
-- **Compare solutions**. Next, show that if $X ≠ X*$, then they must differ in
+- **Compare solutions.** Next, show that if $X ≠ X*$, then they must differ in
   some way. This could mean that there's a piece of $X$ that's not in $X*$, or
   that two elements of $X$ that are in a different order in $X*$, etc. You might
   want to give those pieces names.
-- **Exchange pieces**. Show how to transform $X*$ by exchanging some piece
+- **Exchange pieces.** Show how to transform $X*$ by exchanging some piece
   of $X*$ for some piece of $X$. You'll typically use the piece you described in
   the previous step. Then, prove that by doing so, you did not increase/decrease
   the cost of $X*$ and therefore have a different optimal solution. (You might
   also be able to immediately conclude that you've strictly worsened $X*$, in
   which case you're done. This is uncommon and usually only works if there's
   just one optimal solution.)
-- **Iterate**. Argue that you have decreased the number of differences
+- **Iterate.** Argue that you have decreased the number of differences
   between $X$ and $X*$ by performing the exchange, and that by iterating this
   process you can turn $X*$ into $X$ without impacting the quality of the
   solution. Therefore, $X$ must be optimal. (To be very rigorous here, you would

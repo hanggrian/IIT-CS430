@@ -15,19 +15,19 @@ in which storing the simpler values isn't necessary.
 To show how powerful the technique can be, here are some of the most famous
 problems commonly approached through dynamic programming:
 
-1. [**Backpack Problem**](backpack_problem.md): Given a set of treasures with
-   known values and weights, which of them should you pick to maximize your
-   profit whilst not damaging your backpack which has a fixed capacity?
-1. [Egg Dropping](https://brilliant.org/wiki/egg-dropping/): What is the best
-   way to drop $n$ eggs from an $m$-floored building to figure out the lowest
-   height from which the eggs when dropped crack?
-1. Longest Common Subsequence: Given two sequences, which is the longest
-   subsequence common to both of them?
-1. [Subset Sum Problem](https://brilliant.org/discussions/thread/balance-it-if-you-possibly-can/):
-   Given a set and a value $n$, is there a subset the sum of whose elements
-   is $n$?
-1. [Fibonacci Numbers](https://brilliant.org/wiki/fast-fibonacci-transform/): Is
-   there a better way to compute Fibonacci numbers than plain recursion?
+1.  **[Backpack Problem](backpack_problem.md):** Given a set of treasures with
+    known values and weights, which of them should you pick to maximize your
+    profit whilst not damaging your backpack which has a fixed capacity?
+1.  [Egg Dropping](https://brilliant.org/wiki/egg-dropping/): What is the best
+    way to drop $n$ eggs from an $m$-floored building to figure out the lowest
+    height from which the eggs when dropped crack?
+1.  Longest Common Subsequence: Given two sequences, which is the longest
+    subsequence common to both of them?
+1.  [Subset Sum Problem](https://brilliant.org/discussions/thread/balance-it-if-you-possibly-can/):
+    Given a set and a value $n$, is there a subset the sum of whose elements
+    is $n$?
+1.  [Fibonacci Numbers](https://brilliant.org/wiki/fast-fibonacci-transform/):
+    Is there a better way to compute Fibonacci numbers than plain recursion?
 
 In a contest environment, dynamic programming almost always comes up (and often
 in a surprising way, no matter how familiar the contestant is with it).
@@ -142,10 +142,10 @@ as we go, in a top-down fashion.
 
 ### Dynamic programming vs recursion with caching
 
-| Dynamic Programming | Recursion with Caching |
-| --- | --- |
-| Faster if many sub-problems are visited as there is no overhead from recursive calls | Intuitive approach |
-| The complexity of the program is easier to see | Computes only those subproblems which are necessary |
+Dynamic Programming | Recursion with Caching
+--- | ---
+Faster if many sub-problems are visited as there is no overhead from recursive calls | Intuitive approach
+The complexity of the program is easier to see | Computes only those subproblems which are necessary
 
 ## Bidimensional dynamic programming: Example
 

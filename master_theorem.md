@@ -62,6 +62,7 @@ comparison between $f$ and $n^{\log_b a}$.
 >
 > for constants $a \ge 1$ and $b > 1$ with $f$ asymptotically positive, the
   following statements are true:
+>
 > - **Case 1.** If $f(n) = O(n^{\log_b a-\epsilon})$ for some $\epsilon > 0$,
     then $T(n) = \Theta(n^{\log_b a})$.
 > - **Case 2.** If $f(n) = \Theta(n^{\log_b a)}$,
@@ -103,7 +104,8 @@ Similarly, as mentioned before, traversing a binary tree takes time
 $$T(n) = 2T(\frac{n}{2}) + O(1) ,$$
 
 $n^{\log_b a} = n$, which is asymptotically larger than a constant factor, so
-**case 1** of the master theorem gives $T(n) = 2T(\frac{n}{2}) + O(1) = \Theta(n)$.
+**case 1** of the master theorem gives
+$T(n) = 2T(\frac{n}{2}) + O(1) = \Theta(n)$.
 
 > ##### Example
 >
@@ -112,8 +114,8 @@ $n^{\log_b a} = n$, which is asymptotically larger than a constant factor, so
 > $$T(n) = 9T(\frac{n}{3}) + n .$$
 >
 > In this case, $n^{\log_b a} = n^2$ and $f(n) = n$. Since $f(n)$ is
-  polynomially smaller than $n^{\log_b a}$, **case 1** of the master theorem implies
-  that $T(n) = \Theta(n^2)$.
+  polynomially smaller than $n^{\log_b a}$, **case 1** of the master theorem
+  implies that $T(n) = \Theta(n^2)$.
 
 > ##### Example
 >

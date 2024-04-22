@@ -51,14 +51,14 @@
 >     - line2: identifier/code of the first merchandise; amount; ticket price.
 >     - line3: identifier/code of the first merchandise; amount; ticket price.
 >     - ...
-> 2.  `output.txt`. This file addresses the promotion information and oragized
+> 1.  `output.txt`. This file addresses the promotion information and oragized
       as:
 >     - line1: the number of the promotions that are in effect presently.
 >     - line2: the number of merchandise types; id1; amount1; id2; amount2; ...
 >       promotion price.
 >     - line3: the number of merchandise types; id1; amount1; id2; amount2; ...
 >       promotion price.
-> 3.  `promotions.txt` and `price.txt` will be provided by your instructor.
+> 1.  `promotions.txt` and `price.txt` will be provided by your instructor.
 >
 > **Output**: one `.txt` file.
 >
