@@ -11,9 +11,9 @@
   using `QUICKSORT` is $T(n^2)$ when the array A contains distinct elements and
   is initially sorted in decreasing order.
 
-| Algorithm | Best | Average | Worst |
-| --- | --- | --- | --- |
-| Quicksort | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n^2)$ |
+Algorithm | Best | Average | Worst
+--- | --- | --- | ---
+Quicksort | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n^2)$
 
 Quicksort picks a random pivot and divides the collection accordingly. For the
 most optimal performance, these divisions should be sized proportionally.
@@ -21,11 +21,11 @@ Ideally, the pivot should be the median of a sorted collection, as opposed to
 the smallest or the largest. **Therefore, the running time of quicksort on a
 sorted array depends on how the pivot is selected**.
 
-| Case | Pivot |
-| --- | --- |
-| Best | $\bf A[n/2]$ |
-| Worst | $\bf A[1] \textsf{ or } A[n]$ |
-| Average | Random |
+Case | Pivot
+--- | ---
+Best | $\bf A[n/2]$
+Worst | $\bf A[1] \textsf{ or } A[n]$
+Average | Random
 
 ## Problem 2
 
@@ -48,8 +48,8 @@ sorted array depends on how the pivot is selected**.
 > }
 > ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/sort/Quicksorts.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/sort/QuicksortsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/Quicksorts.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/QuicksortsTest.java)
 
 ### Subproblem 2A
 
@@ -147,8 +147,8 @@ operation $\bf O(n \log n)$**.
 > }
 > ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/HoarePartitions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/HoarePartitionsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/HoarePartitions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/HoarePartitionsTest.java)
 
 ### Subproblem 3A
 
@@ -156,12 +156,12 @@ operation $\bf O(n \log n)$**.
   array $A=\{13,19,9,5,12,8,7,4,11,2,6,21\}$, showing the values of the array
   and auxiliary values after each iteration of the while-loop.
 
-| # | $j$ | $i$ | $A$ | Note |
-| ---: | --- | --- | --- | --- |
-| 0 | $12$ | $0$ | $\{13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21\}$ | $x = A[1] = 13$. |
-| 1 | $11$ | $1$ | $\{\mathbf{6}, 19, 9, 5, 12, 8, 7, 4, 11, 2, \mathbf{13}, 21\}$ | |
-| 2 | $10$ | $2$ | $\{6, \mathbf{2}, 9, 5, 12, 8, 7, 4, 11, \mathbf{19}, 13, 21\}$ | |
-| 3 | $9$ | $10$ | $\{6, 2, 9, 5, 12, 8, 7, 4, 11, 19, 13, 21\}$ | **Not swapping, returns $\bf j$.** |
+\# | $j$ | $i$ | $A$ | Note
+---: | --- | --- | --- | ---
+0 | $12$ | $0$ | $\{13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21\}$ | $x = A[1] = 13$.
+1 | $11$ | $1$ | $\{\mathbf{6}, 19, 9, 5, 12, 8, 7, 4, 11, 2, \mathbf{13}, 21\}$
+2 | $10$ | $2$ | $\{6, \mathbf{2}, 9, 5, 12, 8, 7, 4, 11, \mathbf{19}, 13, 21\}$
+3 | $9$ | $10$ | $\{6, 2, 9, 5, 12, 8, 7, 4, 11, 19, 13, 21\}$ | **Not swapping, returns $\bf j$.**
 
 > The next three questions ask you to give a careful argument that the
   procedure `hoarePartition` is correct. Prove the following:
@@ -198,10 +198,10 @@ During termination, the function returns $j$, the index of the pivot.
 
 > What are the minimum and maximum numbers of elements in a heap of height $h$?
 
-| Data Structure | # of Nodes | Notes |
-| --- | --- | --- |
-| Almost Complete Binary Tree | $2^0 + 2^1 + 2^2 + \ldots + 2^{h-1} + l = \bf 2^h$ | Where $l$ is the number of nodes in the last level. |
-| Complete Binary Tree | $2^0 + 2^1 + 2^2 + \ldots + 2^h = \bf 2^{h+1}-1$ | |
+Data Structure | # of Nodes | Notes
+--- | --- | ---
+Almost Complete Binary Tree | $2^0 + 2^1 + 2^2 + \ldots + 2^{h-1} + l = \bf 2^h$ | Where $l$ is the number of nodes in the last level.
+Complete Binary Tree | $2^0 + 2^1 + 2^2 + \ldots + 2^h = \bf 2^{h+1}-1$ |
 
 A heap data structure is almost complete to a complete binary tree. **For a
 minimum number of elements, the tree should be almost complete with the last
@@ -238,8 +238,8 @@ public static void maxHeapify(int[] A, int i) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/MaxHeapifies.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/MaxHeapifiesTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/MaxHeapifies.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/MaxHeapifiesTest.java)
 
 ## Problem 6
 

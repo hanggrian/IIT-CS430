@@ -26,12 +26,12 @@
 >
 > ## Evaluation
 >
-> | Topic | Points |
-> | --- | ---: |
-> | Functional correctness | 10 |
-> | Runnability and robust | 3 |
-> | Friendly UI | 2 |
-> | Report writing | 5 |
+> Topic | Points
+> --- | ---:
+> Functional correctness | 10
+> Runnability and robust | 3
+> Friendly UI | 2
+> Report writing | 5
 >
 > ## Tasks
 >
@@ -46,19 +46,19 @@
 >
 > **Input**: two `.txt` files.
 >
-> 1. `input.txt`. This file contains the purchase intention and organized as:
+> 1.  `input.txt`. This file contains the purchase intention and organized as:
 >     - line1: the number of merchandises to buy.
 >     - line2: identifier/code of the first merchandise; amount; ticket price.
 >     - line3: identifier/code of the first merchandise; amount; ticket price.
 >     - ...
-> 2. `output.txt`. This file addresses the promotion information and oragized
+> 2.  `output.txt`. This file addresses the promotion information and oragized
       as:
 >     - line1: the number of the promotions that are in effect presently.
 >     - line2: the number of merchandise types; id1; amount1; id2; amount2; ...
 >       promotion price.
 >     - line3: the number of merchandise types; id1; amount1; id2; amount2; ...
 >       promotion price.
-> 3. `promotions.txt` and `price.txt` will be provided by your instructor.
+> 3.  `promotions.txt` and `price.txt` will be provided by your instructor.
 >
 > **Output**: one `.txt` file.
 >
@@ -107,7 +107,7 @@ Because none of these are particularly mathematics-focused.
 
 ### Price
 
-![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_price.png)
+![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_price.svg)
 
 Each price is stored in `HashMap`, a standard hash table. We can also store this
 information in an `ArrayList` or `HashSet`, but getting a price can be $O(n)$
@@ -128,7 +128,7 @@ data class Price(
 
 ### Promotion
 
-![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_promotion.png)
+![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_promotion.svg)
 
 Each promotion is stored in `TreeMultimap`, which is a hash table with features:
 
@@ -171,7 +171,7 @@ multimap[0] = "World"
 val collection = multimap[0]
 ```
 
-![Multimap example.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_multimap.png)
+![Multimap example.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_multimap.svg)
 
 ### Parsing
 
@@ -216,7 +216,7 @@ fun parse(prices: String, promotions: String): String {
 
 ### Greedy
 
-![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_greedy.png)
+![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_greedy.svg)
 
 With greedy algorithm, the best promotion is determined by comparing their
 savings, that is, actual price of all items combined minus promotion bundle
@@ -259,7 +259,7 @@ override fun onParse(
 
 ### DFS
 
-![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_dfs.png)
+![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_dfs.svg)
 
 With backtracking + DFS, the saving keys stored in `priceMultimap` is no longer
 necessary. It is now indexed as `ArrayList`.

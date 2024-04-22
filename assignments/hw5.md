@@ -8,24 +8,24 @@
 ## Problem 1
 
 > Refer to the weighted directed graph below and adopt the Bellman-Ford to find
-  shortest paths sourced from **vertex $\bf 0$** to all other vertices. Answer the
+  shortest paths sourced frVom **vertex $\bf 0$** to all other vertices. Answer the
   following questions.
 >
-> ![Figure 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_fig1.jpg)
+> ![Figure 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_1.jpg)
 
 ### Subproblem 1A
 
 > Present the adjacent matrix.
 
-| | $\bf V[0]$ | $\bf V[1]$ | $\bf V[2]$ | $\bf V[3]$ | $\bf V[4]$ | $\bf V[5]$ | $\bf V[6]$ |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| $\bf V[0]$ | $0$ | $6$ | $5$ | $5$ | $0$ | $0$ | $0$ |
-| $\bf V[1]$ | $0$ | $0$ | $0$ | $0$ | $-1$ | $0$ | $0$ |
-| $\bf V[2]$ | $0$ | $-2$ | $0$ | $0$ | $1$ | $0$ | $0$ |
-| $\bf V[3]$ | $0$ | $0$ | $-2$ | $0$ | $0$ | $-1$ | $0$ |
-| $\bf V[4]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $3$ |
-| $\bf V[5]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $3$ |
-| $\bf V[6]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ |
+| | $\bf V[0]$ | $\bf V[1]$ | $\bf V[2]$ | $\bf V[3]$ | $\bf V[4]$ | $\bf V[5]$ | $\bf V[6]$
+--- | --- | --- | --- | --- | --- | --- | ---
+$\bf V[0]$ | $0$ | $6$ | $5$ | $5$ | $0$ | $0$ | $0$
+$\bf V[1]$ | $0$ | $0$ | $0$ | $0$ | $-1$ | $0$ | $0$
+$\bf V[2]$ | $0$ | $-2$ | $0$ | $0$ | $1$ | $0$ | $0$
+$\bf V[3]$ | $0$ | $0$ | $-2$ | $0$ | $0$ | $-1$ | $0$
+$\bf V[4]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $3$
+$\bf V[5]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $3$
+$\bf V[6]$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$
 
 ### Subproblem 1B
 
@@ -33,41 +33,41 @@
   by adopting Bellman-Ford algorithm. Use row $1$ and $2$ as examples. You may add
   more rows when necessary.
 >
-> | Round | $\bf Dist^k[0]$ | $\bf Dist^k[1]$ | $\bf Dist^k[2]$ | $\bf Dist^k[3]$ | $\bf Dist^k[4]$ | $\bf Dist^k[5]$ | $\bf Dist^k[6]$ |
-> | --- | --- | --- | --- | --- | --- | --- | --- |
-> | **1** | $0$ | $6$ | $5$ | $5$ | $\infty$ | $\infty$ | $\infty$ |
-> | **2** | $0$ | $3$ | $3$ | $5$ | $5$ | $4$ | $\infty$ |
-> | **3** | | | | | | | |
-> | **4** | | | | | | | |
-> | **5** | | | | | | | |
-> | **6** | | | | | | | |
+> Round | $\bf Dist^k[0]$ | $\bf Dist^k[1]$ | $\bf Dist^k[2]$ | $\bf Dist^k[3]$ | $\bf Dist^k[4]$ | $\bf Dist^k[5]$ | $\bf Dist^k[6]$
+> --- | --- | --- | --- | --- | --- | --- | ---
+> **1** | $0$ | $6$ | $5$ | $5$ | $\infty$ | $\infty$ | $\infty$
+> **2** | $0$ | $3$ | $3$ | $5$ | $5$ | $4$ | $\infty$
+> **3**
+> **4**
+> **5**
+> **6**
 
-| Round | $\bf V[0]$ | $\bf V[1]$ | $\bf V[2]$ | $\bf V[3]$ | $\bf V[4]$ | $\bf V[5]$ | $\bf V[6]$ |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **1** | $0$ | $6$ | $5$ | $5$ | $\infty$ | $\infty$ | $\infty$ |
-| **2** | $0$ | $3$ | $3$ | $5$ | $5$ | $4$ | $\infty$ |
-| **3** | $0$ | $1$ | $3$ | $5$ | $2$ | $4$ | $7$ |
-| **4** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $5$ |
-| **5** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $3$ |
-| **6** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $3$ |
+Round | $\bf V[0]$ | $\bf V[1]$ | $\bf V[2]$ | $\bf V[3]$ | $\bf V[4]$ | $\bf V[5]$ | $\bf V[6]$
+--- | --- | --- | --- | --- | --- | --- | ---
+**1** | $0$ | $6$ | $5$ | $5$ | $\infty$ | $\infty$ | $\infty$
+**2** | $0$ | $3$ | $3$ | $5$ | $5$ | $4$ | $\infty$
+**3** | $0$ | $1$ | $3$ | $5$ | $2$ | $4$ | $7$
+**4** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $5$
+**5** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $3$
+**6** | $0$ | $1$ | $3$ | $5$ | $0$ | $4$ | $3$
 
 - Round 1
   1. $\bf V(0)+E(0,1) = 0+6 = 6$
-  2. $\bf V(0)+E(0,2) = 0+5 = 5$
-  3. $\bf V(0)+E(0,3) = 0+5 = 5$
+  1. $\bf V(0)+E(0,2) = 0+5 = 5$
+  1. $\bf V(0)+E(0,3) = 0+5 = 5$
 - Round 2
   1. $V(0)+E(0,1) = 0+6 = 6 \quad > \quad \mathbf{V(2)+E(2,1) = 5-2 = 3}$
-  2. $V(0)+E(0,2) = 0+5 = 5 \quad > \quad \mathbf{V(3)+E(3,2) = 5-2 = 3}$
-  3. $\bf V(0)+E(0,3) = 0+5 = 5$
-  4. $\mathbf{V(1)+E(1,4) = 6-1 = 5} \quad < \quad V(2)+E(2,4) = 5+1 = 6$
-  5. $V(3)+E(3,5) = 5-1 = 4$
+  1. $V(0)+E(0,2) = 0+5 = 5 \quad > \quad \mathbf{V(3)+E(3,2) = 5-2 = 3}$
+  1. $\bf V(0)+E(0,3) = 0+5 = 5$
+  1. $\mathbf{V(1)+E(1,4) = 6-1 = 5} \quad < \quad V(2)+E(2,4) = 5+1 = 6$
+  1. $V(3)+E(3,5) = 5-1 = 4$
 - Round 3
   1. $V(0)+E(0,1) = 0+6 = 6 \quad > \quad \mathbf{V(2)+E(2,1) = 3-2 = 1}$
-  2. $V(0)+E(0,2) = 0+5 = 5 \quad > \quad \mathbf{V(3)+E(3,2) = 5-2 = 3}$
-  3. $\bf V(0)+E(0,3) = 0+5 = 5$
-  4. $\mathbf{V(1)+E(1,4) = 3-1 = 2} \quad < \quad V(2)+E(2,4) = 3+1 = 4$
-  5. $\bf V(3)+E(3,5) = 5-1 = 4$
-  6. $V(4)+E(4,6) = 5+3 = 8 \quad > \quad \mathbf{V(5)+E(5,6) = 4+3 = 7}$
+  1. $V(0)+E(0,2) = 0+5 = 5 \quad > \quad \mathbf{V(3)+E(3,2) = 5-2 = 3}$
+  1. $\bf V(0)+E(0,3) = 0+5 = 5$
+  1. $\mathbf{V(1)+E(1,4) = 3-1 = 2} \quad < \quad V(2)+E(2,4) = 3+1 = 4$
+  1. $\bf V(3)+E(3,5) = 5-1 = 4$
+  1. $V(4)+E(4,6) = 5+3 = 8 \quad > \quad \mathbf{V(5)+E(5,6) = 4+3 = 7}$
 - And so on...
 
 ### Subproblem 1C
@@ -140,8 +140,8 @@ private static void printRound(int round, Map<Character, Integer> weights) {
 
 Average time complexity of Bellman-Ford's algorithm is $O(V E)$.
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/graph/BellmanFordGraphs.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/graph/BellmanFordGraphsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/BellmanFordGraphs.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/BellmanFordGraphsTest.java)
 
 Which generates this result.
 
@@ -166,7 +166,7 @@ Which generates this result.
 Here's an example of the smallest form of undirected graph, the minimum spanning
 tree is $A \to B \to C = 1 + 2 = 3$.
 
-![Undirected graph with positive weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/positives.png)
+![Undirected graph with positive weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/positives.svg)
 
 [View full diagram](https://github.com/hendraanggrian/IIT-CS430/blob/main/minimum-spanning-tree/minimum-spanning-tree.drawio)
 
@@ -174,7 +174,7 @@ Consider a graph where the weights are all $-1$. In this
 case, minimum spanning tree is $A \to B \to C = -1 - 1 = -2$ which is more than
 the total of $-3$. By definition, this cannot be a minimum spanning tree.
 
-![Undirected graph with negative weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/negatives.png)
+![Undirected graph with negative weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/negatives.svg)
 
 ## Problem 3
 
@@ -223,8 +223,8 @@ public static boolean isReachable(Graph G, char start, char end) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/graph/ReachableGraphs.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/graph/ReachableGraphsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/ReachableGraphs.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/ReachableGraphsTest.java)
 
 Time complexity of this function is $O(V E)$.
 
@@ -233,13 +233,13 @@ Time complexity of this function is $O(V E)$.
 > Some students enroll in some events in athletics. Below shows students names
   and their enrolled events.
 >
-> | Name | Events |
-> | --- | --- |
-> | Zach Williams | $A\ B\ E$ |
-> | Jennifer Hopkins | $C\ D$ |
-> | Ivan Green | $C\ E\ F$ |
-> | Douglas May | $D\ F\ A$ |
-> | Katherine Nojwoi | $B\ F$ |
+> Name | Events
+> --- | ---
+> Zach Williams | $A\ B\ E$
+> Jennifer Hopkins | $C\ D$
+> Ivan Green | $C\ E\ F$
+> Douglas May | $D\ F\ A$
+> Katherine Nojwoi | $B\ F$
 >
 > But some events may be held with a time conflict. To find out if each student
   could succeed participating in all events he/she enrolls in, we refer to the
@@ -247,7 +247,7 @@ Time complexity of this function is $O(V E)$.
   connected by an edge. Give out a pseudo code to return `true` if a student's
   enrolled events have no conflict and `false` otherwise.
 >
-> ![Figure 2](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_fig2.jpg)
+> ![Figure 2](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_2.jpg)
 
 ### Using sliding window
 
@@ -290,7 +290,7 @@ public static boolean isConflict(Graph G, char... events) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/graph/AthleticEvents.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/graph/AthleticEventsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/AthleticEvents.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/AthleticEventsTest.java)
 
 Time complexity of this function is $O(events.E)$.

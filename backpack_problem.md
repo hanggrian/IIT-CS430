@@ -1,4 +1,4 @@
-# [Backpack Problem](https://brilliant.org/wiki/backpack-problem/)
+# [Backpack problem](https://brilliant.org/wiki/backpack-problem/)
 
 The **backpack problem** (also known as the "Knapsack problem") is a widely
 known combinatorial optimization problem in computer science. In this wiki, you
@@ -21,10 +21,10 @@ backpack.
 >
 > Suppose you have a set of 5 items:
 >
-> | | 1st Item | 2nd Item | 3rd Item | 4th Item | 5th Item |
-> | --- | --- | --- | --- | --- | --- |
-> | Value | $\$5$ | $\$10$ | $\$3$ | $\$2$ | $\$3$ |
-> | Weight | $4\ kg$ | $8\ kg$ | $3\ kg$ | $5\ kg$ | $2\ kg$ |
+> | | 1st Item | 2nd Item | 3rd Item | 4th Item | 5th Item
+> --- | --- | --- | --- | --- | ---
+> Value | $\$5$ | $\$10$ | $\$3$ | $\$2$ | $\$3$
+> Weight | $4\ kg$ | $8\ kg$ | $3\ kg$ | $5\ kg$ | $2\ kg$
 >
 > If your backpack's weight limit is $10\ kg$, what is the optimal solution?
   That is, which items should you take with you?
@@ -59,7 +59,7 @@ there is, and we will see an algorithm in the next section.
 >
 > **Note**: Gina can bring as many as she wants of each of the above items.
 ​
-## The Pseudo-code
+## The pseudo-code
 
 This problem can be solved using simple recursion and a two-dimensional array.
 

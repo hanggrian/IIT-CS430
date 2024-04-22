@@ -38,17 +38,17 @@ E = {(0,1), (0,2), (0,3), (1,2)}
 G = {V, E}
 ```
 
-| Terminology | Description |
-| --- | --- |
-| Adjacency | A vertex is said to be adjacent to another vertex if there is an edge connecting them. Vertices $2$ and $3$ are not adjacent because there is no edge between them. |
-| Path | A sequence of edges that allows you to go from vertex $A$ to vertex $B$ is called a path. $0-1$, $1-2$ and $0-2$ are paths from vertex $0$ to vertex $2$. |
-| Directed Graph | A graph in which an edge $(u,v)$ doesn't necessarily mean that there is an edge $(v, u)$ as well. The edges in such a graph are represented by arrows to show the direction of the edge. |
+Terminology | Description
+--- | ---
+Adjacency | A vertex is said to be adjacent to another vertex if there is an edge connecting them. Vertices $2$ and $3$ are not adjacent because there is no edge between them.
+Path | A sequence of edges that allows you to go from vertex $A$ to vertex $B$ is called a path. $0-1$, $1-2$ and $0-2$ are paths from vertex $0$ to vertex $2$.
+Directed Graph | A graph in which an edge $(u,v)$ doesn't necessarily mean that there is an edge $(v, u)$ as well. The edges in such a graph are represented by arrows to show the direction of the edge.
 
-### Graph Representation
+### Graph representation
 
 Graphs are commonly represented in two ways:
 
-#### 1. Adjacency Matrix
+#### 1. Adjacency matrix
 
 An adjacency matrix is a 2D array of $V \times V$ vertices. Each row and column
 represent a vertex.
@@ -70,7 +70,7 @@ extremely fast in adjacency matrix representation but we have to reserve space
 for every possible link between all vertices $(V \times V)$, so it requires more
 space.
 
-#### 2. Adjacency List
+#### 2. Adjacency list
 
 An adjacency list represents a graph as an array of linked lists.
 
@@ -87,7 +87,7 @@ An adjacency list is efficient in terms of storage because we only need to store
 the values for the edges. For a graph with millions of vertices, this can mean a
 lot of saved space.
 
-### Graph Operations
+### Graph operations
 
 The most common graph operations are:
 
@@ -98,9 +98,9 @@ The most common graph operations are:
 
 ## [Bellman Ford's algorithm](https://www.programiz.com/dsa/bellman-ford-algorithm/)
 
-| Algorithm | Best | Average | Worst | Space |
-| --- | --- | --- | --- | --- |
-| Bellman Ford | $O(E)$ | $O(VE)$ | $O(VE)$ | $O(V)$ |
+Algorithm | Best | Average | Worst | Space
+--- | --- | --- | --- | ---
+Bellman Ford | $O(E)$ | $O(VE)$ | $O(VE)$ | $O(V)$
 
 Bellman Ford algorithm helps us find the shortest path from a vertex to all
 other vertices of a weighted graph.
@@ -168,7 +168,7 @@ optimized.
 
 <small>Step-6 for Bellman Ford's algorithm</small>
 
-### Bellman Ford Pseudocode
+### Bellman Ford pseudocode
 
 We need to maintain the path distance of every vertex. We can store that in an
 array of size $v$, where $v$ is the number of vertices.
@@ -327,9 +327,9 @@ class CreateGraph {
 
 ## [Dijkstra's algorithm](https://www.programiz.com/dsa/dijkstra-algorithm/)
 
-| Algorithm | Time | Space |
-| --- | --- | --- |
-| Bellman Ford | $O(E \log V)$ | $O(V)$ |
+Algorithm | Time | Space
+--- | --- | ---
+Bellman Ford | $O(E \log V)$ | $O(V)$
 
 Dijkstra's algorithm allows us to find the shortest path between any two
 vertices of a graph.

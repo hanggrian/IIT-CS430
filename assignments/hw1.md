@@ -35,8 +35,8 @@ public static boolean hasTupleBruteForce(int[] A) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/FindATuples.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/FindATuplesTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/FindATuples.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/FindATuplesTest.java)
 
 ### Subproblem 1B
 
@@ -139,13 +139,13 @@ $$
 > What is the big-O runtime for the routine, measured as a function of its
   return value $i$?
 
-| Line | Cost |
-| --- | --- |
-| `int firstDecrease(int * L, int n) {` | |
-| &emsp;`for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {` | $a$ |
-| &emsp;&emsp;`return i;` | $b$ |
-| &emsp;`}` | |
-| `}` | |
+Line | Cost
+--- | ---
+`int firstDecrease(int * L, int n) {`
+&emsp;`for (int i = 2; i <= n && L[i] >= L[i - 1]; i++) {` | $a$
+&emsp;&emsp;`return i;` | $b$
+&emsp;`}`
+`}`
 
 $$
 \begin{array}{rcl}
@@ -188,9 +188,9 @@ $$
 > What is the big-O average case running time of the routine? Hint: Simplify
   the previous summation until you see a common taylor series.
 
-| Theory | Equation | Where |
-| --- | --- | --- |
-| Taylor series | $\displaystyle \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n$ | $n!$ is factorial of $n$.<br>$a$ is real or complex number.<br>$f^{(n)}(a)$ is $n$-th derivative of $f$ evaluated at the point $a$. |
+Theory | Equation | Where
+--- | --- | ---
+Taylor series | $\displaystyle \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n$ | $n!$ is factorial of $n$.<br>$a$ is real or complex number.<br>$f^{(n)}(a)$ is $n$-th derivative of $f$ evaluated at the point $a$.
 
 $$
 \begin{array}{rcl}
@@ -242,8 +242,8 @@ With $x=1$, we get our $E(i)$. **Hence $\bf E(i) = O(e)$**.
 > }
 > ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/Permutations.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/PermutationsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/Permutations.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/PermutationsTest.java)
 
 ### Subproblem 5A
 
@@ -276,27 +276,27 @@ print permutations of an array of integers**.
 
 > Give a recurrence equation describing the worst-case behavior of the program.
 
-| Line | Relation |
-| --- | --- |
-| `void Z(int A[], int n, int k) {` | $T(n)$ |
-| &emsp;`if (k == n - 1) {`| |
-| &emsp;&emsp;`for (int i = 0; i < n; i++) {` | $\bf n$ |
-| &emsp;&emsp;&emsp;`cout << A[i] << " ";` | $O(1)$ |
-| &emsp;&emsp;`}` | |
-| &emsp;&emsp;`cout << endl;` | $O(1)$ |
-| &emsp;`} else {` | |
-| &emsp;&emsp;`for (int i = k; i < n; i++) {` | $\bf n$ |
-| &emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$ |
-| &emsp;&emsp;&emsp;`Z(A, n, k + 1);` | $T(n-1)$ |
-| &emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$ |
-| &emsp;&emsp;`}` | |
-| &emsp;`}` | |
-| `}` | |
+Line | Relation
+--- | ---
+`void Z(int A[], int n, int k) {` | $T(n)$
+&emsp;`if (k == n - 1) {`
+&emsp;&emsp;`for (int i = 0; i < n; i++) {` | $\bf n$
+&emsp;&emsp;&emsp;`cout << A[i] << " ";` | $O(1)$
+&emsp;&emsp;`}`
+&emsp;&emsp;`cout << endl;` | $O(1)$
+&emsp;`} else {`
+&emsp;&emsp;`for (int i = k; i < n; i++) {` | $\bf n$
+&emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$
+&emsp;&emsp;&emsp;`Z(A, n, k + 1);` | $T(n-1)$
+&emsp;&emsp;&emsp;`swap(A[i], A[k]);` | $O(1)$
+&emsp;&emsp;`}`
+&emsp;`}`
+`}`
 
-| Case | Equation |
-| --- | --- |
-| Base | $\begin{array}{rcl} \bf T(1) &=& n . O(1) + O(1) \\ &=& \bf n \end{array}$ |
-| Recursive | $\begin{array}{rcl} \bf T(n) &=& n . (O(1) + T(n-1) + O(1)) \\ &=& \bf n . T(n-1) \end{array}$ |
+Case | Equation
+--- | ---
+Base | $\begin{array}{rcl} \bf T(1) &=& n . O(1) + O(1) \\ &=& \bf n \end{array}$
+Recursive | $\begin{array}{rcl} \bf T(n) &=& n . (O(1) + T(n-1) + O(1)) \\ &=& \bf n . T(n-1) \end{array}$
 
 ### Subproblem 5C
 
@@ -332,13 +332,13 @@ $$
 
 We start the 2 pointers on the right:
 
-| # | Pair | $i < j$ | $A[i] > A[j]$ |
-| ---: | --- | --- | --- |
-| 1 | $\bf \{4, 5\}$ | $4 < 5$ | $6 > 1$ |
-| 2 | $\bf \{3, 5\}$ | $3 < 5$ | $8 > 1$ |
-| 3 | $\bf \{2, 5\}$ | $2 < 5$ | $3 > 1$ |
-| 4 | $\bf \{1, 5\}$ | $1 < 5$ | $2 > 1$ |
-| 5 | $\bf \{3, 4\}$ | $3 < 4$ | $8 > 6$ |
+\# | Pair | $i < j$ | $A[i] > A[j]$
+---: | --- | --- | ---
+1 | $\bf \{4, 5\}$ | $4 < 5$ | $6 > 1$
+2 | $\bf \{3, 5\}$ | $3 < 5$ | $8 > 1$
+3 | $\bf \{2, 5\}$ | $2 < 5$ | $3 > 1$
+4 | $\bf \{1, 5\}$ | $1 < 5$ | $2 > 1$
+5 | $\bf \{3, 4\}$ | $3 < 4$ | $8 > 6$
 
 ### Subproblem 6B
 
@@ -361,13 +361,13 @@ $$
 > What is the relationship between the running time of *insertion sort* and the
   number of inversions in the input array? Justify your answer.
 
-| # | Swaps |
-| ---: | --- |
-| 1 | $\bf \{8, 6\}$ |
-| 2 | $\bf \{2, 1\}$ |
-| 3 | $\bf \{3, 1\}$ |
-| 4 | $\bf \{6, 1\}$ |
-| 5 | $\bf \{8, 1\}$ |
+\# | Swaps
+---: | ---
+1 | $\bf \{8, 6\}$
+2 | $\bf \{2, 1\}$
+3 | $\bf \{3, 1\}$
+4 | $\bf \{6, 1\}$
+5 | $\bf \{8, 1\}$
 
 ### Subproblem 6D
 
@@ -416,8 +416,8 @@ static int mergeSortAndCountInversions(int[] A, int p, int q, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/Inversions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/InversionsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/Inversions.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/InversionsTest.java)
 
 ## Problem 7
 

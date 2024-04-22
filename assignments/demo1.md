@@ -5,13 +5,13 @@
 
 # [Demo 1](https://student.desmos.com/?prepopulateCode=b33pqa)
 
-## BST Right Rotation
+## BST right rotation
 
 > ### Please provide pseudo code for BST right rotation.
 
-## Insertion and Its Complexity
+## Insertion and its complexity
 
-> ### Rewrite the Insertion with recursion and analyze the complexity accordingly.
+> ### Rewrite the insertion with recursion and analyze the complexity accordingly.
 
 ### Code
 
@@ -30,8 +30,8 @@ public static void insertionSort(int[] A, int p, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/main/java/com/example/sort/InsertionSorts.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/testbed/app/src/test/java/com/example/sort/InsertionSortsTest.java)
+[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/InsertionSorts.java)
+/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/InsertionSortsTest.java)
 
 ### Recurrence
 

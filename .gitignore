@@ -10,3 +10,7 @@ local.properties
 *.iml
 .idea/
 out/
+
+# draw.io
+*.drawio.bkp
+*.drawio.dtmp

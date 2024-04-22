@@ -1,4 +1,4 @@
-# [Greedy Stays Ahead](https://web.stanford.edu/class/archive/cs/cs161/cs161.1138/handouts/120%20Guide%20to%20Greedy%20Algorithms.pdf)
+# [Greedy stays ahead](https://web.stanford.edu/class/archive/cs/cs161/cs161.1138/handouts/120%20Guide%20to%20Greedy%20Algorithms.pdf)
 
 One of the simplest methods for showing that a greedy algorithm is correct is to
 use a “greedy stays ahead” argument. This style of proof works by showing that,
@@ -81,7 +81,7 @@ A few other common pitfalls to watch out for:
   experience working with it as you work through the problem set on greedy
   algorithms.
 
-## Exchange Arguments
+## Exchange arguments
 
 Exchange arguments are a powerful and versatile technique for proving optimality
 of greedy algorithms. They work by showing that you can iteratively transform

@@ -1,4 +1,4 @@
-# [Master Theorem](https://brilliant.org/wiki/master-theorem/)
+# [Master theorem](https://brilliant.org/wiki/master-theorem/)
 
 The **master theorem** provides a solution to [recurrence relations](https://brilliant.org/wiki/recurrence-relations/)
 of the form
