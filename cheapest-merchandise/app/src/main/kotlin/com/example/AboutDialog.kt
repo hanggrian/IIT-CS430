@@ -19,7 +19,7 @@ class AboutDialog : Dialog<Unit>() {
         dialogPane.expandableContent = hyperlink("View GitHub") {
             onAction {
                 Desktop.getDesktop()
-                    .browse(URL("https://github.com/hendraanggrian/IIT-CS430/").toURI())
+                    .browse(URL("https://github.com/hanggrian/IIT-CS430/").toURI())
             }
         }
         dialogPane.isExpanded = true

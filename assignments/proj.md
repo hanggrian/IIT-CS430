@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Project](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/proj.pdf): Cheapest Merchandise
+# [Project](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/proj.pdf): Cheapest Merchandise
 
 > ## Instructions
 >
@@ -74,17 +74,17 @@
 > 8 2 5        2 7 1 8 2 10      14
 > ```
 
-![App preview.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/preview.png)
+![App preview.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/preview.png)
 
 A 3-columns windowed multi-platform desktop app.
 
-- [DMG](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.dmg)
+- [DMG](https://github.com/hanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.dmg)
   &ndash; macOS moutable with one-file application inside.
   - For permission error: run `sudo xattr -cr /Applications/CTA.app`, open app,
     then click allow on *System Settings > Privacy & Security*.
-- [EXE](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.exe)
+- [EXE](https://github.com/hanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0-x64.exe)
   &ndash; Windows installer to default directory.
-- [JAR](https://github.com/hendraanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0.jar)
+- [JAR](https://github.com/hanggrian/IIT-CS430/releases/download/proj/cheapest-merchandise-1.0.jar)
   &ndash; JRE executable that requires version 17+.
 
 ## Tech stack
@@ -107,7 +107,7 @@ Because none of these are particularly mathematics-focused.
 
 ### Price
 
-![Price data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_price.svg)
+![Price data structure.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_price.svg)
 
 Each price is stored in `HashMap`, a standard hash table. We can also store this
 information in an `ArrayList` or `HashSet`, but getting a price can be $O(n)$
@@ -124,11 +124,11 @@ data class Price(
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Datas.kt)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Datas.kt)
 
 ### Promotion
 
-![Promotion data structure.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_promotion.svg)
+![Promotion data structure.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_promotion.svg)
 
 Each promotion is stored in `TreeMultimap`, which is a hash table with features:
 
@@ -171,7 +171,7 @@ multimap[0] = "World"
 val collection = multimap[0]
 ```
 
-![Multimap example.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_multimap.svg)
+![Multimap example.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/data_multimap.svg)
 
 ### Parsing
 
@@ -216,7 +216,7 @@ fun parse(prices: String, promotions: String): String {
 
 ### Greedy
 
-![Greedy algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_greedy.svg)
+![Greedy algorithm.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_greedy.svg)
 
 With greedy algorithm, the best promotion is determined by comparing their
 savings, that is, actual price of all items combined minus promotion bundle
@@ -254,12 +254,12 @@ override fun onParse(
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Parsers.kt)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/test/kotlin/com/example/ParsersTest.kt)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/main/kotlin/com/example/Parsers.kt)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/cheapest-merchandise/app/src/test/kotlin/com/example/ParsersTest.kt)
 
 ### DFS
 
-![DFS algorithm.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_dfs.svg)
+![DFS algorithm.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/algo_dfs.svg)
 
 With backtracking + DFS, the saving keys stored in `priceMultimap` is no longer
 necessary. It is now indexed as `ArrayList`.
@@ -302,9 +302,9 @@ private fun dfs(
 
 ## Sample
 
-![PDF sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_pdf.png)
+![PDF sample.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_pdf.png)
 
-![Blackboard 1 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard1.png)
+![Blackboard 1 sample.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard1.png)
 
-![Blackboard 2 sample.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard2.png)
+![Blackboard 2 sample.](https://github.com/hanggrian/IIT-CS430/raw/assets/cheapest-merchandise/sample_blackboard2.png)
 

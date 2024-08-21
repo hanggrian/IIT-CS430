@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Homework 3](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/hw3.pdf)
+# [Homework 3](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/hw3.pdf)
 
 ## Problem 1
 
@@ -44,8 +44,8 @@ public static boolean isInRange(Tree T, int a, int b) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/tree/DnaTrees.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/tree/DnaTreesTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/tree/DnaTrees.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/tree/DnaTreesTest.java)
 
 Searching in balanced binary tree works by halving each traversal, **therefore
 the time complexity is $\bf O(\log n)$**. However, this estimation doesn't

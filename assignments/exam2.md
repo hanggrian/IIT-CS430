@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Final exam](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/exam2.pdf)
+# [Final exam](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/exam2.pdf)
 
 ## Problem 1
 
@@ -12,7 +12,7 @@
   maximize the total value of the times we choose under or equal to the weight
   limit. Argue that the knapsack problem is an `NP` problem.
 
-### Using [knapsack problem](https://github.com/hendraanggrian/IIT-CS430/blob/main/backpack_problem.md)
+### Using [knapsack problem](https://github.com/hanggrian/IIT-CS430/blob/main/backpack_problem.md)
 
 Given arrays of values $v$ and weights $w$ both with size $n$, fill the backpack
 under the weight $W$. While filling the recursion or dynamic programming table,
@@ -80,8 +80,8 @@ public static int howManyButtons(int[] k, int a, int b, int n) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/ElevatorFloors.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/ElevatorFloorsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/ElevatorFloors.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/ElevatorFloorsTest.java)
 
 ## Problem 3
 
@@ -99,7 +99,7 @@ public static int howManyButtons(int[] k, int a, int b, int n) {
   algorithm to return a path from $S$ to $D$ that spends minimal money. (pseudo
   code required)
 >
-> ![Figure 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/exam2_1.jpg)
+> ![Figure 1](https://github.com/hanggrian/IIT-CS430/raw/assets/assignments/exam2_1.jpg)
 
 #### Using DFS
 
@@ -148,8 +148,8 @@ public static int getSpent(
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/maze/GasStationMazes.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/maze/GasStationMazesTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/maze/GasStationMazes.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/maze/GasStationMazesTest.java)
 
 ## Problem 4
 
@@ -166,7 +166,7 @@ public static int getSpent(
   the power of each vertex and rank each team according to their vertex power.
   (show your work)
 >
-> ![Figure 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/exam2_2.jpg)
+> ![Figure 1](https://github.com/hanggrian/IIT-CS430/raw/assets/assignments/exam2_2.jpg)
 
 Graph H can be better represented with adjacency matrix.
 

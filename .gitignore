@@ -14,3 +14,6 @@ out/
 
 # draw.io
 .$*.drawio*
+
+# VSCode
+bin/

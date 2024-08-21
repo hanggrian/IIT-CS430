@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Homework 4](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/hw4.pdf)
+# [Homework 4](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/hw4.pdf)
 
 ## Problem 1
 
@@ -16,7 +16,7 @@
   each bidder is willing to accept partial lots (an integer amount less
   than $k_i$ widgets)?
 
-### Using [greedy algorithm](https://github.com/hendraanggrian/IIT-CS430/blob/main/greedy_algorithm.md)
+### Using [greedy algorithm](https://github.com/hanggrian/IIT-CS430/blob/main/greedy_algorithm.md)
 
 This is a **brute-force** approach using simple logic:
 
@@ -49,10 +49,10 @@ public static int maxProfitGreedy(int[] X, int[] Y, int n, int m) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/SallyWidgetAuctions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/SallyWidgetAuctionsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/SallyWidgetAuctions.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/SallyWidgetAuctionsTest.java)
 
-### Using [knapsack problem](https://github.com/hendraanggrian/IIT-CS430/blob/main/backpack_problem.md)
+### Using [knapsack problem](https://github.com/hanggrian/IIT-CS430/blob/main/backpack_problem.md)
 
 Using **recursive method**:
 
@@ -91,7 +91,7 @@ public static int maxProfitKnapsack(int[] X, int[] Y, int n, int m) {
   cell service to $d$ buildings located at positions $x_1,x_2,\ldots,x_d$ from
   the start of the road.
 
-#### Using [greedy algorithm](https://github.com/hendraanggrian/IIT-CS430/blob/main/greedy_algorithm.md)
+#### Using [greedy algorithm](https://github.com/hanggrian/IIT-CS430/blob/main/greedy_algorithm.md)
 
 Because the towers are placed in a straight road, we can use data structure
 **array**:
@@ -128,8 +128,8 @@ public static int[] minLocations(int[] X, int d) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/CellTowerPlacements.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/CellTowerPlacementsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/CellTowerPlacements.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/CellTowerPlacementsTest.java)
 
 ### Subproblem 2B
 
@@ -137,7 +137,7 @@ public static int[] minLocations(int[] X, int d) {
   that it uses the fewest towers possible to provide cellular service to all
   buildings.
 
-#### Using [greedy stays ahead](https://github.com/hendraanggrian/IIT-CS430/blob/main/greedy_stays_ahead.md)
+#### Using [greedy stays ahead](https://github.com/hanggrian/IIT-CS430/blob/main/greedy_stays_ahead.md)
 
 As explained in section *Exchange Arguments*, one way to know if a greedy
 algorithm is optimal is to compare solutions. Reversing the move from the end,
@@ -187,7 +187,7 @@ public static int[] minLocationsReversed(int[] X, int d) {
 > Total cost: 6
 > ```
 
-#### Using [dynamic programming](https://github.com/hendraanggrian/IIT-CS430/blob/main/dynamic_programming.md)
+#### Using [dynamic programming](https://github.com/hanggrian/IIT-CS430/blob/main/dynamic_programming.md)
 
 - Return default values if $cost$ length is less than 3.
 - Create an array $dp$ that stores possible cost up until that index point in
@@ -218,5 +218,5 @@ public static int minCost(int[] cost, int n) {
 
 Time complexity is $O(n)$.
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/ClimbingStairs.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/ClimbingStairsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/ClimbingStairs.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/ClimbingStairsTest.java)

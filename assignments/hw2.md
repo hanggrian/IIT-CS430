@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Homework 2](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/hw2.pdf)
+# [Homework 2](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/hw2.pdf)
 
 ## Problem 1
 
@@ -48,8 +48,8 @@ Average | Random
 > }
 > ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/Quicksorts.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/QuicksortsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/Quicksorts.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/QuicksortsTest.java)
 
 ### Subproblem 2A
 
@@ -147,8 +147,8 @@ operation $\bf O(n \log n)$**.
 > }
 > ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/HoarePartitions.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/HoarePartitionsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/HoarePartitions.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/HoarePartitionsTest.java)
 
 ### Subproblem 3A
 
@@ -238,8 +238,8 @@ public static void maxHeapify(int[] A, int i) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/MaxHeapifies.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/MaxHeapifiesTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/MaxHeapifies.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/MaxHeapifiesTest.java)
 
 ## Problem 6
 

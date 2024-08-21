@@ -30,8 +30,8 @@ public static void insertionSort(int[] A, int p, int r) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/InsertionSorts.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/InsertionSortsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/sort/InsertionSorts.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/sort/InsertionSortsTest.java)
 
 ### Recurrence
 
@@ -46,7 +46,7 @@ $$
 
 > ### Prove the asymptotic bound below.
 >
-> ![Figure 1.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/desmos/prove_the_asymptotic_bound.jpg)
+> ![Figure 1.](https://github.com/hanggrian/IIT-CS430/raw/assets/desmos/prove_the_asymptotic_bound.jpg)
 
 ## Statistic Algorithm
 
@@ -110,4 +110,4 @@ $$
   different ways such that the black-heights of the resulting red-black trees
   are $2,3,4$.
 
-![Figure 2.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/desmos/r-b_bst.jpg)
+![Figure 2.](https://github.com/hanggrian/IIT-CS430/raw/assets/desmos/r-b_bst.jpg)

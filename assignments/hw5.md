@@ -3,7 +3,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
 
-# [Homework 5](https://github.com/hendraanggrian/IIT-CS430/blob/assets/assignments/hw5.pdf)
+# [Homework 5](https://github.com/hanggrian/IIT-CS430/blob/assets/assignments/hw5.pdf)
 
 ## Problem 1
 
@@ -11,7 +11,7 @@
   shortest paths sourced frVom **vertex $\bf 0$** to all other vertices. Answer the
   following questions.
 >
-> ![Figure 1](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_1.jpg)
+> ![Figure 1](https://github.com/hanggrian/IIT-CS430/raw/assets/assignments/hw5_1.jpg)
 
 ### Subproblem 1A
 
@@ -77,7 +77,7 @@ Round | $\bf V[0]$ | $\bf V[1]$ | $\bf V[2]$ | $\bf V[3]$ | $\bf V[4]$ | $\bf V[
   (Preferred Java or C++). Run your code and present the shortest paths found by
   your implementation.
 
-#### Using [Bellman-Ford's algorithm](https://github.com/hendraanggrian/IIT-CS430/blob/main/graphs.md#bellman-fords-algorithm)
+#### Using [Bellman-Ford's algorithm](https://github.com/hanggrian/IIT-CS430/blob/main/graphs.md#bellman-fords-algorithm)
 
 - We use `char` instead of `int` to represent vertex, because
   sometimes $V = \{A,B,C,\ldots\}$.
@@ -140,8 +140,8 @@ private static void printRound(int round, Map<Character, Integer> weights) {
 
 Average time complexity of Bellman-Ford's algorithm is $O(V E)$.
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/BellmanFordGraphs.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/BellmanFordGraphsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/BellmanFordGraphs.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/BellmanFordGraphsTest.java)
 
 Which generates this result.
 
@@ -166,15 +166,15 @@ Which generates this result.
 Here's an example of the smallest form of undirected graph, the minimum spanning
 tree is $A \to B \to C = 1 + 2 = 3$.
 
-![Undirected graph with positive weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/positives.svg)
+![Undirected graph with positive weights.](https://github.com/hanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/positives.svg)
 
-[View full diagram](https://github.com/hendraanggrian/IIT-CS430/blob/main/minimum-spanning-tree/minimum-spanning-tree.drawio)
+[View full diagram](https://github.com/hanggrian/IIT-CS430/blob/main/minimum-spanning-tree/minimum-spanning-tree.drawio)
 
 Consider a graph where the weights are all $-1$. In this
 case, minimum spanning tree is $A \to B \to C = -1 - 1 = -2$ which is more than
 the total of $-3$. By definition, this cannot be a minimum spanning tree.
 
-![Undirected graph with negative weights.](https://github.com/hendraanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/negatives.svg)
+![Undirected graph with negative weights.](https://github.com/hanggrian/IIT-CS430/raw/assets/minimum-spanning-tree/negatives.svg)
 
 ## Problem 3
 
@@ -223,8 +223,8 @@ public static boolean isReachable(Graph G, char start, char end) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/ReachableGraphs.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/ReachableGraphsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/ReachableGraphs.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/ReachableGraphsTest.java)
 
 Time complexity of this function is $O(V E)$.
 
@@ -247,7 +247,7 @@ Time complexity of this function is $O(V E)$.
   connected by an edge. Give out a pseudo code to return `true` if a student's
   enrolled events have no conflict and `false` otherwise.
 >
-> ![Figure 2](https://github.com/hendraanggrian/IIT-CS430/raw/assets/assignments/hw5_2.jpg)
+> ![Figure 2](https://github.com/hanggrian/IIT-CS430/raw/assets/assignments/hw5_2.jpg)
 
 ### Using sliding window
 
@@ -290,7 +290,7 @@ public static boolean isConflict(Graph G, char... events) {
 }
 ```
 
-[View full code](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/AthleticEvents.java)
-/ [test](https://github.com/hendraanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/AthleticEventsTest.java)
+[View full code](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/main/java/com/example/graph/AthleticEvents.java)
+/ [test](https://github.com/hanggrian/IIT-CS430/blob/main/playground/app/src/test/java/com/example/graph/AthleticEventsTest.java)
 
 Time complexity of this function is $O(events.E)$.
